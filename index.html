@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      .collapsible {
+        background-color: #247ab8;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: solid;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+      }
+      
+      .active, .collapsible:hover {
+        background-color: #3895c7;
+      }
+      
+      .content {
+        padding: 5px 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #ecf8ff;
+      }
+
+      .triangle-up {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 20px solid rgb(255, 255, 255);
+        float: right;
+      }
+
+      .triangle-down {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 20px solid rgb(255, 255, 255);
+        float: right;
+      }
+    </style>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Thao Nguyen's Website</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <div class="wrapper">
+      <header>
+        <center>
+        <h1><b>Thao Nguyen</b></h1>
+        <img src="images/thao.jpg" alt="That's a picture of me, Thao!">
+        <p><a href="mailto:thao_nguyen3@brown.edu">thao_nguyen3@brown.com</a></p>
+        <p>
+          <a href="https://scholar.google.com/citations?user=XLo6c5EAAAAJ"><img src="images/google-scholar.png" height="42" alt="Link to my Google Scholar page"></a>
+          <a href="https://github.com/Thaonguyen3095"><img src="images/github.png" height="45" alt="Link to my Github page"></a>
+          <a href="https://www.youtube.com/channel/UCx56ei9yr_jvdRb5CjfRubg"><img src="images/youtube.png" height="40" alt="Link to my YouTube page"></a>
+        </p>
+        <p>
+          <h2><u><a href="./index.html">Home</a></u></h2>
+          <h2><u><a href="./CV/Thao_CV.pdf">Curriculum Vitae</a></u></h2>
+          <h2><u><a href="./publications.html">Publications</u></h2>
+          <!--<h2><u>Notes</u></h2>
+          <h2><u>Blog</u></h2>-->
+        </p>
+
+        <p class="view"><small>Website made using the <a href="http://github.com/orderedlist/minimal">orderedlist/minimal</a> theme</small></p>
+      </center>
+      </header>
+      <section>
+        <h1>Hello, World!</h1>
+
+        <p>My name is Thao Nguyen. I am a PhD Candidate in Computer Science at <a href="https://cs.brown.edu/">Brown University</a>, where I am advised by <a href="https://cs.brown.edu/people/stellex/">Stefanie Tellex</a> in the <a href="https://h2r.cs.brown.edu/">Humans to Robots Laboratory</a>. I am currently on the job market for positions at primarily undergraduate institutions.</p>
+
+        <h1>Interests</h1>
+        <button type="button" class="collapsible"><u>Research</u><div class="triangle-down"></div></button>
+        <div class="content">
+          <p>My research is motivated by the desire to develop home and office robot assistants to help us with our daily tasks.
+            My work has mostly focused on improving robots' natural language and visual understanding for effective human-robot interaction and task completion.</p>
+        </div>
+        
+        <button type="button" class="collapsible"><u>Personal</u><div class="triangle-down"></div></button>
+        <div class="content">
+          <p>I enjoy various crafts such as origami, crochet, embroidery, and baking. I'm currently learning how to knit to unlock my full grandma-potential :)
+          I also love taking care of my cat Milo and my many plants!</p>
+        </div>
+
+        <br><br>
+
+        <h1>News</h1>
+        <ul>
+          <li>Fall 2023: I am the Lead Lecturer for the <a href="https://cs.brown.edu/courses/info/csci1410/">AI course</a> at Brown! Check out the course website <a href="https://csci1410-2023.vercel.app/">here</a>.</li>
+          <li>March 2023: I proposed my PhD thesis on "Language-guided Robot Object Search".</li>
+          </ul>
+
+        <button type="button" class="collapsible"><u>Older news</u><div class="triangle-down"></div></button>
+        <div class="content">
+          <li>November 2022: I gave 2 guest lectures in Brown's AI course.</li>
+          <li>Summer 2022: I programmed and joined our Spot robot in <a href="https://www.youtube.com/watch?v=86d-eDh2HPc">dancing to BTS' "Butter"</a>.</li>
+          <li>2021: Our research proposal with <a href="https://cs.brown.edu/people/ssrinath/">Srinath Sridhar</a> was selected for a <a href="https://basicresearch.defense.gov/Portals/61/press%20release%20for%20FY20%20program%20FINAL_1.pdf">DEPSCoR award</a>.</li>
+          <li>April 2021: I was selected to participate in the <a href="https://cra.org/cra-wp/grad-cohort-for-women/">CRA-WP Grad Cohort for Women</a>.</li>
+          <li>Spring 2021: I was the Graduate Teaching Assistant for <a href="https://cs.brown.edu/courses/csci2951-k/spring-2021/">Topics in Collaborative Robotics</a>.</li>
+          <li>May 2020: I received my Master of Science in Computer Science from Brown University.</li>
+        </div>
+
+    <script src="javascripts/scale.fix.js"></script>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      }
+      </script>
+  </body>
+</html>
