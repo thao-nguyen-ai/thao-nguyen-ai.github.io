@@ -1,0 +1,44 @@
+#st_schedule table{
+  border-collapse: collapse;
+  border: 1px solid;
+  padding: 0.3em;
+}
+
+#st_schedule TD {border: 1px solid; padding: 0.3em;}
+
+#st_schedule TR.odd {background: #FFFFFF;}
+#st_schedule TR.even {background: #D8DFE7;}
+
+#st_schedule TD.break {
+  background: #67A967;
+}
+
+#st_schedule p.break, p.exam{
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+#st_schedule p{
+  margin:0;
+  border:0;
+  padding:0;
+}
+
+#st_schedule span.quiz{
+  color: #004400;
+  font-weight: bold;
+  padding: 0;
+  border: 0;
+  margin:0;
+}
+
+#st_schedule TD.exam {
+   background: #DD3346;
+   font-weight: bold;
+   text-align: center;
+   border: 1px solid;
+}
+
+
+
