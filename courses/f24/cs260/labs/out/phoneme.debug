@@ -1,4 +1,4 @@
-$ python3 run_LR.py phoneme 0.02
+$ python3 run_LR.py data/phoneme_train.csv data/phoneme_test.csv 0.02
 
 number of iterations: 2734
 

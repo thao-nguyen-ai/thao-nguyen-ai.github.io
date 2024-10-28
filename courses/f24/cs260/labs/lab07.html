@@ -158,7 +158,7 @@
 <h2 id="getting-started">Getting Started</h2>
 <p>Accept your Lab 7 repository on Github classroom. You should have the following files:</p>
 <ul>
-<li><strong>data</strong> - directory containing train/test data sets. You may add additional data sets here.</li>
+<li><strong>data</strong> - directory containing train/test datasets. You may add additional datasets here.</li>
 <li><code>run_LR.py</code> - your main program executable for Logistic Regression.</li>
 <li><code>LogisticRegression.py</code> - file for the <code>LogisticRegression</code> class (and/or functions).</li>
 <li><code>README.md</code> - for analysis questions and lab feedback.</li>
@@ -168,7 +168,7 @@
 <h2 id="usage-and-io">Usage and I/O</h2>
 <h3 id="usage">Usage</h3>
 <p>Your programs should take in the same command-line arguments as Lab 4 (feel free to reuse the argument parsing code), plus a parameter for the learning rate <code>alpha</code>. For example, to run Logistic Regression on the phoneme example:</p>
-<pre><code>python3 run_LR.py input/phoneme_train.csv input/phoneme_test.csv 0.02</code></pre>
+<pre><code>python3 run_LR.py data/phoneme_train.csv data/phoneme_test.csv 0.02</code></pre>
 <h3 id="program-inputs">Program Inputs</h3>
 <p>To simplify preprocessing, you may assume the following:</p>
 <ul>
@@ -178,7 +178,7 @@
 </ul>
 <h3 id="program-outputs">Program Outputs</h3>
 <ul>
-<li><p>Your program should <em>print</em> a confusion matrix and accuracy of the result (see examples below).</p></li>
+<li><p>Your program should <em>print</em> a confusion matrix and accuracy of the result (see examples below) for both the phoneme and Challenger datasets.</p></li>
 <li><p>The design of your solution is largely up to you. You don’t necessarily need to have a class, but you should use good top-down design principles so that your code is readable. Having functions for the cost, for SGD, for the logistic function, etc is a good idea.</p></li>
 </ul>
 <hr />
@@ -237,7 +237,7 @@ while not converged:
 <li>stopping criteria: looking for changes in the cost <span class="math inline"><em>J</em>(<em>w</em>)</span></li>
 <li><code>epsilon</code> = 1e-4 (see if cost has changed by this amount)</li>
 </ul>
-<pre><code>$ python3 run_LR.py input/phoneme_train.csv input/phoneme_test.csv 0.02
+<pre><code>$ python3 run_LR.py data/phoneme_train.csv data/phoneme_test.csv 0.02
 Accuracy: 0.875000 (70 out of 80 correct)
 
    prediction
