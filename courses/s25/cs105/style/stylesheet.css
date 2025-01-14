@@ -21,14 +21,14 @@ h1 {
 	font-weight: normal;
 	font-size: 2.5em;
 	line-height: 1.5ex;
-	margin: 1ex 1em 1ex 0em;
+	margin: 0ex 1em 1ex 0em;
 }
 
 h2 {
 	font-weight: normal;
 	font-size: 2.0em;
 	color: #003366;
-	margin: 1ex 1em 1ex 0em;
+	margin: 1ex 0em 1ex 0em;
 }
 
 h4 {
@@ -71,13 +71,13 @@ pre#code {
 
 
 #Wrapper {
-  width: 800px;
-  background: #ffffff;
+  width: 950px;
+  background: #f8fbfb;
   line-height: 2.75ex;
   padding: 0;
   border: 0;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
