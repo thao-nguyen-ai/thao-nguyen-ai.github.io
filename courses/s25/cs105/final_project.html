@@ -1,0 +1,291 @@
+
+<link href='../markdown.css' rel='stylesheet'></link>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>proposal</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 40em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin-top: 1.7em;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: blue;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.7em;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="cs105-final-project">CS105 (Spring 2025) Final Project</h1>
+<hr />
+
+<h2 id="overview">Overview</h2>
+<p>The final project for this course consists of writing a piece of software that makes use of several concepts and techniques learned throughout the course and requires that students synthesize them in a creative (and hopefully fun) way.  Final projects will be completed in groups of <b>2-3 students</b>.  For the final project, students may complete the default project (described below) or design their own project, with approval by the deadline.</p>
+
+<h3>Deliverables</h3>
+<ul>
+<li>Students will give a presentation and demonstration of their project on the last week of class.  This presentation must be uploaded to Moodle.  (The time limit for the presentation will be determined after the total number of groups has been determined).  Students who fulfill the requirements by the last day of class have nothing more to do except upload their documents to Moodle.</li>
+
+<li>Students will upload a <code>zip</code> or <code>tar.gz</code> file with all of the files necessary to run their code to Moodle.  Students will have until the last final exam date to fix any problems that weren't resolved by the last day of class.  When these are completed, students should notify the professor.</li>
+
+<li><b>Students should submit the following to Moodle:</b>
+<ul>
+  <li>Their code (explained above).</li>
+  <li>A short report as a PDF with the following:
+  <ul>
+    <li>Group members and what each group member contributed.</li>
+    <li>How the project fulfilled the requirements for the point total.</li>
+    <li>How to run the code.</li>
+  </ul>
+  </li>
+</ul>
+</li>
+
+<li>For students who did not finish by the final day of class: a 5-minute-or-less video by the final exam date, uploaded to Moodle, with an updated presentation demonstrating how they obtained points for the assignment and what they fixed (or what they tried if they weren't able to complete everything).  Students who do not submit this in time may not receive credit for the changes they made.</li>
+</ul>
+<hr />
+
+<h2 id="default-project">Default Project</h2>
+
+<p>The default project consists of creating a game in the style of <a href="https://en.wikipedia.org/wiki/Zork">Zork</a>, a text-based adventure game created in 1977, which has influenced countless subsequent games.  You can play Zork <a href="https://playclassic.games/games/adventure-dos-games-online/play-zork-great-underground-empire-online/play/">here</a>.  In Zork and similar games, the player navigates around an environment by typing text commands, interacts with the environment, and progresses the story.   This project is worth 100 points, but students may accumulate these points in many different ways by completing various parts of the assignment.  The program must be written in Python 3.  The project is worth 100 points, but skipping the presentation will result in a 25% reduction in score.</p>
+
+The parts of the project marked <b>Required</b> must be completed by everyone who does this project; students can choose which of the others they implement, and students may suggest additions not listed here (with approval) as alternate ways of accumulating points.  
+
+<h3>Required: Load maps from files (20 pts)</h3>
+
+One way to represent a map is with two-dimensional grid.  These grids can be stored in one or more plain text files and loaded and thus not require hand-coding inside of the program.  For example:
+
+<pre><code>def load_map(filename: str) -> List[List[int]]</code></pre>
+
+Or, if you use classes,
+
+<pre><code>def load_map(filename: str) -> GameMap</code></pre>
+
+Inside of, for example, <code>map1.txt</code>, you might have something like this:
+
+<pre><code>7x7
+0001000
+0001000
+0011000
+0010000
+0011100
+0000100
+0000200  
+</code></pre>
+
+When I read this file into my code, it tells me how large the 2D map array should be (in this case, 7 $\times$ 7).  In this example, the 0's represent  "walls," where the character cannot travel.  The 1's represent paths where the user can walk, and the 2 represents the end state.  This is essentially just a maze.   Your maps can be as large as you like.  They can be conveniently  stored in a multidimensional/nested list or dictionary.  You can design your mazes in any text editor, and in the game they will be loaded at the appropriate time (for example, if the player reaches the goal in map 1, they would be taken to map 2).  You should have at least 3 maps.
+
+<h3>Required: Implement movement functions (20 pts)</h3>
+
+<pre><code>"""
+Returns current player location as an (x,y) tuple.
+"""
+def getCurrentLocation() -> tuple 
+
+"""
+Takes player to new location. Returns True if successful, false otherwise
+"""
+def setLocation(x: int, y: int) -> bool 
+
+def goalReached() -> bool
+def canGoNorth() -> bool
+def canGoSouth() -> bool
+def canGoEast() -> bool
+def canGoWest() -> bool
+def goNorth() 
+def goSouth() 
+def goEast() 
+def goWest()
+</code></pre>
+
+
+
+<h3>Required: Progressive Map (20 pts)</h3>
+
+Often, in games, a map  showing where the user has already traveled is displayed to the user in an easily understandable format.  Implement this.  For example, if the user types <code>print map</code>,  a map could be displayed.  Alternatively, the map could be always displayed.
+
+
+
+<h3>Implement a graphical user interface  (20 pts)</h3>
+
+Use either the <a href="https://pypi.org/project/blessed/"><code>blessed</code></a> or <a href="https://github.com/peterbrittain/asciimatics"><code>asciimatics</code></a> Python library to implement a terminal user interface (TUI) and implement one of the following:
+<ul>
+<li>Show a persistent map.  Rather than show a text-based map, create a graphical map in a window that updates as the user moves around the map.</li>
+<li>Show graphical representations of events in the game, such as encountering an enemy.</li>
+</ul>
+
+<h3>Implement "battles" or other challenges (20 pts)</h3>
+
+Include either random battles or persistent enemies located in the environment, in which the user must make decisions about how to respond to proceed.  This will require some kind of subroutine.
+
+
+
+<h3>Generate random mazes (20 points)</h3>
+
+Implement and integrate random, solvable mazes of a specified size (e.g., 50x20) into the game.
+
+<h3>Implement game saving and loading (10 pts)</h3>
+
+Allow the player to save a game to a file or load it from a file to continue where they left off.  At startup, give the option to start a new game or load one from the saved games.
+
+
+
+<h3>Add graphics (10 pts)</h3>
+
+This is separate from the graphical user interface.  Incorporate graphical and color elements into the game.
+
+<h3>Harder: Make the game real-time (20 pts)</h3>
+
+Incorporate a timer in a way that allows enemies or other obstacles in the game to move around in real time, such that the user must act quickly to avoid them.  Doing this would also require implementing the GUI (described above)
+<ul>
+<li>If using <code>blessed</code>, see:
+  <ul>
+  <li><a href="https://blessed.readthedocs.io/en/latest/keyboard.html">keyboard input</a></li>
+  <li><a href="https://pypi.org/project/blessed/">Worms and Snake examples</a></li>
+  </ul>
+</li>
+<li>A more general Python way of accomplishing this is to use <a href="https://www.youtube.com/watch?v=KseiSR0MCTI"><code>time.sleep()</code></a> inside of the game loop.</li>
+</ul>
+<h3>Harder: Implement an alternate user interface (20 pts)</h3>
+
+This requires implementing the graphical user interface (described above).  Implement keyboard navigation in a way that does not require typing in commands directly, instead using, for example arrow keys that allow real-time navigation and immediately updates the screen.
+
+
+<hr />
+<h2>Custom Project (proposal due by Friday, March 21)</h2>
+
+Students who want to design their own project have two options:
+<ol>
+<li>For an equivalent number of points, they can propose to swap out some aspect of the default project for something they'd rather do (<b>pending approval</b>).  There is no hard deadline for this.</li>
+<li>They can propose an entirely different project by Friday, March 21.</li>
+</ol>
+<hr />
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p><em>Materials by Alvin Grissom II.</em></p>
+</body>
+</html>
+
+  
