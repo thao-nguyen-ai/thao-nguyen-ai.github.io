@@ -1,0 +1,130 @@
+# Materials adapted from Sara Mathieson
+
+PS C:\Users\tnguyen3> python3
+Python 3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> # USER INPUT
+>>> x = input('enter num classes: ')
+enter num classes: 4
+>>> x
+'4'
+>>>
+>>> x = int(input('enter num classes: '))
+enter num classes: 4
+>>> x
+4
+>>>
+>>>
+>>> # RANDOM MODULE
+>>> import random
+>>>
+>>> random.random()
+0.5169113229232403
+>>> random.random()
+0.2011943952664237
+>>>
+>>> total = 0
+>>> for i in range(10):
+...     total += random.randrange(1,7) # die roll
+...
+>>> total
+30
+>>>
+>>> rolls = [random.randrange(1,7,2) for i in range(10)]
+>>> rolls
+[5, 1, 5, 1, 5, 3, 5, 1, 1, 5]
+>>>
+>>>
+>>> # PLOTTING
+>>> import matplotlib.pyplot as plt
+>>>
+>>> plt.plot(range(10), rolls) # x list, y list
+[<matplotlib.lines.Line2D object at 0x00000158DA032D20>]
+>>> plt.show()
+>>>
+>>> plt.scatter(range(10), rolls)
+<matplotlib.collections.PathCollection object at 0x00000158DA08EA50>
+>>> plt.show()
+>>> plt.show() # nothing shows up, as the current figure has already been displayed and emptied
+>>>
+>>> plt.bar(range(10), rolls)
+<BarContainer object of 10 artists>
+>>> plt.show()
+>>>
+>>> rolls = [random.randrange(1,7) for i in range(10000)]
+>>> plt.hist(rolls)
+(array([1652.,    0., 1732.,    0., 1640.,    0., 1662.,    0., 1674.,
+       1640.]), array([1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. , 5.5, 6. ]), <BarContainer object of 10 artists>)
+>>> plt.show()
+>>>
+>>>
+>>> # NUMPY
+>>> import numpy as np
+>>>
+>>> arr = np.zeros((3,4)) # rows, columns
+>>> arr
+array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+>>>
+>>> arr = np.array([[1,2,3,4], [5,6,7,8]])
+>>> arr
+array([[1, 2, 3, 4],
+       [5, 6, 7, 8]])
+>>>
+>>> arr.shape
+(2, 4)
+>>>
+>>> arr[1,2] = 8
+>>> arr
+array([[1, 2, 3, 4],
+       [5, 6, 8, 8]])
+>>>
+>>> arr[1]
+array([5, 6, 8, 8])
+>>>
+>>> arr[0,:]
+array([1, 2, 3, 4])
+>>>
+>>> arr[:,0]
+array([1, 5])
+>>>
+>>> arr[:,:3]
+array([[1, 2, 3],
+       [5, 6, 8]])
+>>>
+>>> arr[0,1:2]
+array([2])
+>>>
+>>>
+>>> # DICTIONARIES
+>>> dict = {} # empty dictionary
+>>> len(dict)
+0
+>>> dict[1]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 1
+>>> dict[0] = "Chang"
+>>> dict[1] = "Owen"
+>>> dict[2] = "Rustom"
+>>> dict[3] = "Thao"
+>>> dict
+{0: 'Chang', 1: 'Owen', 2: 'Rustom', 3: 'Thao'}
+>>> dict[1]
+'Owen'
+>>> for i in dict:
+...     print(i)
+...
+0
+1
+2
+3
+>>> for k, v in dict.items():
+...     print(v)
+...
+Chang
+Owen
+Rustom
+Thao

@@ -1,0 +1,417 @@
+<link href='../markdown.css' rel='stylesheet'></link>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lab01</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 50em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin-top: 1.7em;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: purple;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.7em;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<h1 id="cs260-lab-1-computing-and-plotting-in-python">CS260 Lab 1: Computing and Plotting in Python</h1>
+<h3><a href="https://classroom.github.com/a/fvdtEoIT">GitHub Classroom Assignment Link</a></h3>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Goals:</p>
+<ul>
+<li>Review or learn command line practices and GitHub classroom</li>
+<li>Review or learn Python, including style practices for this course</li>
+<li>Review or learn <code>numpy</code></li>
+<li>Review or learn <code>matplotlib</code></li>
+<li>Review or learn how classes and objects are implemented in Python</li>
+</ul>
+<p><em>Credit: Materials by Sara Mathieson. Based on materials created by Allison Gong. Some of the <code>numpy</code> examples are from <a href="https://numpy.org/doc/stable/user/quickstart.html">Numpy’s Quickstart tutorial</a>.</em></p>
+<hr />
+<h2 id="github-classroom">GitHub Classroom</h2>
+<p>This semester we will be using GitHub Classroom. We will also be using <code>git</code> on the command line. For all grading, we will be running your code on the command line, so it will be necessary to test your code outside of an IDE. To access the command line on different platforms:</p>
+<ul>
+<li>Linux: open the Terminal application (make sure to boot lab machines in Linux not Windows).</li>
+<li>Mac: open the Terminal application.</li>
+<li>Windows: Here are instructions for setting up a <a href="https://docs.microsoft.com/en-us/windows/terminal/get-started">Windows terminal</a>. You can instead use <a href="https://github.com/PowerShell/PowerShell/">Windows PowerShell</a> or <a href="https://www.putty.org/">Putty</a> to connect to the lab machines if this doesn’t work.</li>
+</ul>
+<p>Next, make sure you have a GitHub account. You can create one <a href="https://github.com/">here</a>.</p>
+<p>If you’re new to git or haven’t set up ssh keys (not required but it makes pulling/pushing easier), see the following links:</p>
+<ul>
+<li><p><a href="https://guides.github.com/introduction/git-handbook/">GitHub introduction</a></p></li>
+<li><p><a href="https://gitforwindows.org/">git for Windows</a></p></li>
+<li><p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Add ssh key to GitHub</a></p></li>
+</ul>
+<p>The basic idea is to run this command from your home directory in a Terminal window:</p>
+<pre><code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code></pre>
+
+<p>with the email you used for GitHub. Just press <code>Enter</code> at all the prompts. Then navigate to where the public key (<code>.pub</code>) was stored and copy it. Then return to GitHub online and in <code>Settings</code>, follow the instructions to add the ssh key.</p>
+<p>For each lab assignment, after you accept the lab and access your repo, clone using ssh or https. Make sure to do this in a folder that is not already a git repo (i.e., set up a folder for all your labs, and each one will be in a separate folder). Here is an example (note your url will be different):</p>
+<pre><code>$ git clone git@github.com:saramathieson/cs260-lab1.git
+$ cd cs260-lab1</code></pre>
+<p>I would recommend using VSCode as an editor, but it is up to you. After working on the lab in your preferred editor for a while, say you are ready to push. The common workflow is <code>add</code>, <code>commit</code>, <code>push</code>. I also use <code>git status</code> frequently to make sure everything worked:</p>
+<pre><code>git add numpy_tutorial.py
+git commit -m &quot;worked on numpy&quot;
+git push</code></pre>
+<p>If you are working on the lab on different machines (say your laptop and the lab machines), when you start working again remember to <code>pull</code>:</p>
+<pre><code>git pull</code></pre>
+<p><b>Please follow the <a href="https://drive.google.com/file/d/1WCSDvbNrGO7f64pmRFvQhvraD4tQqW3I/view?usp=sharing">GitHub classroom / command line video tutorial</a> before going on to Part 1!</b> If any part of this doesn’t work, make sure to ask for help during the first lab.</p>
+<hr />
+<h2 id="part-1-introduction-to-python">Part 1: Introduction to Python</h2>
+<p>The lab machines already have the required libraries and recommended editor (VS code). You are welcome to use your own machine, but we do not have the bandwith to troubleshoot issues that arise from this decision. Here are some suggestions:</p>
+
+<ol type="1">
+
+<li><p>If you don’t have python there are <a href="https://www.python.org/downloads/">many ways to install it</a>.</p></li>
+
+<li><p>To install required libraries like <code>numpy</code>, <code>matplotlib</code>, on the command line run:</p>
+
+<pre><code>pip3 install numpy</code></pre>
+<p>if that doesn’t work, try:</p>
+
+<pre><code>python3 -m pip install numpy</code></pre>
+</li>
+</ol>
+<p>Accept your Lab 1 repository on GitHub classroom. You should have the following folders/files:</p>
+<ul>
+<li><code>matplotlib_tutorial.py</code></li>
+<li><code>numpy_tutorial.py</code></li>
+<li><code>python_intro.py</code></li>
+<li><code>Student.py</code></li>
+<li><code>data/facebook_users.csv</code></li>
+<li><code>README.md</code> for your lab writeup</li>
+</ul>
+<p>First we will work with <code>python_intro.py</code>. Python may be completely new for you, or it may already be very familiar. Either way make sure to complete and push all the exercises, as it will be good practice for the style of Python used in this course (see style notes at the end).</p>
+
+<p>First make sure you can run the code in the terminal:</p>
+
+<pre><code>python3 python_intro.py</code></pre>
+
+<p>Nothing will be printed at first, but just check you have no errors.</p>
+<ol type="1">
+<li><strong>Price of movie tickets:</strong> (Topics: I/O and conditionals)
+<p>Assume that movie tickets have the following prices based on age:</p>
+<ul>
+<li>0 - 12 years: $8</li>
+<li>13 - 64 years: $12</li>
+<li>65 years and up: $8</li>
+</ul>
+<p>Write a function <code>movie_ticket_cost()</code> that calculates the ticket price based on the user’s age. The function should prompt the user to enter their age, then print their movie ticket price.</p>
+<p>Use the Python input function <code>input()</code> <a href="https://docs.python.org/3/library/functions.html#input">documentation here</a>.</p>
+</li>
+<li><strong>Shuffling lists:</strong> (Topics: Python lists, <code>random</code> library, in-place vs. out-of-place)
+<p>Write a pair of functions that shuffle a given list. One shuffles the list <em>in-place</em> (i.e., changes the order of the original list and does not return anything), while the other shuffles it <em>out-of-place</em> (i.e., leaves the original list intact and returns a new shuffled version of the list).</p>
+<p>You are <strong>not allowed to use any built-in list shuffling methods</strong>, nor any built-in methods that swap list elements. However, you may use the Python <code>random</code> library <a href="https://docs.python.org/3/library/random.html">documentation here</a> (aside from the <code>random.shuffle()</code> function). Include details of your shuffling methods in the function headers.</p>
+<p>Python lists are stored in arrays in the backend and their functionality is somewhat similar to <code>ArrayLists</code> in Java. They can be iterated via index, elements can be added using <code>append()</code> and removed using <code>remove()</code> (but these operations can be costly). Lists have many built in functions. <a href="https://docs.python.org/3/tutorial/datastructures.html">Documentation here</a>.</p>
+
+<p>When testing, make sure to print the original list after each function to show the difference between in-place and out-of-place shuffling.</p>
+</li>
+<li><strong>Fibonacci numbers:</strong> (Topics: basic recursion)
+<p>Write a recursive function that calculates the nth <a href="https://en.wikipedia.org/wiki/Fibonacci_sequence">Fibonacci</a> number, given a non-negative integer <code>n</code>. You may assume that the 0th Fibonacci number is 0 and the 1th Fibonacci number is 1.</p>
+</li>
+<li><strong>Binary search:</strong> (Topics: recursion, binary search, list indexing/slicing)
+<p>Implement two binary search functions, one that uses recursion and list slicing, and one that is not recursive. Details below.</p>
+<ol type="a">
+<li><p><strong>Non-recursive algorithm:</strong> The inputs to this method are a <code>query</code> (what we would like to find) and a sorted list <code>lst</code>. We would like to return the index of <code>query</code>, or -1 if it is not in the list. One non-recursive (i.e., iterative) algorithm follows these steps:</p></li>
+  <ul>
+  <li>Compute the “low” index (usually begins at 0) and the “high” index (usually begins at the<br>length of the list - 1)</li>
+  <li>Compute the index of the middle element (using “low” and “high”) and check it against the query</li>
+  <li>If the middle element is greater/smaller than the query, move the “high” down/“low” up and repeat the process using a loop</li>
+  </ul>
+<li><p><strong>Recursive algorithm:</strong> The inputs and goal are the same, but now we will use recursion to complete the algorithm. The idea is as follows:</p>
+<ul>
+  <li>Take a middle element and check it against the target</li>
+  <li>If they are equal, return the index of the middle element</li>
+  <li>If the target is less than the middle element, call binary search on the first half of the list (up through but not including the middle element)</li>
+  <li>If the target is greater than the middle element, call binary search on the second half of the list (starting after the middle element and going all the way to the end)</li>
+</ul>
+<p><em>Hints:</em> think about what your base case should be, and what you should return in that case. You are welcome to use a helper function for this version (either the main function or helper function can be recursive).</p>
+<p>List slicing is a way to return a portion of the list. The syntax looks like this:</p>
+<pre><code>lst[start_index (inclusive) : end_index (exclusive) : stepsize]</code></pre>
+<p>For example:</p>
+<pre><code>&gt;&gt;&gt; words = [&quot;hello&quot;, &quot;welcome&quot;, &quot;to&quot;, &quot;cs&quot;, &quot;260&quot;]
+&gt;&gt;&gt; words[:2]
+[&#39;hello&#39;, &#39;welcome&#39;]
+&gt;&gt;&gt; words[2:]
+[&#39;to&#39;, &#39;cs&#39;, &#39;260&#39;]
+&gt;&gt;&gt; words[2:4]
+[&#39;to&#39;, &#39;cs&#39;]</code></pre>
+<p>Further examples can be found in <a href="https://realpython.com/lessons/indexing-and-slicing/">this article</a>.</p>
+</li></ol>
+<p>Finally, what is the big-O runtime of each of your binary search algorithms? Explain your answers (in terms of the number of list elements <code>n</code>) in your <code>README.md</code> file.</p>
+</li>
+<hr />
+<h2 id="part-2-introduction-to-numpy">Part 2: Introduction to <code>numpy</code></h2>
+<p><code>numpy</code> is a computational Python library that you will often use in higher level computer science courses and beyond. <code>numpy</code> is primarily used to work with arrays and matrices, as well as perform other high-level mathematical computations. This portion of Lab 1 will be a quick introduction to <code>numpy</code>. <em>Note: All portions of this section must be completed, including the exercises done by hand.</em> Refer to the starter code for more detailed instructions, but overall there are three “TODO” sections listed below.</p>
+<ol type="1">
+<li><p>Array initialization (complete the TODO section)</p></li>
+<li><p>Array slicing (complete the TODO section in your <code>README.md</code> before uncommenting the code)</p></li>
+<li><p>Concatenation and basic operations. Go through this code and the output and make sure everything makes sense to you. Answer the question in your <code>README.md</code>. We’ll be practicing these operations more later.</p></li>
+</ol>
+<hr />
+<h2 id="part-3-introduction-to-matplotlib">Part 3: Introduction to <code>matplotlib</code></h2>
+<p>In this part of the tutorial you’ll create and push two different plots - one using real data and the other using mathematical functions.</p>
+<ol type="1">
+<li><strong>Reading in Data from a File, Graphing a Scatter Plot and the Line of Best Fit</strong>
+<p>In this part, you will be working with the dataset <code>data/facebook_users.csv</code>. This data was pulled from <a href="https://www.statista.com/statistics/264810/number-of-monthly-active-facebook-users-worldwide/">here</a>. The first column holds the year and the second column the number of monthly active Facebook users worldwide in the 4th Quarter (Q4) (in millions).</p>
+<p>There are a few different ways of reading this type of data. This first way opens the file and reads it in as a sequence of lines (which are represented as strings). Try out this way (in <code>matplotlib_tutorial.py</code>) and make sure it makes sense. This file reading method is useful when the file is too big to hold in memory, but you still want to iterate over it and pull out useful information.</p>
+<pre><code>years = []
+users = []
+fb_file = open(&#39;data/facebook_users.csv&#39;,&#39;r&#39;)
+for line in fb_file:
+    tokens = line.split(&#39;,&#39;) # split data based on commas
+    years.append(int(tokens[0]))
+    users.append(int(tokens[1]))
+print(years)
+print(users)</code></pre>
+<p>A simpler way is to use <code>numpy</code>, which works if your data is in a very regular format (i.e., array-like). This will read in the data as a <code>numpy</code> array (of floats by default). Try out this way and make sure it makes sense.</p>
+<pre><code>user_data = np.loadtxt(&#39;data/facebook_users.csv&#39;, delimiter=&#39;,&#39;)
+print(user_data)</code></pre>
+<p>Now we will plot this data as a scatter plot. Use <code>plt.scatter()</code> to do so; the first parameter is a list/array of x values and the second for the y values. There many more parameters that you can read about in the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html">scatter plot documentation</a>.</p>
+<p>Example:</p>
+<pre><code>plt.scatter(x_values, y_values, color=&#39;black&#39;)</code></pre>
+<p>Note: if you used the second method of file reading, you’ll need to use <code>numpy</code> slicing to obtain the x and y values.</p>
+<p>You can use <code>plt.show()</code> to visualize your current progress. Now we will add axis labels and a title (which you should have on all graphs!) All these functions take in strings:</p>
+<pre><code>plt.xlabel(&lt;str&gt;)
+plt.ylabel(&lt;str&gt;)
+plt.title(&lt;str&gt;)</code></pre>
+<p>For more information, see the documentation below:</p>
+<ul>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html">x-label</a></li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html">y-label</a></li>
+<li><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html">title</a></li>
+</ul>
+<p>These additions significantly improve the graph. Often we have multiple datasets we would like to plot. Now we will overlay a linear model on top of the scatter plot (in the coming weeks we’ll see how to come up with such a model).</p>
+<p>The linear model we will use is</p>
+<pre><code>y = -432342.27 + 215.39 * x</code></pre>
+<p>For each x-value (i.e., year in this case), compute the corresponding prediction of the number of users based on this model. This should give you a list of x-values (years) and y-values (predictions for the number of users). Graph these two lists using <code>plt.plot()</code>. See the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">plot documentation</a> for more information.</p>
+<pre><code>plt.plot(x_values, y_values, color=&#39;blue&#39;)</code></pre>
+<p>After you are happy with the figure, save your plot into a new <code>figures</code> directory using <code>plt.savefig()</code>. Use the exact code below so we know where to find your figures for this lab. Make sure to remove any calls to <code>plt.show()</code> before this step, as showing your plot and then saving it will result in an empty figure.</p>
+<pre><code>plt.savefig(&#39;figures/facebook_users.pdf&#39;, format=&#39;pdf&#39;)</code></pre>
+<p>Right after this line, you may want to use <code>plt.clf()</code> to clear all this information before starting the next graph.</p>
+</li>
+<li><strong>Graphing Multiple Lines</strong>
+<p>In the same file, we will now create another plot of mathematical equations. Below are the coefficients of two polynomials:</p>
+<pre><code>quad_coefs = [0, 4, -1]       # y = 4x - x^2
+cubic_coefs = [2, 0, -2, 1]   # y = 2 - 2x^2 + x^3</code></pre>
+<p>We will graph both these polynomials. However, we cannot graph them in an analytic way in <code>matplotlib</code>, so we’ll need to plot them at a series of x-values and then connect them to create the impression of a smooth curve.</p>
+<p>One way to do this is to use <code>np.linspace()</code>. This function generates an array of points based on a starting point (first parameter), an ending point (second parameter), and the number of points total (third parameter). This linspace array will become our x-values. See <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">here</a> for more information about <code>np.linspace()</code>.</p>
+<pre><code>np.linspace(0, 5, 10) # start at 0, end at 5, with 10 points total</code></pre>
+<p>Compute a series of y-values (based on these x-values) for each equation. Finally use <code>plot</code> like before to plot both curves. Don’t forget to add labels and a title (they can be something generic since you don’t have information on what these functions represent).</p>
+<p>Now show your graph with both lines. If it looks strange, adjust the number of points and observe how that affects the graph. Write down your observations in the <code>README.md</code>.</p>
+<p>Since this graph has two curves, it would be good to label them. To do this, when plotting each function, add in a <code>label</code> keyword argument. After doing this for both functions, use <code>plt.legend()</code> to create the legend.</p>
+<pre><code>plt.plot(x_values, y_values, label=&#39;my label&#39;)
+plt.legend()</code></pre>
+<p>More information about legends can be found <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html">here</a> and <a href="https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html">here</a>.</p>
+<p>Use <code>plt.show()</code> throughout to check your progress. When you are happy with the figure, save it as shown below:</p>
+<pre><code>plt.savefig(&#39;figures/quad_cubic.pdf&#39;, format=&#39;pdf&#39;)</code></pre>
+<p>Note: you can use <code>ylim</code> (or <code>xlim</code>) to set the axis limits for a better picture. For example:</p>
+<pre><code>plt.ylim(min_y_value, max_y_value)</code></pre>
+</li>
+</ol>
+<hr />
+<h2 id="part-4-classes-and-objects-in-python">Part 4: Classes and objects in Python</h2>
+<p>In <code>Student.py</code>, write a <code>Student</code> class that takes the full name of the student (string), their graduating year (int), and their TriCo college (string). Each student should also have a list of courses they are taking for the current semester (that starts out empty). First set up the constructor, which should take the form:</p>
+<pre><code>def __init__(self, &lt;arg 1&gt;, &lt;arg 2&gt;, etc):</code></pre>
+<p>NOTES:</p>
+<ul>
+<li>As everything in Python is public, double underscore methods are meant to be private methods.</li>
+<li>All non-static methods of a Python class need to include <code>self</code> as a parameter. Python’s <code>self</code> is essentially equivalent to Java’s <code>this</code> keyword, as it is a placeholder for the current object.</li>
+</ul>
+<p>Optional: create getters for each of the attributes (also called “fields” or “instance variables”).</p>
+<p>Next, write an add course method and a drop course method. <code>add_course()</code> will first check whether the student’s course list already has that course. If it does not, the method will add the course to the list and print out an appropriate message indicating that the course was added. If the list already has that course, it will print out a message that the student is already taking that course. <code>drop_course()</code> similarly checks that the course is in the course list before removing that course and printing out an appropriate message. If the course is not in the list, it will print out a message stating so.</p>
+<p>Then, create a <code>__str__</code> method that returns a string representation of the <code>Student</code> instance (clearly showing all fields).</p>
+<p>Don’t forget to comment your class and write tests in the main function.</p>
+<h3 id="dictionaries">Dictionaries</h3>
+<p>Finally, we will practice dictionaries in Python by creating a dictionary of <code>Students</code>.</p>
+<p>The built-in Python data structure dictionary is a hash table, so it has the methods you would expect and more: <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries">dictionary documentation</a>.</p>
+<p>In the starter code, there is a list where each element represents one student. Create a dictionary that takes a student ID number (int) as a key and a <code>Student</code> as the value (will need to use the <code>Student</code> constructor). You can make up the ID numbers or choose them at random.</p>
+<p>After filling the dictionary, try adding a student to the dictionary with the same key as a prior one. What happens? Print out the dictionary to verify. Now try adding a new entry with a new key but a repeated value/<code>Student</code>. What happens? Write both your responses in the <code>README.md</code>.</p>
+<p>Finally, try <em>getting</em> (returning) a <code>Student</code> based on a specific key and then try <em>removing</em> a <code>Student</code> based on this key.</p>
+<hr />
+<h2 id="python-style-notes">Python style notes</h2>
+<p>The following are a few notes on Python style, but see the <a href="https://www.python.org/dev/peps/pep-0008/">Official Python Style Guide</a> for more complete documentation. Some of the notes below are good style of any programming language. <span style="background-color:yellow"><strong>Points will be awarded for style on every lab.</strong></span></p>
+<ol type="1">
+<li>Include a header (as a block comment in triple quotes) at the top of each file. Your header should include:
+<ul>
+<li>Program author(s)</li>
+<li>Date or Dates</li>
+<li>A brief description of what the program does</li>
+</ul>
+<p>Example:</p>
+<pre><code>&#39;&#39;&#39;
+Author      : Allison Gong
+Class       : CS260
+Date        : 7/30/21
+Description : This is the main driver program for the Introduction to Python
+portion of Lab 1. This intro consists of a series of coding exercises that cover
+some of the core syntax, data structures, and functionality of Python.
+&#39;&#39;&#39;</code></pre>
+</li>
+<li>Include concise comments that summarize major sections of your code. I typically follow the pattern of a comment on its own line, followed by a block of code (4-10 lines), followed by a line break. Very short comments can be inline.
+<p>Example:</p>
+<pre><code># add up 10 random numbers
+total = 0
+for i in range(10):
+    total += random.randrange(6) # includes 0, excludes 6
+print(&quot;sum:&quot;, total)</code></pre>
+</li>
+<li><p>Use concise but meaningful names for variables, functions, classes, and methods. Variables, functions, and methods should use “snake case”, with words separated by underscores. For example, <code>linear_search</code> NOT <code>linearSearch</code>. However, classes should use “camel case” and the first word should also be capitalized. For example <code>ElectionCandidate</code> NOT <code>election_candidate</code>.</p></li>
+<li><p>Function headers (triple quotes) should be below the function declaration and include:</p>
+<ul>
+<li>Description of what the function does</li>
+<li>Description of parameters (also called arguments), including type</li>
+<li>Description of return value, including type</li>
+</ul>
+<p>Example:</p>
+<pre><code>def fib(n):
+  &#39;&#39;&#39;
+  Compute and return the nth Fibonacci number.
+  n: non-negative integer
+  return: nth Fibonacci number
+  &#39;&#39;&#39;
+  # code here</code></pre>
+</li>
+<li><p>Lines should be 100 characters or fewer.</p></li>
+<li><p>Code should be well organized, with no code (besides imports and <em>occasional</em> global variables) outside of functions/classes/etc. Use line breaks and white space to improve code readability. Avoid repeated or redundant code!</p></li>
+<li><p>Organize imports below the header in alphabetical order. Separate Python libraries from your own code imports. Use of <code>from XXX import *</code> is almost never appropriate! Then functions within this library cannot be identified later on.</p>
+<p>Example:</p>
+<pre><code>import math
+import numpy as np
+import random</code></pre>
+</li>
+</ol>
+<hr />
+<h2 id="final-checks">Final checks:</h2>
+<ul>
+<li>Make sure you have testing in <code>main</code> for all your functions in Part 1.</li>
+<li>Double check your repository <em>online</em> to make sure all figures and code are pushed correctly.</li>
+<li>Make sure to follow the Python style guidelines at the end of the lab.</li>
+<li>Make sure your <code>README.md</code> is <em>completely</em> filled out. Points will be lost for not filling out the last section.</li>
+</ul>
+</body>
+</html>

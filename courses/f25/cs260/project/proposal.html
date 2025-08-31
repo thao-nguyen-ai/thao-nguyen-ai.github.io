@@ -1,0 +1,256 @@
+
+<link href='../markdown.css' rel='stylesheet'></link>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>proposal</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 40em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin-top: 1.7em;
+    }
+    a {
+      color: teal;
+    }
+    a:visited {
+      color: teal;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.7em;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="cs260-final-project-proposal">CS260 Final Project Proposal</h1>
+<h3 id="due-friday-november-8-at-1159pm-over-email">Due: Friday, November 8 at 11:59pm over email</h3>
+<p>
+<hr />
+<p>
+<h2 id="overview">Overview</h2>
+<p>The goal of the final project is to gain experience with the entire scientific process: motivation, hypothesis development, data collection/cleaning, algorithm development/application, evaluation of results, interpretation, and conclusion. Below I’ll describe the main components your project should include and provide a few dataset resources. You are welcome to choose a non-data-driven project (options below), but make sure your proposal is very thorough about what <em>you</em> will do in this case.</p>
+<p>This document describes the project <em>proposal</em> and getting started on the project - there will be separate instructions for the oral presentation and exactly what to submit at the end of the semester. The project is worth 15% of your overall grade.</p>
+<h3 id="timeline-and-logistics">Timeline and Logistics</h3>
+<ul>
+<li><font color="blue">November 8: project proposal due</font></li>
+<li><font color="blue">November 8 - December 9: working on projects</font></li>
+<li><font color="blue">December 9, 11: oral project presentations during class</font></li>
+<li><font color="blue">December 20: github repos must be finalized</font></li>
+</ul>
+<p>For the oral presentations, each group will have roughly 8 minutes to speak.</p>
+<p>You are <em>required</em> to work in pairs for the final project - group work is an important component of Computer Science (and other fields!). This in an opportunity to practice collaboration and creating something bigger than each person could individually. If you would like a random partner, please email me. You are welcome to work across lab sections (but we will still have required lab the last few weeks of classes and it would be ideal if both people could come to the same lab). Note: if you <em>really</em> prefer to work individually or in a group of 3, requests will be considered on a case by case basis (please email me early about this).</p>
+<p>
+<hr />
+<h2 id="proposal">Proposal</h2>
+<p>The goal of the proposal is to help you start working on your final project and assembling the different resources you want to use (literature, software, data, etc). Broadly, your <em>project</em> should include:</p>
+<ol type="1">
+<li>A dataset</li>
+<li>An algorithm or set of algorithms you will develop and/or apply to this dataset</li>
+<li>A scientific question you are trying to answer (e.g. “Will Naive Bayes or logistic regression perform better on my dataset?” or “How will pre-processing a dataset or subsampling features affect the results?”)</li>
+<li>A way to evaluate, interpret, and <em>visualize</em> the results</li>
+<li>References</li>
+</ol>
+<p><font color="blue"> For the proposal, briefly outline each of these sections (details below) in a 1-page PDF document. Submit your proposal to me by <strong>email and cc your partner</strong>. I will provide brief feedback in the order I receive proposals. Include a <em>title</em> and both partner names. </font></p>
+<h3 id="dataset">1. Dataset</h3>
+<p>What dataset will you use for this project? Regardless of what you’re interested in, there is probably a dataset that is related. Please be as specific as possible - don’t assume your ideal data is available until you’ve actually downloaded and viewed it. Include a reference/link to your data in your proposal. Here are a few databases to get started. Note that I do not necessarily have direct experience with most of these datasets. After you download the data, make sure that you can actually view it, that you understand the features and label (if applicable). What is <code>n</code>? What is <code>p</code>? Make sure the dataset includes enough examples that you could reasonably learn from it or analyze it (I would say <code>n&lt;100</code> would be concerning).</p>
+<ul>
+<li><p><a href="https://www.kaggle.com/datasets">Kaggle</a>: Wide variety of datasets (may need to create an account).</p></li>
+<li><p><a href="https://archive.ics.uci.edu/ml/datasets">UCI Machine Learning Repository</a>: Also contains a wide variety of datasets (options on the left allow you to search by task, attribute type, etc which can be very useful).</p></li>
+<li><p><a href="http://www.image-net.org/">ImageNET</a>: Large database of images (larger than CIFAR-10, which is also an option).</p></li>
+<li><p><strong>Climate data</strong>: There are a number of government and climate research sites with data. Here are a few:</p>
+<ul>
+<li><a href="https://www.climate.gov/maps-data/datasets">Climate.gov</a></li>
+<li><a href="https://data.globalchange.gov/dataset">GlobalChange.gov</a></li>
+<li><a href="https://www.ncdc.noaa.gov/cdo-web/datasets">NOAA</a></li>
+<li><a href="https://edg.epa.gov/data/">EPA</a></li>
+</ul></li>
+<li><p><a href="https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research">Wikipedia Data List</a>: Up-to-date list of datasets organized by category (may or may not be freely available):</p>
+<ul>
+<li>Image data</li>
+<li>Text data</li>
+<li>Sound data</li>
+<li>Signal data</li>
+<li>Physical data</li>
+<li>Biological data</li>
+<li>Anomaly data</li>
+<li>Question answering data</li>
+<li>Multivariate data</li>
+</ul></li>
+<li><p><strong>State-wide data</strong>: Datasets on a variety of topics. Most if not all states have their own website. Here are a few:</p>
+<ul>
+<li><a href="https://data.pa.gov/browse?limitTo=datasets">Data.PA.gov</a></li>
+<li><a href="https://data.ny.gov/browse?limitTo=datasets">Data.NY.gov</a></li>
+</ul></li>
+<li><p><a href="http://www.internationalgenome.org/data">1000 genomes (human DNA data)</a>: <!--If you’re interested in exploring a biological project, let me know. -->This specific dataset contains DNA data from humans around the world, but there are many other datasets from other species.</p></li>
+</ul>
+<h3 id="softwaremethods">2. Software/Methods</h3>
+<p>What software/methods will you use for the project? You can write your own methods, use your lab implementations from class, or use existing software, but there should be some programming component. You could compare two existing methods, or compare your own method to an existing method. Even if you’re planning to use existing software, there will likely be a significant programming component since you’ll have to get the data in the right format, learn how to run the program, and evaluate/visualize the results.</p>
+<p>If you are using any existing software, include a reference.</p>
+<h3 id="motivation-and-scientific-question">3. Motivation and Scientific Question</h3>
+<p>Why is this an interesting or relevant topic? You could talk about your personal motivation for this topic, or why it would be interesting to investigate in general. What scientific question are you trying to answer? Briefly describe a hypothesis about the results you expect. (e.g. “I think Naive Bayes will be more accurate than logistic regression on this dataset because [insert reason].” or “I think [insert feature] will be the most informative feature because [insert reason].”)</p>
+<h3 id="results-evaluation-interpretation-and-visualization">4. Results: Evaluation, Interpretation, and Visualization</h3>
+<p>What type of results do you expect from your project? How will you evaluate and interpret the results? At least one visualization (figure) will be required for each project.</p>
+<h3 id="references">5. References</h3>
+<p>Include a list of at least two references (Google scholar is a great place to start). If you would like paper recommendations based on your topic, let me know. For the reference format, include:</p>
+<ul>
+<li>Author list (3 max, then <em>et al</em>)</li>
+<li>Title (in quotes)</li>
+<li>Journal/conference (in italics)</li>
+<li>Year (in parenthesis)</li>
+</ul>
+<p>Example:</p>
+<p><span style="color:blue">Langmead, Trapnell, Pop, <em>et al</em>. “Ultrafast and memory-efficient alignment of short DNA sequences to the human genome.” <em>Genome Biololgy</em> (2009).</span></p>
+<p>If your references include online references (software, datasets, etc) or books, feel free to modify this format (e.g. title of site and link is usually enough if there is not an obvious author).</p>
+<p>
+<hr />
+<h2 id="alternative-project-styles">Alternative Project Styles</h2>
+<ol type="1">
+<li><p><strong>Implementation based</strong>. If you would like to explore a large-scale software project, that is a great option. Ideas: you could implement a research paper that does not have code available online. Or you could implement an algorithm we have talked about in class but used existing software for (e.g. PCA). If you pursue this option, this software should be something you write from scratch yourself as part of this class, not something you have written before.</p></li>
+<li><p><strong>Theory based</strong>. I am also open to a more theoretical/mathematical project that does not involve data or substantial coding. If you have a concrete idea/plan for such a project, let me know. This option is fairly open-ended, but you should be creating something new or finding a new way to interpret complex/vague theory from the literature.</p></li>
+<li><p><strong>Reproduce a research paper</strong>. Another option is to reproduce the results and figures of an existing research paper. This is often not an easy task, but very illuminating into the data science pipeline. Please get in touch early with a specific paper if you’re interested in this option.</p></li>
+<li><p><strong>Simulate/create data</strong>. A variation of the default project format would be to simulate or create your own data. In some areas of biology, physics, robotics, etc., simulated data is a common way to test new algorithms. If you’re interested in this approach, include some details in the proposal about how you will add this step.</p></li>
+</ol>
+<p>
+<hr />
+<h2 id="getting-started-after-the-proposal">Getting started after the proposal</h2>
+<p>I would recommend submitting your proposal as soon as possible so you can get feedback and get started. To get started, accept the <a href="https://classroom.github.com/a/aZ7gHng_">Final Project assignment</a> on GitHub Classroom. Your repository should include all the code you write for the project. Only include data if the datasets are very small (e.g. a fraction of the original data or test examples). The repository should also include your “lab notebook” (see details below) and eventually your slides for the presentation. Summary of what should be on git:</p>
+<ul>
+<li>All project code</li>
+<li>(optional) Small example datasets</li>
+<li>Lab notebook (in the file <code>README.md</code>)</li>
+<li>Presentation slides</li>
+<li>Do not include: existing software you are using, large datasets</li>
+</ul>
+<h3 id="project-check-ins">Project check-ins</h3>
+<p>There will be weekly project check-ins during lab.</p>
+<h3 id="lab-notebook">Lab Notebook</h3>
+<p>Instead of a formal writeup, you should keep a lab notebook throughout the project. I actually keep an online lab notebook for all my research projects. It helps me remember what I did last and also tracks the time I’m spending on each project. I also use this same document to keep a list of TODOs.</p>
+<p>You and your partner should share a lab notebook so you can keep each other updated about your progress. I’m not going to grade this part formally or read every entry - just check that it’s there and looks reasonable. It is more for you to keep track of the project.</p>
+<p>Here is an entry from my own work:</p>
+<p><span style="color:blue"><strong>Sara: 03-07-18 (2hrs)</strong></span></p>
+<ul>
+<li><span style="color:blue">now averaging the Markov chain, fixed all the results</span></li>
+<li><span style="color:blue">combined ancestral 1000 genomes still running (need to start similar for SGDP)</span></li>
+<li><span style="color:blue">started new runs with filtering to only have selected alleles in the “selected pop” and only have ancestral alleles in the “reference panel”</span></li>
+</ul>
+<hr />
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p><em>Materials by Sara Mathieson.</em></p>
+</body>
+</html>

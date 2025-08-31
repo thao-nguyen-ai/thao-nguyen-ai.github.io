@@ -1,0 +1,208 @@
+
+<link href='../markdown.css' rel='stylesheet'></link>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>presentation</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 40em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin-top: 1.7em;
+    }
+    a {
+      color: teal;
+    }
+    a:visited {
+      color: teal;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.7em;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="cs260-final-project-presentation-and-deliverables">CS260 Final Project Presentation and Deliverables</h1>
+<h3>Presentation Dates: in-class Monday December 9, Wednesday December 11</h3>
+<h3 id="slides-code-lab-notebook-due-friday-december-22-at-12pm">Code, Lab Notebook due: Friday December 20 at 12pm</h3>
+<p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The main deliverable for the final project is the presentation. I chose a presentation over a paper since I think presentation is an important skill that needs more emphasis across the curriculum. This is an opportunity to practice presenting and receiving feedback. I also wanted everyone in the class to be able to see the other projects, which doesn’t always happen with final papers.</p>
+<p>In addition to the presentation, you should also submit (on git):</p>
+<ul>
+<li><span style="color:blue">Lab Notebook (include references)</span></li>
+<li><span style="color:blue">Project Code</span></li>
+<li><span style="color:blue">Presentation Slides</span></li>
+</ul>
+<p>During the presentations everyone will fill out a <span style="color:blue">paper feedback form</span>, which will count toward your participation grade and be shared with each group.</p>
+<p>I’ll go through each of these pieces below. When thinking about what to include in your git repo, keep a reproducibility perspective in mind. From your lab notebook, references, code, and slides, I should be able to <span style="color:blue"><em>reproduce your project and results exactly</em>.</span></p>
+<h2 id="presentation">Presentation</h2>
+<p>Each group will have <strong>8 minutes</strong> (+ time for questions and transition to the next group). The best way to make sure you are hitting the right time is to practice.</p>
+<p>To make transitions easier, <span style="color:blue">please EMAIL me your slides by <strong>midnight the night before your presentation</strong>.</span> They must be in PDF format! That way we can use the same computer for all presentations.</p>
+<p>In terms of presentation content, you should (very briefly) include all the main components you mentioned in your proposal, as well as future work:</p>
+<ol type="1">
+<li><span style="color:blue"><strong>Motivation and Scientific Question</strong></span></li>
+</ol>
+<p>Introduce your topic and goal in a creative or visual way. Whenever you give a presentation, there will be those in the audience less interested in the topic than you are, who might question the “point” of your topic or thesis. Give them a reason to pay attention. Often this involves placing your topic in a larger context, using an image the audience can relate to, telling a personal story, or posing a question you’ll answer later in the talk.</p>
+<ol start="2" type="1">
+<li><span style="color:blue"><strong>Data and Methods</strong></span></li>
+</ol>
+<p>Explain your dataset and chosen methods. Try to pick one detail or aspect that you found interesting or challenging. If you are using methods we’ve talked about in class, you could expand on how you prepared the data. (Make sure to include details about the features/labels.) If you are implementing or using a new method, tie it to our class material and then explain how it is different or novel. Overall, try to give the project a narrative; explain your thought-process throughout the project.</p>
+<ol start="3" type="1">
+<li><span style="color:blue"><strong>Results and Interpretation</strong></span></li>
+</ol>
+<p>Display your results in a visual way. Negative results are results too, and can definitely be included. How did you evaluate and interpret your results? If they did not match your expectations, what might be going on?</p>
+<ol start="4" type="1">
+<li><span style="color:blue"><strong>Conclusions and Future Work</strong></span></li>
+</ol>
+<p>In a few words, what were your main takeaways from the project? What would you do if you had 6 months to work on this project instead of a few weeks? What aspects would you change or extend further?</p>
+<p>
+<h3 id="general-guidelines-and-requirements">General guidelines and requirements:</h3>
+<ul>
+<li><p>Speak loudly, to the back of the class.</p></li>
+<li><p>Avoid text-heavy slides, try to use images and diagrams to convey information.</p></li>
+<li><p>Include citations for any figures/info you use that you did not create (on the slide where you use it).</p></li>
+<li><p>You do not need to include a full list of references in the slides.</p></li>
+<li><p>Make sure group members get roughly equal time to present.</p></li>
+<li><p><span style="color:blue">As an audience member, be respectful to the other presenters. Be on time and give them your full attention (<em>and also fill out the feedback form: this counts toward your participation grade</em>).</span></p></li>
+<li><p><span style="color:blue">Each person should ask <em>at least one</em> question to another group</span> (one question total, not one per group). I know we have a large class and a long time block - sometimes keeping a question in mind is a good way to stay engaged.</p></li>
+</ul>
+<p>
+<h2 id="lab-notebook">Lab Notebook</h2>
+<p>See the <a href="proposal.html">Proposal</a> page for details about the lab notebook (at the end). In addition to keeping track of what you have done so far, also <span style="color:blue">include a list of references at the end.</span> This should include anything that you made use of - papers, datasets, external software. The format of the references is also described in the <strong>Proposal</strong>. It is also okay if you only need to reference your data. Think about the standard of reproducibility when creating your lab notebook.</p>
+<p>
+<p>For the final project you are allowed to use Github Copilot, ChatGPT, or another code-generating tool of your choice. If you decide to use one of these tools, please reflect on the process in your README. Did it speed up your code development process? Were its suggestions generally helpful or unhelpful?</p>
+<p>
+<h2 id="project-code">Project Code</h2>
+<p>Except for external software, include all code that was necessary to obtain your final results. <span style="color:blue">Keep your code organized and commented.</span> You can include some small example datasets, but avoid putting large data files on git since this can cause problems. Err on the side of including more results though (output files, figures, etc).</p>
+<p>
+<h2 id="presentation-slides">Presentation Slides</h2>
+<p>Make sure to put your presentation slides on git (we’ll have them over email as well, but just to make sure everything is in the same place).</p>
+<h2 id="paper-feedback-forms">Paper Feedback Forms</h2>
+<p>During the presentations everyone will fill out feedback forms for all the other groups. This will consist of two short questions:</p>
+<ol type="1">
+<li>What aspects of the presentation were particularly interesting, effective, or well-done?</li>
+<li>What aspects of the presentation were ineffective, confusing, or could be improved?</li>
+</ol>
+<hr />
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p><em>Materials by Sara Mathieson.</em></p>
+</body>
+</html>

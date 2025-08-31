@@ -1,0 +1,179 @@
+/*------------------------------------------------------------------------------
+ * stylesheet.css - stylesheet for Andrew Danner's Web Site
+ *
+ * Modified from David Finlayson (U. Washington) site
+ *-----------------------------------------------------------------------------*/
+
+body {
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 14.5px;
+	color: #000000;
+	background-color: #3895c7;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#HeaderSmall{
+  color: #001a34; 
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 2.5em;
+	line-height: 1.5ex;
+	margin: 1ex 1em 1ex 0em;
+}
+
+h2 {
+	font-weight: normal;
+	font-size: 2.0em;
+	color: #003366;
+	margin: 1ex 1em 1ex 0em;
+}
+
+h4 {
+	font-weight: bold;
+	color: black;
+	background: #ccc;
+	margin: 1ex 0em 1ex 0em;
+	padding: 0.4em;
+}
+
+a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:link    {color: #226ea4;}
+a:visited {color: #226ea4;}
+a:hover   {text-decoration: underline;}
+
+tt {
+  font-weight: bold;
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+pre#code {
+  font-weight: bold;
+  font-family: Andale Mono, MS Courier New, monospace;
+}
+
+.code {
+    font-weight: bold;
+    font-family: Andale Mono, MS Courier New, monospace;
+}
+
+.code .orange { color: orange; }
+.code .red { color: red; }
+.code .green { color: green; }
+.code .blue { color: blue; }
+.code .purple { color: purple; }
+
+
+#Wrapper {
+  width: 950px;
+  background: #ffffff;
+  line-height: 2.75ex;
+  padding: 0;
+  border: 0;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+
+
+#HeaderLarge{
+   font-size: 1.1em;
+   line-height: 1.2em;
+   margin: 2ex 1.5em 2ex 1.5em;
+   padding: 1ex 0em 0ex 0em;
+}
+
+#HeaderSmall{
+   font-size: 1.1em;
+   line-height: 1.2em;
+   margin: 1ex 0.5em 1ex 0.5em;
+   border:0; padding:10px; width:100%;
+}
+
+
+#HeadImgLg {
+  background: url(images/yellowstone.jpg) 0 0 no-repeat scroll;
+  border:0; margin:0; width:100%;
+}
+
+#HeadImgMed {
+  background: url(images/trees.jpg) 0 0 no-repeat scroll;
+  border:0; margin:0; width:100%;
+}
+
+#HeadImgSm{
+  background: url(images/alaska_small.jpg) 0 0 no-repeat scroll;
+  border:0; margin:0; width:100%;
+  color: #000022; 
+}
+
+.TagLine {
+	font-size: 1.2em;
+	font-style: italic;
+	background-color:#eee;
+  margin: .5ex 0em .5ex 0em;
+  padding: .5ex 0em .5ex 2em;
+  border-width: 1px 0px;
+	border-color: black;
+	border-style: solid;
+	clear: left;
+}
+
+#Content {
+	margin: 0ex 2em 0ex 2em;
+	padding: 1ex 1em 1ex 1em;
+}
+
+#Content p {
+   margin: 2ex 0em 0ex 0em;
+}
+
+#Footer {
+	background-color: #eee;
+	text-align: center;
+	font-size: 0.8em;
+  margin: 2ex 0em 2ex 0em;
+  padding: 1ex 0em 1ex 0em;
+	border-width: 1px 0px;
+	border-color: black;
+	border-style: solid;
+  width: 100%;
+	clear: left;
+}
+
+#Footer img {
+   clear: left;
+   border: none;
+}
+
+.caption {
+  font-size: 0.9em;
+}
+
+.bibtex {
+  font-size: 0.8em;
+  font-family: Verdana, Arial, Helvetica, sans-serif; 
+}
+
+div#anns {
+ background: #FFCC00; 
+ MARGin: 2%;
+ padding: 2%;
+}
+
+/* background: #FFc900; */
+/* background: #B4DD44; */
+/* background: #62BBFF; */
+/* background: #eeb358; */
+/* background: #FFE012; */
+/* background: #AA1155; */
+/* background: #FFD062; */
+/* background: #20C000; */
+/* background: #3399DD; */
+/* background: #5599FF; */
