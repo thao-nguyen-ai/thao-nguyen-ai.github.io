@@ -28,7 +28,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 40em;
+      max-width: 42em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -148,12 +148,12 @@
 <li>Implement the Naive Bayes algorithm</li>
 <li>See how a protected feature can be redundantly encoded in other features</li>
 </ul>
-<p>This week we will be analyzing an <a href="https://www.kaggle.com/uciml/adult-census-income">Adult Census Income</a> dataset from 1994. The original “label” of this data was the individual’s income (whether less or more than $50k per year). In this lab we’ll be thinking of the data a bit differently and consider the person's sex to be the label we want to predict.</p>
-<p>As we discussed in class, sometimes protected attributes (like race, sex, etc) are redundantly encoded in the data, so ignoring protected attributes is not enough to prevent bias. Here we will see an example of this, and discuss strategies for how to mitigate such effects in the future.</p>
+<p>This week we will be analyzing an <a href="https://www.kaggle.com/uciml/adult-census-income">Adult Census Income</a> dataset from 1994. The original “label” of this data was the individual’s income (whether less or more than $50k per year). In this lab we’ll be thinking of the data a bit differently.</p>
+<p>As we discussed in class, sometimes protected attributes (like race, sex, etc.) are redundantly encoded in the data, so ignoring protected attributes is not enough to prevent bias. Here we will see an example of this, and discuss strategies for how to mitigate such effects in the future.</p>
 <p><em>Credit for this lab: Materials by Sara Mathieson, modified from materials created by Ameet Soni and Allison Gong.</em></p>
 <hr />
 <h2 id="part-1-reading-in-the-data">Part 1: Reading in the data</h2>
-<p>Accept your Lab 5 repository on Github classroom. You should have the following files:</p>
+<p>Accept your Lab 5 repository on GitHub classroom. You should have the following files:</p>
 <ul>
 <li><code>data/</code> - directory containing train/test data sets.</li>
 <li><code>run_NB.py</code> - your main program executable for Naive Bayes.</li>
@@ -162,14 +162,15 @@
 </ul>
 <h3 id="usage">Usage</h3>
 <p>Your programs should take in the same command-line arguments as Lab 4 (feel free to reuse this code). For example, to run Naive Bayes on the census example:</p>
-<pre><code>python3 run_NB.py data/1994_census_cleaned_train.csv data/1994_census_cleaned_test.csv</code></pre>
+<pre><code>python3 run_NB.py -r data/1994_census_cleaned_train.csv -e data/1994_census_cleaned_test.csv</code></pre>
+<p>You should also be able to run on arff format, e.g.,</p>
+<pre><code>python3 run_NB.py -r data/zoo_train.arff -e data/zoo_test.arff</code></pre>
 <h3 id="program-inputs">Program Inputs</h3>
 <p>To simplify preprocessing, you may assume the following:</p>
 <ul>
 <li><p>You may assume that all features are discrete (binary or multi-class) and unordered. You do not need to handle continuous features.</p></li>
-<li><p>Although we are looking at a binary “label” here, make sure your code could handle a multi-class classification task if necessary.</p></li>
-<li><p>In the starter code you are given an <code>Example</code> class and a <code>Partition</code> class. These are very similar to Lab 4, except that we now have an instance variable for the number of classes <span class="math inline"><em>K</em></span>. An instance of an <code>Example</code> holds one row, where the features are represented as a dictionary and the label is represented as an integer. Here is an example (first row of the training data).</p></li>
-</ul>
+<li><p>Make sure your code can handle multi-class classification (even though the main dataset has a binary label).</p></li>
+<li><p>In the starter code you are given an <code>Example</code> class and a <code>Partition</code> class. These are very similar to Lab 4, except that we now have an instance variable for the number of classes <span class="math inline"><em>K</em></span>. An instance of an <code>Example</code> holds one row, where the features are represented as a dictionary and the label is represented as an integer. Here is an example (first row of the training data).</p>
 <pre><code>age : Senior
 workclass : Private
 education : HS-grad
@@ -180,20 +181,21 @@ race : White
 hours_per_week : Part-time
 income : &lt;=50K</code></pre>
 <p>The “label” we are trying to predict from these features is sex. In this case, the individual is Female, so the label is 1.</p>
-<p>A <code>Partition</code> instance holds a <em>list</em> of <code>Examples</code>, as well as the feature dictionary (where each key is a feature name and each value is a list of possible feature values).</p>
-<h3 id="reading-the-csv-file">Reading the CSV file</h3>
+<p>A <code>Partition</code> instance holds a <em>list</em> of <code>Examples</code>, as well as the feature dictionary (where each key is a feature name and each value is a list of possible feature values).</p></li></ul>
+<h3 id="reading-the-data">Reading the data</h3>
 <p>To begin, complete the function:</p>
+<pre><code>def read_arff(filename):</code></pre>
+<p>in <code>run_NB.py</code>. This is similar to Lab 4, but now we potentially have a multi-class label, not just a binary label. Feel free to use code from Lab 4, and test on the zoo dataset (see example command line above). This function should return a <code>Partition</code> instance.</p>
+<p>Next complete the function:</p>
 <pre><code>def read_csv(filename):</code></pre>
-<p>in <code>run_NB.py</code>. This function should return a <code>Partition</code> instance, similar to <code>read_arff</code> from Lab 4. However, in this case we do not have an arff file as input, so we don’t know the possible feature values for each feature. Instead, every time you see a new feature value, add it to the list of values for the appropriate key in <code>F</code> (which will eventually be used to create the <code>Partition</code> instance). A few additional recommendations for this part:</p>
+<p>This function should return a <code>Partition</code> instance, similar to <code>read_arff()</code>. However, in this case we do not have an arff file as input, so we don’t know the possible feature values for each feature. Instead, every time you see a new feature value, add it to the list of values for the appropriate key in <code>F</code> (which will eventually be used to create the <code>Partition</code> instance). A few additional recommendations for this part:</p>
 <ul>
 <li><p>Note that the first row is a header with the feature names. These can be used to initialize the keys of <code>F</code>.</p></li>
 <li><p>We want to hold aside the feature <code>sex</code> to be used as the label (so you will need a special case for this feature). Here we will use 0 for Male and 1 for Female.</p></li>
-<li><p>I recommend setting up both <code>F</code> and the feature dictionary for each <code>Example</code> as an <code>OrderedDict()</code>. This will ensure that the keys are always in the same order. To use this functionality you can import:</p></li>
-</ul>
+<li><p>I recommend setting up both <code>F</code> and the feature dictionary for each <code>Example</code> as an <code>OrderedDict()</code>. This will ensure that the keys are always in the same order. To use this functionality you can import:</p>
 <pre><code>from collections import OrderedDict</code></pre>
-<ul>
-<li>Here we are working with CSV files, so one option is to use the Python <code>csv</code> package to read in the data. You are also welcome to read in the data another way, for example using <code>numpy</code> arrays or <code>pandas</code> data frames. Here is a way to start your <code>read_csv</code> function:</li>
-</ul>
+</li>
+<li>Here we are working with CSV files, so one option is to use the Python <code>csv</code> package to read in the data. You are also welcome to read in the data another way, for example using <code>numpy</code> arrays or <code>pandas</code> data frames. Here is a way to start your <code>read_csv</code> function:
 <pre><code>import csv # at the top
 
 csv_file = csv.reader(open(filename, &#39;r&#39;), delimiter=&#39;,&#39;)
@@ -212,7 +214,7 @@ for row in csv_file:
 <p>Here is what the output should be for the census dataset (not the <code>corrected</code> one yet):</p>
 <pre><code>num train = 28998 , num classes = 2
 num test  = 7419 , num classes = 2</code></pre>
-<p><br></p>
+</li></ul>
 <hr />
 <h2 id="part-2-preliminary-results">Part 2: Preliminary results</h2>
 <p>Now that we have a <code>Partition</code> instance for both the train and test data, we will run some preliminary analyses.</p>
@@ -221,36 +223,31 @@ num test  = 7419 , num classes = 2</code></pre>
 <li><p>Given these ratios, if an algorithm to predict sex randomly flipped a coin for every <em>test</em> example, what confusion matrix would result? What overall classification accuracy would result? Record in your <code>README.md</code>.</p></li>
 <li><p>What if an algorithm always predicted the majority class? What would the confusion matrix look like in this scenario? What overall classification accuracy would result? Record in your <code>README.md</code>.</p></li>
 </ol>
-<p><br></p>
 <hr />
 <h2 id="part-3-naive-bayes">Part 3: Naive Bayes</h2>
-<p>You will implement Naive Bayes as discussed in class. Your model should be capable of making multi-class predictions (i.e. it should work for any <span class="math inline"><em>K</em></span>, even though in this case we have <span class="math inline"><em>K</em> = 2</span>).</p>
+<p>You will implement Naive Bayes as discussed in class. Your model should be capable of making multi-class predictions (i.e., it should work for any <span class="math inline"><em>K</em></span>).</p>
 <h3 id="model">Model</h3>
 <p>Our Naive Bayes model for the class label <span class="math inline"><em>k</em></span> is:</p>
 <center>
 <img src="figs/nb_model.png" width="500">
 </center>
-<p><br></p>
 <p>For this lab, all probabilities should be modeled using log probabilities to avoid underflow (depending on your system this might not absolutely be necessary, but it is good practice!) Note that when taking the log of a formula, all multiplications become additions and division become subtractions. First compute the log of the Naive Bayes model to make sure this makes sense.</p>
 <h3 id="training">Training</h3>
 <p>You will need to represent model parameters (<span class="math inline"><em>θ</em></span>’s) for each class probability <span class="math inline"><em>p</em>(<em>y</em> = <em>k</em>)</span> and each class conditional probability <span class="math inline"><em>p</em>(<em>x</em><sub><em>j</em></sub> = <em>v</em>|<em>y</em> = <em>k</em>)</span>. This will require you to count the frequency of each event in your training data set. Use LaPlace estimates to avoid 0 counts. If you think about the formula carefully, you will note that we can implement our training phase using only integers to keep track of counts (and no division!) Each theta is just a normalized frequency where we count how many examples where <span class="math inline"><em>x</em><sub><em>j</em></sub> = <em>v</em></span> and the label is <span class="math inline"><em>k</em></span> and divide by the total number of examples where the label is <span class="math inline"><em>k</em></span> (plus the LaPlace estimate):</p>
 <center>
 <img src="figs/nb_thetaj.png" width="250">
 </center>
-<p><br></p>
 <p>And similarly for the class probability estimates:</p>
 <center>
 <img src="figs/nb_theta.png" width="250">
 </center>
-<p><br></p>
-<p>If we take the log then each theta becomes the difference between the two counts. The important point is that it is completely possible to train your Naive Bayes with only integers (the counts, N). You don’t need to calculate log scores until prediction time. This will make debugging (and training) much simpler.</p>
-<p><strong>Requirement</strong>: the counts should be computed and stored in advance during training, not computed on the fly during testing (which results in duplicated computation).</p>
-<h3 id="inferenceprediction">Inference/Prediction</h3>
+<p>If we take the log then each theta becomes the difference between the two counts.</p>
+<p><strong>Requirement</strong>: the model probabilities should be computed and stored in advance during training, not computed on the fly during testing (which results in duplicated computation).</p>
+<h3 id="inference-prediction">Inference/Prediction</h3>
 <p>For this phase, calculate the probability of each class (using the model equations above) and choose the maximum probability:</p>
 <center>
 <img src="figs/nb_pred.png" width="500">
 </center>
-<p><br></p>
 <p>This should be implemented in your <code>classify</code> method.</p>
 <h3 id="program-outputs">Program Outputs</h3>
 <ul>
@@ -258,26 +255,42 @@ num test  = 7419 , num classes = 2</code></pre>
 </ul>
 <h3 id="suggested-steps">Suggested steps</h3>
 <ol type="1">
-<li>Create a <code>NaiveBayes</code> class in <code>NaiveBayes.py</code> and do all the work of training (creating probability structures) in the <em>constructor</em>. Then in main, I should be able to do something like:</li>
-</ol>
+<li>Create a <code>NaiveBayes</code> class in <code>NaiveBayes.py</code> and do all the work of training (creating probability structures) in the <em>constructor</em>. Then in main, I should be able to do something like:
 <pre><code>nb_model = NaiveBayes(train_partition)</code></pre>
 <p>It is okay (and encouraged) to have your constructor call other methods from within the class.</p>
-<p>In your <code>NaiveBayes</code> class, you should tally up the number of examples of each class (0 and 1 here, but make it general). This should be stored as an instance variable and used to create the prior probabilities. To help with debugging, the (log) prior probabilities should be:</p>
+<p>In your <code>NaiveBayes</code> class, you should tally up the number of examples of each class (0 and 1 for the census data, but make it general). This will be used to create the prior probabilities, which should be an instance variable of the class. The type should be a list. To help with debugging, the (log) prior probabilities here should be:</p>
 <pre><code>log_prior = [-0.39003307271614496, -1.1302097192251246]</code></pre>
-<p>For each class and for each feature name, you should also count the number of examples with each feature value from the training data. For this type I recommend a dictionary of dictionaries, first indexed by the class and then the feature name. This will be used to create the likelihood probabilities, and should also be stored as an instance variable.</p>
-<ol start="2" type="1">
-<li>Write a <code>classify</code> method within the <code>NaiveBayes</code> class and pass in each test example:</li>
-</ol>
+<p>For each class and for each feature name, you should also count the number of examples with each feature value from the training data. This will be used to create the likelihood probabilities, which should also be an instance variable. For this type I recommend a dictionary of dictionaries, first indexed by the class and then the feature name.</p>
+<p>Both of these data structures should store the probabilities in log space and include LaPlace counts.</p>
+</li>
+<li>Write a <code>classify</code> method within the <code>NaiveBayes</code> class and pass in each test example:
 <pre><code>y_hat = nb_model.classify(example.features)</code></pre>
-<p>And compute the accuracy and confusion matrix by comparing these predictions to the ground truth. Here is an example of the format of the output (values not from our dataset).</p>
-<pre><code>Accuracy: 0.928571 (13 out of 14 correct)
+<p>And compute the accuracy and confusion matrix by comparing these predictions to the ground truth. Here are examples of the format of the output:</p>
+<pre><code>python3 run_NB.py -r data/tennis_train.arff -e data/tennis_test.arff
+
+Accuracy: 0.928571 (13 out of 14 correct)
 
   prediction
      0  1
    ------
  0|  4  1
  1|  0  9</code></pre>
-<p><br></p>
+
+<pre><code>python3 run_NB.py -r data/zoo_train.arff -e data/zoo_test.arff
+
+Accuracy: 0.857143 (30 out of 35 correct)
+
+        prediction
+     0  1  2  3  4  5  6
+   ---------------------
+ 0| 13  0  0  1  0  0  0
+ 1|  0  7  0  0  0  0  0
+ 2|  0  1  0  0  1  0  0
+ 3|  0  0  0  4  0  0  0
+ 4|  0  0  0  0  1  0  0
+ 5|  0  0  0  0  0  3  0
+ 6|  0  0  0  0  0  2  2</code></pre>
+</li></ol>
 <hr />
 <h2 id="part-4-analysis">Part 4: Analysis</h2>
 <p>Answer the following questions in your <code>README.md</code>.</p>
@@ -285,11 +298,14 @@ num test  = 7419 , num classes = 2</code></pre>
 <li><p>Just temporarily, remove the LaPlace counts from your code and run your method again. What error do you obtain? What does this error actually mean about the data?</p></li>
 <li><p>When trying to predict sex from the other attributes, what accuracy do you obtain? Is this higher or lower than you would expect with one of the naive strategies from Part 2?</p></li>
 <li><p>Re-run your method with the <code>corrected</code> train/test data. What accuracy do you obtain now? Explain the difference between the two datasets and why this accuracy change makes sense.</p></li>
+<li><p>Compute the balanced error rate (BER) for your method on the corrected census data. What does this value imply?</p></li>
 <li><p>What (if anything) is concerning about being able to predict such a protected attribute from the other attributes (especially using an algorithm like Naive Bayes that does not explicitly account for feature interactions)? If the actual “label” were “hired” or “not hired” for a job, and you were responsible for making this decision, how would you deal with data where features were redundantly encoded?</p></li>
-<li><p> (Extra credit) How would you identify which features (and potentially specific feature values) are most predictive of sex? Write up your strategy and results.</p></li>
 </ol>
 <hr />
 <h2 id="extensions-optional">Extensions (optional)</h2>
-<p>In these examples, our features were discrete. Devise a way to make Naive Bayes work with <em>continuous</em> features. Discuss your idea in your <code>README.md</code> and/or implement it.</p>
+<ol type="1">
+<li><p>Devise a way to identify which features (and potentially specific feature values) are most predictive of sex. Write up your strategy and/or results in your <code>README.md</code>.</p></li>
+<li><p>In these examples, our features were discrete. Devise a way to make Naive Bayes work with <em>continuous</em> features. Discuss your idea in your <code>README.md</code> and/or implement it.</p></li>
+</ol>
 </body>
 </html>

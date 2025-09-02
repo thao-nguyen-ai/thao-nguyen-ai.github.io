@@ -157,7 +157,7 @@
 <li><p><a href="https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster">Challenger</a> dataset: on 1/28/86 the Challenger space shuttle exploded due to an O-ring failure. This dataset shows the results of previous O-ring experiments.</p></li>
 </ul>
 
-<p>Accept your Lab 7 repository on Github classroom. You should have the following files:</p>
+<p>Accept your Lab 7 repository on GitHub classroom. You should have the following files:</p>
 <ul>
 <li><strong>data</strong> - directory containing train/test datasets. You may add additional datasets here.</li>
 <li><code>run_LR.py</code> - your main program executable for Logistic Regression.</li>
@@ -189,14 +189,12 @@
 <center>
 <img src="figs/log_reg.png" width="500">
 </center>
-<p><br></p>
 <p>To model the intercept term, we will include a bias term. In practice, this is equivalent to adding a feature that is always “on”. For each instance in training and testing, append a <strong>1</strong> to the feature vector. Ensure that your logistic regression model has a weight for this feature that it can now learn in the same way it learns all other weights.</p>
 <h3 id="training">Training</h3>
 <p>To learn the weights, you will apply stochastic gradient descent as discussed in class until the cost function does not change in value (very much) for a given iteration. As a reminder, our cost function is the <em>negative log</em> of the likelihood function, which is:</p>
 <center>
 <img src="figs/likelihood.png" width="500">
 </center>
-<p><br></p>
 <p>Our goal is to minimize the cost using SGD. We will use the same idea as in Lab 3 for linear regression. Pseudocode:</p>
 <pre><code>initialize weights to 0&#39;s
 while not converged:
@@ -209,7 +207,6 @@ while not converged:
 <center>
 <img src="figs/sgd1.png" width="500">
 </center>
-<p><br></p>
 <p>The hyper-parameter <em>alpha</em> (learning rate) should be sent as a parameter to your SGD and used in training. A few notes for the above:</p>
 <ul>
 <li>In Lab 3 we did not actually shuffle the data points to make gradient descent truly “stochastic”, but for this lab you should (also make sure y is shuffled along with X!). You may use:</li>
@@ -226,7 +223,6 @@ while not converged:
 <center>
 <img src="figs/log_reg.png" width="500">
 </center>
-<p><br></p>
 <p>and output the more likely binary outcome. You may use the Python <code>math.exp</code> function to make the calculation in the denominator. Alternatively, you may use the weights directly as a decision boundary as discussed in class.</p>
 <p>The choice of hyper-parameters will affect the results, but you should be able to obtain <strong>at least 90% accuracy on the testing data</strong>. Make sure to print a confusion matrix.</p>
 <h3 id="example-output">Example Output</h3>
@@ -260,7 +256,7 @@ Accuracy: 0.875000 (70 out of 80 correct)
 <li>overplotting</li>
 <li>title/axis labels etc</li>
 </ul>
-<p>Submit your figure as part of your github repo using the filename <code>challenger.pdf</code>.</p>
+<p>Submit your figure as part of your GitHub repo using the filename <code>challenger.pdf</code>.</p>
 <hr />
 <h2 id="analysis">Analysis</h2>
 <p>(See README.md to answer these questions)</p>

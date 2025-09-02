@@ -28,7 +28,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 40em;
+      max-width: 42em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -139,7 +139,7 @@
 </head>
 <body>
 <h1 id="cs260-lab-6-information-theory">CS260 Lab 6: Information Theory</h1>
-<h3><a href="https://classroom.github.com/a/nVE2IqxB">GitHub Classroom Assignment Link</a></h3>
+<h3><a href="https://classroom.github.com/a/-r3S1Otf">GitHub Classroom Assignment Link</a></h3>
 <hr />
 <h2 id="overview">Overview</h2>
 <p>Goals:</p>
@@ -153,9 +153,9 @@
 <h2 id="introduction">Introduction</h2>
 <p>This week we will be analyzing several datasets using entropy. Part 1 walks you through the process of implementing Shannon encoding - we will use this to encode/decode natural language datasets. Part 2 includes implementing conditional entropy for the purpose of selecting informative features (similar goal to the ROC curve assignment, but now using entropy).</p>
 <p>The heart disease and diabetes data sets were made available by the <a href="http://archive.ics.uci.edu/ml/index.php">UC Irvine Machine Learning Repository</a>. The <a href="http://archive.ics.uci.edu/ml/datasets/heart+Disease">heart disease</a> data set is the result of a study by the Cleveland Clinic to study coronary heart disease. The patients were identified as having or not having heart disease and the resulting feature set is a subset of the original 76 factors that were studied. The diabetes data set is the result of a study of females at least 21 years old of Pima Indian heritage to understand risk factors of diabetes. Both data sets were converted to ARFF format by Mark Craven at the University of Wisconsin.</p>
-<p>To begin, accept your Lab 6 repository on Github classroom. You should have the following files:</p>
+<p>To begin, accept your Lab 6 repository on GitHub classroom. You should have the following files:</p>
 <ul>
-<li><strong>data</strong> - directory containing train/test data sets.</li>
+<li><code>data/</code> - directory containing train/test data sets.</li>
 <li><code>encode_decode.py</code> - your main program executable for Part 1.</li>
 <li><code>Shannon.py</code> - this is where you will implement Shannon encoding for Part 1.</li>
 <li><code>best_feature.py</code> - your main program executable for Part 2.</li>
@@ -193,7 +193,6 @@ assert decoded == orig</code></pre>
 </ol>
 <pre><code>output/secret_message_decoded.txt</code></pre>
 <p>So at the end of this section you should have two files in your <code>output</code> folder. Make sure to add/commit/and push these files. The last one should make sense (i.e. not look like random characters)!</p>
-<p><br></p>
 <hr />
 <h2 id="part-2-information-gain-for-best-feature">Part 2: Information gain for best feature</h2>
 <p>In this part of the lab you will be working with the files <code>best_feature.py</code> and <code>Partition.py</code>. Analyze the code in <code>best_feature.py</code> - the reading of the arff file (including conversion of continuous features to discrete) has already been done. The only step remaining is to fill in the <code>main</code> function as you implement information gain. At the end you should only need this code in <code>main</code>:</p>
@@ -205,7 +204,7 @@ print(&quot;best feature:&quot;, best_f)</code></pre>
 <p>To implement information gain, begin slowly and use several helper methods. It’s a great idea to use top-down design here, then bottom-up implementation. For example, to compute information gain we will need to compute the entropy of y. This might require a helper method that computes the probability y is a specific label (i.e. +1 or -1). Refer to Handout 13 to check your intermediate progress.</p>
 <p>Here are a few examples so you can check your work. This is what should print when we run your programs:</p>
 <p><strong>TENNIS</strong></p>
-<pre><code>$ python3 best_feature.py data/tennis_train.arff
+<pre><code>$ python3 best_feature.py -r data/tennis_train.arff
 
 Info Gain:
      Outlook, 0.246750
@@ -215,7 +214,7 @@ Info Gain:
 
 best feature: Outlook</code></pre>
 <p><strong>MOVIES</strong></p>
-<pre><code>$ python3 best_feature.py data/movies_train.arff
+<pre><code>$ python3 best_feature.py -r data/movies_train.arff
 
 Info Gain:
          Type, 0.306099
@@ -224,11 +223,9 @@ Info Gain:
 Famous_actors, 0.072780
 
 best feature: Director</code></pre>
-<p><br></p>
 <h3 id="comparison-with-classification-accuracy">Comparison with classification accuracy</h3>
 <p>The last step for this part is to create a method inside <code>Partition</code> that determines the best feature based on the maximum <em>classification accuracy</em> (instead of entropy). In other words, if I use a specific feature and for each feature value I predict the majority label, what is the classification accuracy of the <em>training</em> data? Compute this for all features and then select the one the maximizes this metric.</p>
 <p>Use this method to identify the best feature for each dataset (<code>tennis</code>, <code>movies</code>, <code>heart</code>, and <code>diabetes</code>). Then answer the analysis questions below.</p>
-<p><br></p>
 <hr />
 <h2 id="part-3-analysis">Part 3: Analysis</h2>
 <p>Answer the following questions in your <code>README.md</code>.</p>
