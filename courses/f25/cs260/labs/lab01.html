@@ -164,14 +164,15 @@
 <ul>
 <li><p><a href="https://guides.github.com/introduction/git-handbook/">GitHub introduction</a></p></li>
 <li><p><a href="https://gitforwindows.org/">git for Windows</a></p></li>
-<li><p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Add ssh key to GitHub</a></p></li>
-</ul>
+<li><p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Add ssh key to GitHub</a></p>
+
 <p>The basic idea is to run this command from your home directory in a Terminal window:</p>
 <pre><code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code></pre>
 
-<p>with the email you used for GitHub. Just press <code>Enter</code> at all the prompts. Then navigate to where the public key (<code>.pub</code>) was stored and copy it. Then return to GitHub online and in <code>Settings</code>, follow the instructions to add the ssh key.</p>
-<p>For each lab assignment, after you accept the lab and access your repo, clone using ssh or https. Make sure to do this in a folder that is not already a git repo (i.e., set up a folder for all your labs, and each one will be in a separate folder). Here is an example (note your url will be different):</p>
-<pre><code>$ git clone git@github.com:saramathieson/cs260-lab1.git
+<p>with the email you used for GitHub. Just press <code>Enter</code> at all the prompts. Then navigate to where the public key (<code>.pub</code>) was stored and copy it. Then return to GitHub online and in <code>Settings</code>, follow the instructions to add the ssh key.</p></li>
+</ul>
+<p>For each lab assignment, after you accept the lab and access your repo, <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">clone using ssh or https</a>. Make sure to do this in a folder that is not already a git repo (i.e., set up a folder for all your labs, and each one will be in a separate folder). Here is an example (note your url will be different, see the link above for how to find the url):</p>
+<pre><code>$ git clone https://github.com/haverford-cs/cs260-lab1.git
 $ cd cs260-lab1</code></pre>
 <p>I would recommend using VSCode as an editor, but it is up to you. After working on the lab in your preferred editor for a while, say you are ready to push. The common workflow is <code>add</code>, <code>commit</code>, <code>push</code>. I also use <code>git status</code> frequently to make sure everything worked:</p>
 <pre><code>git add numpy_tutorial.py
