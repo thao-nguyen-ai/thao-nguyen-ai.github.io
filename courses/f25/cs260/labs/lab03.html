@@ -165,6 +165,7 @@
 <li><p><code>np.ones((p,q))</code>: creates a 2D array of 1’s with the given shape. Similarly, you can use <code>np.zeros((p,q))</code> to create an array of 0’s. If you include only one dimension (i.e., <code>np.zeros(p)</code>), this will yield a vector.</p></li>
 <li><p><code>np.concatenate((A, B), axis=0)</code>: concatenates two arrays along the given axis. Here it would be along the rows (axis 0), so <code>A</code> would be “on top”, and <code>B</code> below. In this case <code>A</code> and <code>B</code> do not have to have the same number of rows, but they do have to have the same number of columns. If we concatenate along axis 1 then <code>A</code> would be on the “left” and <code>B</code> would be on the right (and visa versa about the matching dimensions).</p></li>
 <li><p><code>np.reshape(A, (p,q))</code>: reshapes array <code>A</code> to have dimensions <code>(p,q)</code> (or whatever dimensions you need, provided the values of <code>A</code> can actually be reshaped in this way).</p></li>
+<li><p><code>np.transpose(A)</code>: returns array <code>A</code> with the axes transposed.</p></li>
 <li><p><code>np.linalg.pinv(A)</code>: returns the pseudo-inverse of matrix <code>A</code> (we will use this just in case we have issues with a singular matrix).</p></li>
 </ul>
 <hr />
@@ -226,7 +227,7 @@ X_std = X.std(axis=0)</code></pre>
 <li><p>Now we will implement stochastic gradient descent in the function:</p>
 <pre><code>def fit_SGD(X, y, alpha, eps=1e-10, tmax=10000):</code></pre>
 <p>Here <code>alpha</code> is the step size, <code>eps</code> is the tolerance for how much J should change at convergence, and <code>tmax</code> is the maximum number of iterations to run gradient descent. These are the default values, but throughout you’ll need to experiment with these values to ensure efficient convergence. <code>tmax</code> is more of a stop-gap if the method is not converging - it should ideally not be used as a way to stop the algorithm. <em>Hint: start with <code>alpha=0.001</code> but you’ll need to modify this value!</em></p>
-<p>During each iteration of SGD, we go through each $x_i$ in turn and update the weights according to the gradient with respect to this x-value.</p>
+<p>During each iteration of SGD, we go through each $x_i$ in turn and update the weights according to the gradient with respect to this x-value. Start with 0’s for the weight values.</p>
 <center>
 <img src="figs/sgd.png" width="500">
 </center>
