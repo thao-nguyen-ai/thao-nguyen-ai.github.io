@@ -178,7 +178,7 @@ deg_2_coef = [-15150.155305067638, 15.283380627913214, -0.0038525745647042583]</
 <li><code>figures/part2_deg1.pdf</code></li>
 <li><code>figures/part2_deg2.pdf</code></li>
 </ul>
-<p>One useful method for this is <code>remove</code>, which can remove a plotted object from your figure. Here is an example:</p>
+<p>One useful method for this is <code>remove()</code>, which can remove a plotted object from your figure. Here is an example:</p>
 <pre><code>my_line = plt.plot(x, y)
 # save plot
 my_line[0].remove() # the syntax depends on your matplotlib version</code></pre>
@@ -189,7 +189,7 @@ my_line[0].remove() # the syntax depends on your matplotlib version</code></pre>
 
 <p>Note B: you <em>may not</em> use any built-in polynomial functions for this lab, polynomial functions must be coded from scratch.</p>
 
-<p>Note C: I highly recommend using <code>np.linspace</code> (see Lab 1) to create an array of x-values, then plug these into your polynomial functions.</p>
+<p>Note C: I highly recommend using <code>np.linspace()</code> (see Lab 1) to create an array of x-values, then plug these into your polynomial functions.</p>
 <p>Now we will plot the residuals (i.e., the true y-value minus the predicted y-value based on the model). Devise a way to compute these residuals for each data point, then plot them against the original x-values. Again make sure to think about good python style and avoid duplicated code. You can also use <code>plt.clf()</code> to clear all plotted information and start again. Save your plots as:</p>
 <ul>
 <li><code>figures/part2_residuals1.pdf</code></li>

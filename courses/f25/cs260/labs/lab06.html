@@ -28,7 +28,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 42em;
+      max-width: 50em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -152,7 +152,7 @@
 <hr />
 <h2 id="introduction">Introduction</h2>
 <p>This week we will be analyzing several datasets using entropy. Part 1 walks you through the process of implementing Shannon encoding - we will use this to encode/decode natural language datasets. Part 2 includes implementing conditional entropy for the purpose of selecting informative features (similar goal to the ROC curve assignment, but now using entropy).</p>
-<p>The heart disease and diabetes data sets were made available by the <a href="http://archive.ics.uci.edu/ml/index.php">UC Irvine Machine Learning Repository</a>. The <a href="http://archive.ics.uci.edu/ml/datasets/heart+Disease">heart disease</a> data set is the result of a study by the Cleveland Clinic to study coronary heart disease. The patients were identified as having or not having heart disease and the resulting feature set is a subset of the original 76 factors that were studied. The diabetes data set is the result of a study of females at least 21 years old of Pima Indian heritage to understand risk factors of diabetes. Both data sets were converted to ARFF format by Mark Craven at the University of Wisconsin.</p>
+<p>The heart disease and diabetes data sets were made available by the <a href="http://archive.ics.uci.edu/ml/index.php">UC Irvine Machine Learning Repository</a>. The <a href="http://archive.ics.uci.edu/ml/datasets/heart+Disease">heart disease</a> data set is the result of a study by the Cleveland Clinic to study coronary heart disease. The patients were identified as having or not having heart disease and the resulting feature set is a subset of the original 76 factors that were studied. The diabetes data set is the result of a study of females of at least 21 years old of Pima Indian heritage to understand risk factors of diabetes. Both data sets were converted to ARFF format by Mark Craven at the University of Wisconsin.</p>
 <p>To begin, accept your Lab 6 repository on GitHub classroom. You should have the following files:</p>
 <ul>
 <li><code>data/</code> - directory containing train/test data sets.</li>
@@ -166,13 +166,13 @@
 <h2 id="part-1-shannon-encoding">Part 1: Shannon encoding</h2>
 <p>In this part of the lab you will be working with the files <code>encode_decode.py</code> and <code>Shannon.py</code>. The high-level goal is to implement the Shannon encoding algorithm discussed in class, then use it on a real-world Twitter dataset.</p>
 <h3 id="shannon-encoding-algorithm">Shannon encoding algorithm</h3>
-<p>For this part, work inside the <code>Shannon.py</code> file to create a <code>Shannon</code> class. The main methods of this class will be <code>encode</code> and <code>decode</code>. Each of these methods should take in a string and return a string. <code>encode</code> should take in a string of characters and return a string of 0’s and 1’s. <code>decode</code> should take in a string of 0’s and 1’s and return a string of characters.</p>
+<p>For this part, work inside the <code>Shannon.py</code> file to create a <code>Shannon</code> class. The main methods of this class will be <code>encode()</code> and <code>decode()</code>. Each of these methods should take in a string and return a string. <code>encode()</code> should take in a string of characters and return a string of 0’s and 1’s. <code>decode()</code> should take in a string of 0’s and 1’s and return a string of characters.</p>
 <p>It is up to you how you design your class, but I would recommend that the constructor take a single argument: a dictionary with the probabilities for each character. Below is an example similar to what we did in class, except “senior”, “junior”, “sophomore”, “first-year”, have been replaced with single characters “A”, “B”, “C”, “D” for simplicity (although not in the same order). From these probabilities we wish to create an encoding.</p>
 <pre><code>char_probs = {&quot;A&quot;: 0.25, &quot;B&quot;: 0.125, &quot;C&quot;: 0.5, &quot;D&quot;: 0.125}
 shannon = Shannon(char_probs)</code></pre>
 <p>Inside the constructor you may wish to call helper methods that will help you create another dictionary, this time mapping the characters to their encoding. We know for this example the map should be:</p>
 <pre><code>{&quot;A&quot;: &quot;10&quot;, &quot;B&quot;: &quot;110&quot;, &quot;C&quot;: &quot;0&quot;, &quot;D&quot;: &quot;111&quot;}</code></pre>
-<p>You may also want to create a dictionary for the reverse mapping (for decoding). When you have implemented both <code>encode</code> and <code>decode</code>, you can check your work by encoding a string, then decoding it and making sure you get back the original. For example, you should be able to run something like the following code (put this in your <code>main</code> inside <code>Shannon</code>, which is just for testing).</p>
+<p>You may also want to create a dictionary for the reverse mapping (for decoding). When you have implemented both <code>encode()</code> and <code>decode()</code>, you can check your work by encoding a string, then decoding it and making sure you get back the original. For example, you should be able to run something like the following code (put this in your <code>main()</code> inside <code>Shannon</code>, which is just for testing).</p>
 <pre><code>orig = &quot;ABAACDDBACCDAAABDBBABCDDCBA&quot;
 encoded = shannon.encode(orig)
 decoded = shannon.decode(encoded)
@@ -180,28 +180,26 @@ assert decoded == orig</code></pre>
 <h3 id="testing-with-a-real-world-example">Testing with a real-world example</h3>
 <p>In this next part you’ll use Shannon encoding to encode and decode a variety of files. For this part it’s okay to hard-code the filenames in <code>encode_decode.py</code> (this program doesn’t need to take any command line arguments). The workflow is below:</p>
 <ol type="a">
-<li>First read in the file <code>data/vaccine_tweets_codes_source.csv</code> which is a large file containing tweets about the COVID vaccine. Use the provided <code>read_file</code> function with encoding <code>ISO-8859-1</code> to read this file in as one long string of characters. This is what we will use to develop the character probability table (i.e. what was given in the small example above).</li>
-</ol>
+<li>First read in the file <code>data/vaccine_tweets_codes_source.csv</code> which is a large file containing tweets about the COVID vaccine. Use the provided <code>read_file()</code> function with encoding <code>ISO-8859-1</code> to read this file in as one long string of characters. This is what we will use to develop the character probability table (i.e., what was given in the small example above).
 <p>Create a function to develop a dictionary that maps each character in this file to a probability. The most frequent character should end up being a “space”, followed by “e”, etc. Use this probability dictionary to create an instance of the <code>Shannon</code> class.</p>
-<ol start="2" type="a">
-<li>Use your instance of the <code>Shannon</code> class to encode the file <code>data/vaccine_tweets_to_encode.csv</code> (read it in first in a similar manner to the previous file). This file is a smaller subset of tweets. Write the output (a long string of 0’s and 1’s) to a file called:</li>
-</ol>
+</li>
+<li>Use your instance of the <code>Shannon</code> class to encode the file <code>data/vaccine_tweets_to_encode.csv</code> (read it in first in a similar manner to the previous file). This file is a smaller subset of tweets. Write the output (a long string of 0’s and 1’s) to a file called:
 <pre><code>output/vaccine_tweets_encoded.txt</code></pre>
-<p>using the <code>write_file</code> function with the default encoding (you’ll need to create an <code>output</code> directory first).</p>
-<ol start="3" type="a">
-<li>Finally, use your instance of the <code>Shannon</code> class to decode the secret message in the file <code>data/secrete_message_to_decode.txt</code>. Read this file in using the default encoding. Then decode it and write the output to a file called:</li>
-</ol>
+<p>using the <code>write_file()</code> function with the default encoding (you’ll need to create an <code>output</code> directory first).</p>
+</li>
+<li>Finally, use your instance of the <code>Shannon</code> class to decode the secret message in the file <code>data/secrete_message_to_decode.txt</code>. Read this file in using the default encoding. Then decode it and write the output to a file called:
 <pre><code>output/secret_message_decoded.txt</code></pre>
-<p>So at the end of this section you should have two files in your <code>output</code> folder. Make sure to add/commit/and push these files. The last one should make sense (i.e. not look like random characters)!</p>
+</li></ol>
+<p>So at the end of this section you should have two files in your <code>output</code> folder. Make sure to add/commit/and push these files. The last one should make sense (i.e., not look like random characters)!</p>
 <hr />
 <h2 id="part-2-information-gain-for-best-feature">Part 2: Information gain for best feature</h2>
-<p>In this part of the lab you will be working with the files <code>best_feature.py</code> and <code>Partition.py</code>. Analyze the code in <code>best_feature.py</code> - the reading of the arff file (including conversion of continuous features to discrete) has already been done. The only step remaining is to fill in the <code>main</code> function as you implement information gain. At the end you should only need this code in <code>main</code>:</p>
+<p>In this part of the lab you will be working with the files <code>best_feature.py</code> and <code>Partition.py</code>. Analyze the code in <code>best_feature.py</code> - the reading of the arff file (including conversion of continuous features to discrete) has already been done. The remaining work is to implement <code>parse_args()</code> and fill in the <code>main()</code> function as you implement information gain. At the end you should only need this code in <code>main()</code>:</p>
 <pre><code>args = parse_args()
 train_partition = read_arff(args.train_filename)
 best_f = train_partition.best_feature()
 print(&quot;best feature:&quot;, best_f)</code></pre>
-<p>Here we will only be using the training data to obtain the best feature. Looking at the code above, the suggestion is to implement the <code>best_feature</code> method <em>inside</em> the <code>Partition</code> class. That is because the best feature is really a property of the data (we’re not creating a model here).</p>
-<p>To implement information gain, begin slowly and use several helper methods. It’s a great idea to use top-down design here, then bottom-up implementation. For example, to compute information gain we will need to compute the entropy of y. This might require a helper method that computes the probability y is a specific label (i.e. +1 or -1). Refer to Handout 13 to check your intermediate progress.</p>
+<p>Here we will only be using the training data to obtain the best feature. Looking at the code above, the suggestion is to implement the <code>best_feature()</code> method <em>inside</em> the <code>Partition</code> class. That is because the best feature is really a property of the data (we’re not creating a model here).</p>
+<p>To implement information gain, begin slowly and use several helper methods. It’s a great idea to use top-down design here, then bottom-up implementation. For example, to compute information gain we will need to compute the entropy of y. This might require a helper method that computes the probability y is a specific label (e.g., +1 or -1). Refer to Handout 12 to check your intermediate progress.</p>
 <p>Here are a few examples so you can check your work. This is what should print when we run your programs:</p>
 <p><strong>TENNIS</strong></p>
 <pre><code>$ python3 best_feature.py -r data/tennis_train.arff

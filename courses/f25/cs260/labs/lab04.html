@@ -185,7 +185,7 @@
 test  examples, m=1586</code></pre>
 <hr />
 <h2 id="part-2-creating-a-model-based-on-one-feature">Part 2: Creating a model based on one feature</h2>
-<p>Inside <code>FeatureModel.py</code>, we will create a class representing a classification model based on one feature. You should have a <code>main</code> function in this file where you test this class. But when you import this file into <code>run_roc.py</code> later on, this <code>main</code> will not be run because we used:</p>
+<p>Inside <code>FeatureModel.py</code>, we will create a class representing a classification model based on one feature. You should have a <code>main()</code> function in this file where you test this class. But when you import this file into <code>run_roc.py</code> later on, this <code>main()</code> will not be run because we used:</p>
 <pre><code>if __name__ == &quot;__main__&quot;:
     main()</code></pre>
 <h3 id="constructor-i.e.-create-the-model">Constructor (i.e., create the model)</h3>
@@ -201,9 +201,9 @@ test  examples, m=1586</code></pre>
 }</code></pre>
 <p>Test this out in your <code>FeatureModel.py</code> file and make sure you can get the same values (you can still use the helper functions in <code>util.py</code>).</p>
 <h3 id="classification-i.e.-use-the-model">Classification (i.e., use the model)</h3>
-<p>Implement the <code>classify</code> method, which classify a single <code>Example</code> and return either +1 or -1, using the given <em>threshold</em>. If the “prob pos” for the feature value (of the <code>Example</code>) is greater than or equal to the threshold, return +1, else return -1.</p>
+<p>Implement the <code>classify()</code> method, which classify a single <code>Example</code> and return either +1 or -1, using the given <em>threshold</em>. If the “prob pos” for the feature value (of the <code>Example</code>) is greater than or equal to the threshold, return +1, else return -1.</p>
 <p>Now classify all the <code>Examples</code> in the test data and create a confusion matrix. Also compute the accuracy, false positive rate, and true positive rate (all based on the confusion matrix). Make sure to use helper functions or methods.</p>
-<p>In your <code>main</code> function inside <code>FeatureModel.py</code>, create the following printout (here you can hard-code the feature “cap-shape” and the threshold=0.5). Don’t worry too much about the formatting of your output, but it should be easily readable by the graders.</p>
+<p>In your <code>main()</code> function inside <code>FeatureModel.py</code>, create the following printout (here you can hard-code the feature “cap-shape” and the threshold=0.5). Don’t worry too much about the formatting of your output, but it should be easily readable by the graders.</p>
 <pre><code>$ python3 FeatureModel.py -r data/mushroom_train.arff -e data/mushroom_test.arff
 
 feature: cap-shape, thresh: 0.5

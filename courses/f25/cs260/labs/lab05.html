@@ -28,7 +28,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 42em;
+      max-width: 44em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -195,13 +195,14 @@ income : &lt;=50K</code></pre>
 <li><p>I recommend setting up both <code>F</code> and the feature dictionary for each <code>Example</code> as an <code>OrderedDict()</code>. This will ensure that the keys are always in the same order. To use this functionality you can import:</p>
 <pre><code>from collections import OrderedDict</code></pre>
 </li>
-<li>Here we are working with CSV files, so one option is to use the Python <code>csv</code> package to read in the data. You are also welcome to read in the data another way, for example using <code>numpy</code> arrays or <code>pandas</code> data frames. Here is a way to start your <code>read_csv</code> function:
+<li>Here we are working with CSV files, so one option is to use the Python <code>csv</code> package to read in the data. You are also welcome to read in the data another way, for example using <code>numpy</code> arrays or <code>pandas</code> data frames. Here is a way to start your <code>read_csv()</code> function:
 <pre><code>import csv # at the top
 
 csv_file = csv.reader(open(filename, &#39;r&#39;), delimiter=&#39;,&#39;)
 for row in csv_file:
     ...</code></pre>
-<p>To test your <code>read_csv</code> function, you can run the following code:</p>
+</li></ul>
+<p>To test your <code>read_csv()</code> function, you can run the following code:</p>
 <pre><code>def main():
 
     args = parse_args()
@@ -214,7 +215,6 @@ for row in csv_file:
 <p>Here is what the output should be for the census dataset (not the <code>corrected</code> one yet):</p>
 <pre><code>num train = 28998 , num classes = 2
 num test  = 7419 , num classes = 2</code></pre>
-</li></ul>
 <hr />
 <h2 id="part-2-preliminary-results">Part 2: Preliminary results</h2>
 <p>Now that we have a <code>Partition</code> instance for both the train and test data, we will run some preliminary analyses.</p>
@@ -248,7 +248,7 @@ num test  = 7419 , num classes = 2</code></pre>
 <center>
 <img src="figs/nb_pred.png" width="500">
 </center>
-<p>This should be implemented in your <code>classify</code> method.</p>
+<p>This should be implemented in your <code>classify()</code> method.</p>
 <h3 id="program-outputs">Program Outputs</h3>
 <ul>
 <li>Your program should <em>print</em> a confusion matrix and accuracy of the result (see example below).</li>
@@ -263,7 +263,7 @@ num test  = 7419 , num classes = 2</code></pre>
 <p>For each class and for each feature name, you should also count the number of examples with each feature value from the training data. This will be used to create the likelihood probabilities, which should also be an instance variable. For this type I recommend a dictionary of dictionaries, first indexed by the class and then the feature name.</p>
 <p>Both of these data structures should store the probabilities in log space and include LaPlace counts.</p>
 </li>
-<li>Write a <code>classify</code> method within the <code>NaiveBayes</code> class and pass in each test example:
+<li>Write a <code>classify()</code> method within the <code>NaiveBayes</code> class and pass in each test example:
 <pre><code>y_hat = nb_model.classify(example.features)</code></pre>
 <p>And compute the accuracy and confusion matrix by comparing these predictions to the ground truth. Here are examples of the format of the output:</p>
 <pre><code>python3 run_NB.py -r data/tennis_train.arff -e data/tennis_test.arff

@@ -28,7 +28,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 40em;
+      max-width: 48em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -139,7 +139,7 @@
 </head>
 <body>
 <h1 id="cs260-lab-7-logistic-regression-and-visualization">CS260 Lab 7: Logistic Regression and Visualization</h1>
-<h3><a href="https://classroom.github.com/a/Y5rhIad5">GitHub Classroom Assignment Link</a></h3>
+<h3><a href="https://classroom.github.com/a/wYZznHkl">GitHub Classroom Assignment Link</a></h3>
 <hr />
 <h2 id="overview">Overview</h2>
 <p>Goals:</p>
@@ -159,7 +159,7 @@
 
 <p>Accept your Lab 7 repository on GitHub classroom. You should have the following files:</p>
 <ul>
-<li><strong>data</strong> - directory containing train/test datasets. You may add additional datasets here.</li>
+<li><code>data/</code> - directory containing train/test datasets. You may add additional datasets here.</li>
 <li><code>run_LR.py</code> - your main program executable for Logistic Regression.</li>
 <li><code>LogisticRegression.py</code> - file for the <code>LogisticRegression</code> class (and/or functions).</li>
 <li><code>README.md</code> - for analysis questions and lab feedback.</li>
@@ -168,18 +168,18 @@
 <h2 id="usage-and-io">Usage and I/O</h2>
 <h3 id="usage">Usage</h3>
 <p>Your programs should take in the same command-line arguments as Lab 4 (feel free to reuse the argument parsing code), plus a parameter for the learning rate <code>alpha</code>. For example, to run Logistic Regression on the phoneme example:</p>
-<pre><code>python3 run_LR.py data/phoneme_train.csv data/phoneme_test.csv 0.02</code></pre>
+<pre><code>python3 run_LR.py -r data/phoneme_train.csv -e data/phoneme_test.csv -a 0.02</code></pre>
 <h3 id="program-inputs">Program Inputs</h3>
 <p>To simplify preprocessing, you may assume the following:</p>
 <ul>
 <li><p>The datasets will have continuous features, and binary labels (0, 1). The train and test datasets will be in CSV form (comma separated values), with the label as the last column.</p></li>
 <li><p>I would recommend creating a function to parse the CSV file format. Use the method <code>split(',')</code> to split the line (type string) into a list of strings, which can be parsed further.</p></li>
-<li><p>Make sure the user enters a positive <code>alpha</code> value (it should be type float)</p></li>
+<li><p>Make sure the user enters a positive <code>alpha</code> value (it should be type <code>float</code>)</p></li>
 </ul>
 <h3 id="program-outputs">Program Outputs</h3>
 <ul>
-<li><p>Your program should <em>print</em> a confusion matrix and accuracy of the result (see examples below) for both the phoneme and Challenger datasets.</p></li>
-<li><p>The design of your solution is largely up to you. You don’t necessarily need to have a class, but you should use good top-down design principles so that your code is readable. Having functions for the cost, for SGD, for the logistic function, etc is a good idea.</p></li>
+<li><p>Your program should <em>print</em> a confusion matrix and accuracy of the result (see example below) for both the phoneme and Challenger datasets.</p></li>
+<li><p>The design of your solution is largely up to you. You don’t necessarily need to have a class, but you should use good top-down design principles so that your code is readable. Having functions for the cost, for SGD, for the logistic function, etc. is a good idea.</p></li>
 </ul>
 <hr />
 <h2 id="logistic-regression">Logistic Regression</h2>
@@ -191,7 +191,7 @@
 </center>
 <p>To model the intercept term, we will include a bias term. In practice, this is equivalent to adding a feature that is always “on”. For each instance in training and testing, append a <strong>1</strong> to the feature vector. Ensure that your logistic regression model has a weight for this feature that it can now learn in the same way it learns all other weights.</p>
 <h3 id="training">Training</h3>
-<p>To learn the weights, you will apply stochastic gradient descent as discussed in class until the cost function does not change in value (very much) for a given iteration. As a reminder, our cost function is the <em>negative log</em> of the likelihood function, which is:</p>
+<p>To learn the weights, you will apply stochastic gradient descent (SGD) as discussed in class until the cost function does not change in value (very much) for a given iteration. As a reminder, our cost function is the <em>negative log</em> of the likelihood function, which is:</p>
 <center>
 <img src="figs/likelihood.png" width="500">
 </center>
@@ -209,13 +209,12 @@ while not converged:
 </center>
 <p>The hyper-parameter <em>alpha</em> (learning rate) should be sent as a parameter to your SGD and used in training. A few notes for the above:</p>
 <ul>
-<li>In Lab 3 we did not actually shuffle the data points to make gradient descent truly “stochastic”, but for this lab you should (also make sure y is shuffled along with X!). You may use:</li>
-</ul>
+<li>In Lab 3 we did not actually shuffle the data points to make gradient descent truly “stochastic”, but for this lab you should (also make sure y is shuffled along with X!). You may use:
 <pre><code>numpy.random.shuffle(A)</code></pre>
-<p>which by default shuffles along the first axis.</p>
-<ul>
-<li><p>The stopping criteria should be a) a maximum of some number of iterations (your choice) OR b) the cost has changed by less some number between two iterations (your choice).</p></li>
-<li><p>Many of the operations above are on vectors. I recommend using <code>numpy</code> features such as dot product to make the code simple.</p></li>
+<p>which by default shuffles along the first axis. (You can instead shuffle the indices.)</p>
+</li>
+<li><p>The stopping criteria should be: a) a maximum of some number of iterations (your choice) OR b) the cost has changed by less than some number between two iterations (your choice).</p></li>
+<li><p>Many of the operations above are on vectors. I recommend using <code>numpy</code> functions such as dot product to make the code simpler.</p></li>
 <li><p>Try to choose hyper-parameters that maximize the testing accuracy.</p></li>
 </ul>
 <h3 id="prediction">Prediction</h3>
@@ -223,7 +222,7 @@ while not converged:
 <center>
 <img src="figs/log_reg.png" width="500">
 </center>
-<p>and output the more likely binary outcome. You may use the Python <code>math.exp</code> function to make the calculation in the denominator. Alternatively, you may use the weights directly as a decision boundary as discussed in class.</p>
+<p>and output the more likely binary outcome. You may use the Python <code>math.exp()</code> function to make the calculation in the denominator. Alternatively, you may use the weights directly as a decision boundary as discussed in class.</p>
 <p>The choice of hyper-parameters will affect the results, but you should be able to obtain <strong>at least 90% accuracy on the testing data</strong>. Make sure to print a confusion matrix.</p>
 <h3 id="example-output">Example Output</h3>
 <p>Here is an example run for testing purposes. You should be able to get a better result than this, but this will check if your algorithm is working. The details are:</p>
@@ -233,7 +232,7 @@ while not converged:
 <li>stopping criteria: looking for changes in the cost <span class="math inline"><em>J</em>(<em>w</em>)</span></li>
 <li><code>epsilon</code> = 1e-4 (see if cost has changed by this amount)</li>
 </ul>
-<pre><code>$ python3 run_LR.py data/phoneme_train.csv data/phoneme_test.csv 0.02
+<pre><code>$ python3 run_LR.py -r data/phoneme_train.csv -e data/phoneme_test.csv -a 0.02
 Accuracy: 0.875000 (70 out of 80 correct)
 
    prediction
@@ -247,14 +246,14 @@ Accuracy: 0.875000 (70 out of 80 correct)
 <p>For just the Challenger dataset, create a visualization of both:</p>
 <ul>
 <li>the data (both training and testing, even though the “test” data here is just one datapoint)</li>
-<li>the model (i.e. the final logistic function)</li>
+<li>the model (i.e., the final logistic function)</li>
 </ul>
 <p>Make sure to think about visualization practices discussed in class including:</p>
 <ul>
 <li>choice of colors</li>
 <li>legend or trying to incorporate the legend into the figure</li>
 <li>overplotting</li>
-<li>title/axis labels etc</li>
+<li>title/axis labels, etc.</li>
 </ul>
 <p>Submit your figure as part of your GitHub repo using the filename <code>challenger.pdf</code>.</p>
 <hr />

@@ -170,7 +170,7 @@ from sklearn import datasets</code></pre>
 <pre><code>iris = datasets.load_iris()
 X = iris.data
 y = iris.target</code></pre>
-<p><code>X</code> is our nxp matrix, where n=150 samples and p=4 features. Print <code>X</code>. The features in this case are not DNA data, but physical features of the flowers:</p>
+<p><code>X</code> is our n &times; p matrix, where n=150 samples and p=4 features. Print <code>X</code>. The features in this case are not DNA data, but physical features of the flowers:</p>
 <ol type="1">
 <li>sepal length in cm</li>
 <li>sepal width in cm</li>
@@ -218,20 +218,20 @@ plt.legend(leg_objects,names)</code></pre>
 <hr />
 <h2 id="part-2-coin-toss-example">Part 2: Coin Toss example</h2>
 <p>First we will implement the scenario from Handout 17, where we toss a coin 80 times and observe 54 Heads. The question we’re trying to answer is: <em>Is this coin fair?</em></p>
-<p>Implement this part of the lab in <code>coin_toss.py</code> (no command line arguments needed, but make sure to include a <code>main</code> function and other helper functions as appropriate). You will need the <code>scipy</code> library, which can be installed with <code>pip3</code>:</p>
+<p>Implement this part of the lab in <code>coin_toss.py</code> (no command line arguments needed, but make sure to include a <code>main()</code> function and other helper functions as appropriate). You will need the <code>scipy</code> library, which can be installed with <code>pip3</code>:</p>
 <pre><code>pip3 install scipy</code></pre>
 <p>If this doesn’t work, it may be that you have multiple versions of Python 3. In that case run:</p>
 <pre><code>python3 -m pip install scipy</code></pre>
 <h3 id="a-central-limit-theorem-clt-method">A) Central limit theorem (CLT) method</h3>
 <p>First we will try to answer our question using the CLT. Following what we did in class, compute the test statistic (Z-score) for this example, under the null hypothesis of a fair coin. The CLT tells us that this Z-score is approximately drawn from a standard normal distribution: <code>N(0,1)</code>.</p>
 <p>It is okay to hardcode <code>n = 80</code>, number of Heads = 54, etc. Please encode Tails as 0 and Heads as 1 for the purposes of the lab.</p>
-<p>To compute the associated p-value, we will integrate the pdf (probability density function) of the standard normal distribution from the Z-score to positive infinity. To perform a two-sided test (i.e. that the coin is unfair in either direction, not just weighted toward Heads), we will then multiply the result by two.</p>
-<p>To integrate (approximately) in Python, you can use the <code>quad</code> function:</p>
+<p>To compute the associated p-value, we will integrate the pdf (probability density function) of the standard normal distribution from the Z-score to positive infinity. To perform a two-sided test (i.e., that the coin is unfair in either direction, not just weighted toward Heads), we will then multiply the result by two, which is equivalent to integrating the pdf from negative infinity to the negative of the Z-score. Note that Z-scores can be positive or negative.</p>
+<p>To integrate (approximately) in Python, you can use the <code>quad()</code> function:</p>
 <pre><code>from scipy.integrate import quad
 
 result, error = quad(func, a, b)</code></pre>
 <p>In this example we would integrate the function <code>func</code> from <code>a</code> to <code>b</code> and obtain the area <code>result</code> with error <code>error</code>. See the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html">quad documentation</a> for more information.</p>
-<p>Here we want to integrate the pdf of the standard normal distribution. This function is implemented for us as <code>norm.pdf</code>, after doing the following import:</p>
+<p>Here we want to integrate the pdf of the standard normal distribution. This function is implemented for us as <code>norm.pdf()</code>, after doing the following import:</p>
 <pre><code>from scipy.stats import norm</code></pre>
 <p>See the <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">norm documentation</a> for more information.</p>
 <p>After obtaining the p-value, make sure to print it out like this:</p>
@@ -241,12 +241,12 @@ result, error = quad(func, a, b)</code></pre>
 <ul>
 <li><p>First create a helper method that runs <em>one</em> trial. To make this slightly more general, it could take in the number of tosses <code>n</code>, and return the fraction of Heads observed. Make use of the Python <code>random</code> module.</p></li>
 <li><p>Next run <em>many</em> trials and record the fraction of Heads each time.</p></li>
-<li><p>Finally, count how many times you observe a result <em>as or more</em> extreme than 54 out of 80 Heads (make sure to account for the two-sided nature of our hypothesis). This number of extreme examples divided by the number of trials is our p-value. Print the p-value in a similar fashion:</p></li>
-</ul>
+<li><p>Finally, count how many times you observe a result <em>as or more</em> extreme than 54 out of 80 Heads (make sure to account for the two-sided nature of our hypothesis). This number of extreme examples divided by the number of trials is our p-value. Print the p-value in a similar fashion:</p>
 <pre><code>Random trials p-value: &lt;p-value&gt;</code></pre>
+</li></ul>
 <h3 id="plotting-the-distribution">Plotting the distribution</h3>
-<p>The last step of Part 2 is to plot the null distribution and our observed data. Use <code>plt.hist</code> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">documentation here</a> to plot a histogram of the fraction of Heads observed for all of your trials. I would recommend normalizing the histogram (so it “integrates” to 1) using <code>density=True</code>.</p>
-<p>Then create a way of showing where our observed data (i.e. 54 Heads out of 80 tosses) lies on this distribution. Make sure to include axis labels and a title. Save your plot as:</p>
+<p>The last step of Part 2 is to plot the null distribution and our observed data. Use <code>plt.hist()</code> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">documentation here</a> to plot a histogram of the fraction of Heads observed for all of your trials. I would recommend normalizing the histogram (so it “integrates” to 1) using <code>density=True</code>.</p>
+<p>Then create a way of showing where our observed data (i.e., 54 Heads out of 80 tosses) lies on this distribution. Make sure to include axis labels and a title. Save your plot as:</p>
 <pre><code>figures/coin_toss.pdf</code></pre>
 <p>
 <hr />
@@ -277,13 +277,13 @@ result = ttest_ind(a, b)</code></pre>
 <p>In this case we will assume equal variances and perform a two-sided test. <code>result</code> contains both a test statistic and a p-value. Make sure to print out your p-value like this:</p>
 <pre><code>CLT p-value: &lt;p-value&gt;</code></pre>
 <h3 id="b-permutation-testing-method">B) Permutation testing method</h3>
-<p>In this example our randomized trial method will also be slightly different, since we don’t have access to the true null distribution. Instead, we will use <em>permutation testing</em>. This is a widely applicable concept, but in our case it will mean permuting the labels (i.e. Population 1 vs. 2) of the data, which will mimic the idea that the genome sizes were all drawn from the same distribution.</p>
+<p>In this example our randomized trial method will also be slightly different, since we don’t have access to the true null distribution. Instead, we will use <em>permutation testing</em>. This is a widely applicable concept, but in our case it will mean permuting the labels (i.e., Population 1 vs. 2) of the data, which will mimic the idea that the genome sizes were all drawn from the same distribution.</p>
 <ul>
 <li><p>First, implement a helper function that permutes the labels of the data. In practice, this function will take in two lists (one for each population) and return two lists with the data rearranged (so the first list still represents Population 1 and the second Population 2). It is up to you how to do this step, but think of your algorithm in advance, then start coding. Make sure that the <strong>size</strong> of the first returned list is the same as the size of the first input list (and similarly for the second).</p></li>
 <li><p>Next, run <em>many</em> trials of permuting the labels. Each time, record the <em>difference</em> between the mean of those labeled Population 1 and those labeled Population 2. Since this will be a two-sided test, it might be easiest to record the absolute value of the difference.</p></li>
-<li><p>Finally, count how many times you observe a result <em>as or more</em> extreme than the true difference in means of the original populations (make sure to account for the two-sided nature of our hypothesis). This number of extreme examples divided by the number of trials is our p-value. Print the p-value in a similar fashion:</p></li>
-</ul>
+<li><p>Finally, count how many times you observe a result <em>as or more</em> extreme than the true difference in means of the original populations (make sure to account for the two-sided nature of our hypothesis). This number of extreme examples divided by the number of trials is our p-value. Print the p-value in a similar fashion:</p>
 <pre><code>Permutation testing p-value: &lt;p-value&gt;</code></pre>
+</li></ul>
 <p>Note that your values may not be as similar as Part 2, but should still be quite close (same order of magnitude).</p>
 <p>
 <hr />
