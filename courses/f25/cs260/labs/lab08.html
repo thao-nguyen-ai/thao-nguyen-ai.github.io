@@ -28,7 +28,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 45em;
+      max-width: 46em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -256,6 +256,9 @@ result, error = quad(func, a, b)</code></pre>
 <pre><code>pip3 install pandas openpyxl xlrd</code></pre>
 <p>or</p>
 <pre><code>python3 -m pip install pandas openpyxl xlrd</code></pre>
+<p>To use the lab machines, <!--log into an <a href="https://docs.google.com/document/d/1cjy6mDqqipf-kmEgAMPfbTCNEbvevfJFpgAsvEgrOG4/edit?usp=sharing">H204 "GPU" machine</a> and--> run the following command in your home directory (<code>/homes/yourusername</code>):</p>
+<pre><code>bash /homes/students/mlvenv_self-service.sh</code></pre>
+<p>This sets up a virtual environment <code>mlenv</code> with the necessary libraries. Run<br> <code>source ~/mlvenv/bin/activate</code> to access the virtual environment, and run <code>deactivate</code> to leave it.</p>
 <p>To read in the data, I recommend creating a helper function (that takes in a string <code>filename</code>) and returns two lists: one of the genome sizes of Population 1, and similarly for Population 2. First read the data into a <code>pandas</code> data frame:</p>
 <pre><code>import pandas as pd
 
@@ -288,7 +291,7 @@ result = ttest_ind(a, b)</code></pre>
 <p>
 <hr />
 <h2 id="part-4-covid-cases-analysis-optional">Part 4: COVID cases analysis (OPTIONAL!)</h2>
-<p>In this last part you can analyze the database of COVID cases from January 1, 2021, which is in the file <code>01-01-2021.csv</code>. This data is from the <a href="https://coronavirus.jhu.edu/about/how-to-use-our-data">Johns Hopkins COVID site</a>. This dataset shows various COVID statistics (number of cases, etc) broken down by region for one particular day. The idea is to ask a question about this dataset that can be answered with a procedure similar to Part 3.</p>
+<p>In this last part you can analyze the database of COVID cases from January 1, 2021, which is in the file <code>01-01-2021.csv</code>. This data is from the <a href="https://coronavirus.jhu.edu/about/how-to-use-our-data">Johns Hopkins COVID site</a>. This dataset shows various COVID statistics (number of cases, etc.) broken down by region for one particular day. The idea is to ask a question about this dataset that can be answered with a procedure similar to Part 3.</p>
 <p>One possible analysis would be to choose two states in the US, then gather a list of cases per <em>county</em> in each state. This will give you two lists, similar to Part 3. You could then frame a question like this: “On January 1, 2021, was COVID significantly worse in Pennsylvania or New York?” You could perform a similar analysis for other parts of the world, etc.</p>
 <p>Include your implementation in <code>covid_cases.py</code> and write up your procedure/results in your <code>README.md</code>, following the questions below.</p>
 <p>
@@ -299,8 +302,7 @@ result = ttest_ind(a, b)</code></pre>
 <li><p>For the iris flower dataset in Part 1, what genealogical relationships can we infer from the PCA plot? For your other chosen dataset, what conclusions can you draw from the PCA plot? Does the number of visual clusters match the number of labels?</p></li>
 <li><p>For Part 2, include both your p-values below. What is the probabilistic <em>interpretation</em> of the p-value in this coin toss situation? Given this interpretation, do you reject the null hypothesis (fair coin) or fail to reject?</p></li>
 <li><p>For Part 3, include both your p-values below. Do you reject the null hypothesis (genomes from Population 1 and Population 2 are roughly the same size) or fail to reject?</p></li>
-<!--<li><p>For Part 3, you may have noticed that your p-values were not as close as in Part 1. What assumption of the CLT might be violated with this dataset?</p></li>-->
-<li><p>(Optional) If you did Part 4, write up your procedure and results here (what were you trying to test, how you went about it, what you found, etc).</p></li>
+<li><p>(Optional) If you did Part 4, write up your procedure and results here (what were you trying to test, how you went about it, what you found, etc.)</p></li>
 </ol>
 </body>
 </html>
