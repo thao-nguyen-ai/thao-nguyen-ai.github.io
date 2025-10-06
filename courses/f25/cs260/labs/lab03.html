@@ -215,7 +215,7 @@ filename = args.data_filename</code></pre>
 <p><em>NOTE: there should be no for loops in your code! See below for two exceptions in gradient descent.</em></p>
 <hr />
 <h2 id="part-3-gradient-descent-solution-to-linear-regression">Part 3: Gradient descent solution to linear regression</h2>
-<p>In this part of the lab we will work with the <code>USA_Housing</code> dataset, as the <code>sea_ice</code> dataset is a bit too small to work well with stochastic gradient descent. Use the steps below as a guide.</p>
+<p>In this part of the lab we will work with the <code>USA_Housing_cleaned</code> dataset, as the <code>sea_ice</code> dataset is a bit too small to work well with stochastic gradient descent. Use the steps below as a guide.</p>
 <ol type="a">
 <li>In this dataset, the magnitudes of the features are very large, and some of the features are on different scales. This makes gradient descent difficult, since it requires all the weights to converge at roughly the same time. To work around this, we will <em>normalize</em> the data by subtracting off the mean and dividing by the standard deviation.
 <p>First compute the mean and standard deviation for the features (across all examples on the rows, i.e., axis=0).</p>

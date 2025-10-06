@@ -256,7 +256,7 @@ result, error = quad(func, a, b)</code></pre>
 <pre><code>pip3 install pandas openpyxl xlrd</code></pre>
 <p>or</p>
 <pre><code>python3 -m pip install pandas openpyxl xlrd</code></pre>
-<p>To use the lab machines, <!--log into an <a href="https://docs.google.com/document/d/1cjy6mDqqipf-kmEgAMPfbTCNEbvevfJFpgAsvEgrOG4/edit?usp=sharing">H204 "GPU" machine</a> and--> run the following command in your home directory (<code>/homes/yourusername</code>):</p>
+<p>To use the lab machines, run the following command in your home directory (<code>/homes/yourusername</code>):</p>
 <pre><code>bash /homes/students/mlvenv_self-service.sh</code></pre>
 <p>This sets up a virtual environment <code>mlenv</code> with the necessary libraries. Run<br> <code>source ~/mlvenv/bin/activate</code> to access the virtual environment, and run <code>deactivate</code> to leave it.</p>
 <p>To read in the data, I recommend creating a helper function (that takes in a string <code>filename</code>) and returns two lists: one of the genome sizes of Population 1, and similarly for Population 2. First read the data into a <code>pandas</code> data frame:</p>
