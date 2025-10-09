@@ -178,7 +178,7 @@
 </ul>
 <h3 id="program-outputs">Program Outputs</h3>
 <ul>
-<li><p>Your program should <em>print</em> a confusion matrix and accuracy of the result (see example below) for both the phoneme and Challenger datasets.</p></li>
+<li><p>Your program should <em>print</em> the confusion matrix and accuracy of the result (see example below) for both the phoneme and Challenger datasets.</p></li>
 <li><p>The design of your solution is largely up to you. You don’t necessarily need to have a class, but you should use good top-down design principles so that your code is readable. Having functions for the cost, for SGD, for the logistic function, etc. is a good idea.</p></li>
 </ul>
 <hr />
@@ -241,6 +241,12 @@ Accuracy: 0.875000 (70 out of 80 correct)
   0| 36  4
   1|  6 34</code></pre>
 <p><a href="out/phoneme.labels">Labels</a> and <a href="out/phoneme.debug">Debugging Output</a></p>
+<h3 id="comparison-with-sklearn">Comparison with <code>sklearn</code></h3>
+<p>After implementing logistic regression by yourself, try using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegression model</a> implemented in the <code>sklearn</code> library. If you do not already have this library, install it using <code>pip3</code>:</p>
+<pre><code>pip3 install scikit-learn</code></pre>
+<p>If this doesn’t work, it may be that you have multiple versions of Python 3. In that case run:</p>
+<pre><code>python3 -m pip install scikit-learn</code></pre>
+<p>Train and evaluate the <code>LogisticRegression</code> model on both datasets and compare the results with your own implementation. </p>
 <hr />
 <h2 id="visualization">Visualization</h2>
 <p>For just the Challenger dataset, create a visualization of both:</p>
@@ -260,6 +266,7 @@ Accuracy: 0.875000 (70 out of 80 correct)
 <h2 id="analysis">Analysis</h2>
 <p>(See README.md to answer these questions)</p>
 <ol type="1">
+<li><p>Are there any differences between your implementation of logistic regression and the <code>sklearn</code> model? How did the <code>sklearn</code> logistic regression model perform on the datasets?</p></li>
 <li><p>So far, we have run logistic regression and Naive Bayes on different types of datasets. Why is that? Discuss the types of features and labels that we worked with in each case.</p></li>
 <li><p>Regarding the Challenger data specifically, what was your final probability of an accident after fitting the model? Is this what you expected? Based on this value, would you have recommended the Challenger be launched on 1/28/86? What data and/or modeling might have helped increase the confidence of our prediction?</p></li>
 </ol>
