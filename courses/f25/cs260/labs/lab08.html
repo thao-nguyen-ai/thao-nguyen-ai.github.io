@@ -225,7 +225,7 @@ plt.legend(leg_objects,names)</code></pre>
 <h3 id="a-central-limit-theorem-clt-method">A) Central limit theorem (CLT) method</h3>
 <p>First we will try to answer our question using the CLT. Following what we did in class, compute the test statistic (Z-score) for this example, under the null hypothesis of a fair coin. The CLT tells us that this Z-score is approximately drawn from a standard normal distribution: <code>N(0,1)</code>.</p>
 <p>It is okay to hardcode <code>n = 80</code>, number of Heads = 54, etc. Please encode Tails as 0 and Heads as 1 for the purposes of the lab.</p>
-<p>To compute the associated p-value, we will integrate the pdf (probability density function) of the standard normal distribution from the Z-score to positive infinity. To perform a two-sided test (i.e., that the coin is unfair in either direction, not just weighted toward Heads), we will then multiply the result by two, which is equivalent to integrating the pdf from negative infinity to the negative of the Z-score. Note that Z-scores can be positive or negative.</p>
+<p>To compute the associated p-value, we will integrate the pdf (probability density function) of the standard normal distribution from the Z-score to positive infinity. To perform a two-sided test (i.e., that the coin is unfair in either direction, not just weighted toward Heads), we will then multiply the result by two, which is equivalent to also integrating the pdf from negative infinity to the negative of the Z-score. Note that Z-scores can be positive or negative.</p>
 <p>To integrate (approximately) in Python, you can use the <code>quad()</code> function:</p>
 <pre><code>from scipy.integrate import quad
 
