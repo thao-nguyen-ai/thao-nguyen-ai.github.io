@@ -170,7 +170,7 @@
 <p>It is up to you how you design your class, but I would recommend that the constructor take a single argument: a dictionary with the probabilities for each character. Below is an example similar to what we did in class, except “senior”, “junior”, “sophomore”, “first-year”, have been replaced with single characters “A”, “B”, “C”, “D” for simplicity (although not in the same order). From these probabilities we wish to create an encoding.</p>
 <pre><code>char_probs = {&quot;A&quot;: 0.25, &quot;B&quot;: 0.125, &quot;C&quot;: 0.5, &quot;D&quot;: 0.125}
 shannon = Shannon(char_probs)</code></pre>
-<p>Inside the constructor you may wish to call helper methods that will help you create another dictionary, this time mapping the characters to their encoding. We know for this example the map should be:</p>
+<p>Inside the constructor you may wish to call helper methods that will help you create another dictionary, this time mapping the characters to their encoding. You must implement all helper methods by yourself. We know for this example the map should be:</p>
 <pre><code>{&quot;A&quot;: &quot;10&quot;, &quot;B&quot;: &quot;110&quot;, &quot;C&quot;: &quot;0&quot;, &quot;D&quot;: &quot;111&quot;}</code></pre>
 <p>You may also want to create a dictionary for the reverse mapping (for decoding). When you have implemented both <code>encode()</code> and <code>decode()</code>, you can check your work by encoding a string, then decoding it and making sure you get back the original. For example, you should be able to run something like the following code (put this in your <code>main()</code> inside <code>Shannon</code>, which is just for testing).</p>
 <pre><code>orig = &quot;ABAACDDBACCDAAABDBBABCDDCBA&quot;
