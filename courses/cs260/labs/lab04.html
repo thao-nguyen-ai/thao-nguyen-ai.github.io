@@ -1,0 +1,255 @@
+<link href='../markdown.css' rel='stylesheet'></link>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lab04</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 45em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin-top: 1.7em;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: purple;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.7em;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<h1 id="cs260-lab-4-evaluation-metrics">CS260 Lab 4: Evaluation Metrics</h1>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Goals:</p>
+<ul>
+<li>Understand and implement a classification method based on a single feature</li>
+<li>Use confusion matrices to compute various evaluation metrics</li>
+<li>Compare models and select features using ROC curves</li>
+<li>Think about how our tolerance for false positives or false negatives changes with the application</li>
+</ul>
+<p><em>Credit: Materials by Sara Mathieson. Based on materials created by Allison Gong.</em></p>
+<hr />
+<h2 id="introduction">Introduction</h2>
+<p>In this lab, we will analyze the <a href="https://archive.ics.uci.edu/ml/datasets/mushroom">Mushroom Dataset</a> from the UCI Machine Learning Repository. Each example is a sample of mushroom with 22 characteristics (features) recorded. The goal is to classify the mushroom as “edible” (label -1) or “poisonous” (label +1). In this lab we will use different features to predict edible vs. poisonous and compare the performance using a variety of evaluation metrics. The main deliverable is a ROC curve comparing the performance of the top 5 features.</p>
+<p>Note that this lab has some starter code (for reading the data into classes in a particular way), but you are welcome to use your own code instead. This lab is designed to have an intermediate level of structure - there is a roadmap for completing it below, but you are welcome to get to the end goal (ROC curve) in a different way.</p>
+<p>To get started, accept your Lab 4 repo on GitHub classroom. You should have the following files:</p>
+<ul>
+<li><code>data/</code> - directory containing the train/test mushroom data sets</li>
+<li><code>FeatureModel.py</code> - this is a class representing a model based on a single feature</li>
+<li><code>Partition.py</code> - Partition is a class representing a dataset (keeps the features and labels together)</li>
+<li><code>run_roc.py</code> - this is the driver for the entire program</li>
+<li><code>util.py</code> - utility program for common functions (you can add to this file)</li>
+<li><code>README.md</code> - for analysis questions and lab feedback</li>
+</ul>
+<hr />
+<h2 id="part-1-reading-in-the-data">Part 1: Reading in the data</h2>
+<p>Throughout this part make sure you understand how the starter code is working, both in <code>Partition.py</code> and <code>util.py</code>. The files we are using are in arff format, which is different from csv but encodes the same idea. The difference is that the feature names and values are shown at the top. For example, the <code>cap-shape</code> <em>feature name</em> is listed first, along with the possible <em>values</em>:</p>
+<pre><code>@attribute &#39;cap-shape&#39; {b, c, x, f, k, s}</code></pre>
+<p>These letter abbreviations stand for:</p>
+<pre><code>bell=b, conical=c, convex=x, flat=f, knobbed=k, sunken=s</code></pre>
+<p>The last “attribute” is the “y” value or <em>label</em>:</p>
+<pre><code>@attribute &#39;class&#39; {e, p}</code></pre>
+<p>Where e=“edible” (label -1) and p=“poisonous” (label +1).</p>
+<h3 id="command-line-arguments">Command line arguments</h3>
+<p>For <code>run_roc.py</code>, your program should take in the following command line arguments using the <code>argparse</code> library.</p>
+<ul>
+<li><code>train_filename</code> (option -r), the path to the arff file of training data</li>
+<li><code>test_filename</code> (option -e), the path to the arff file of testing data</li>
+</ul>
+<p>This is provided in the starter code (in <code>util.py</code>). So in <code>run_roc.py</code>, call the argument parsing function using <code>util.parse_args()</code>, then read each dataset (train and test) using <code>util.read_arff()</code>. This will create two <code>Partition</code> objects. To test this process, you can try:</p>
+<pre><code>python3 run_roc.py -r data/mushroom_train.arff -e data/mushroom_test.arff</code></pre>
+<p>You can make sure the data is being read in correctly by checking the number of examples in each dataset (use the <code>n</code> attribute):</p>
+<pre><code>train examples, n=6538
+test  examples, m=1586</code></pre>
+<hr />
+<h2 id="part-2-creating-a-model-based-on-one-feature">Part 2: Creating a model based on one feature</h2>
+<p>Inside <code>FeatureModel.py</code>, we will create a class representing a classification model based on one feature. You should have a <code>main()</code> function in this file where you test this class. But when you import this file into <code>run_roc.py</code> later on, this <code>main()</code> will not be run because we used:</p>
+<pre><code>if __name__ == &quot;__main__&quot;:
+    main()</code></pre>
+<h3 id="constructor-i.e.-create-the-model">Constructor (i.e., create the model)</h3>
+<p>In the constructor, I would recommend creating a dictionary of probabilities, one for each <em>feature value</em>. Continuing with our <code>cap-shape</code> example, there are 6 possible values - let’s consider the value “bell-shaped” (b). In the training data, 355 examples are bell-shaped. Of these, 41 are poisonous (label +1) and 314 are edible (label -1). So based on the training data alone, we would say that a bell-shaped mushroom has a 41/355 = 11.5% chance of being poisonous.</p>
+<p>If we compute these probabilities (i.e., probability of a positive) for all feature values, we would obtain:</p>
+<pre><code>{
+ &#39;b&#39;: 0.11549295774647887,
+ &#39;c&#39;: 1.0,
+ &#39;x&#39;: 0.4652588555858311,
+ &#39;f&#39;: 0.49667318982387476,
+ &#39;k&#39;: 0.7259036144578314,
+ &#39;s&#39;: 0.0
+}</code></pre>
+<p>Test this out in your <code>FeatureModel.py</code> file and make sure you can get the same values (you can still use the helper functions in <code>util.py</code>).</p>
+<h3 id="classification-i.e.-use-the-model">Classification (i.e., use the model)</h3>
+<p>Implement the <code>classify()</code> method, which classify a single <code>Example</code> and return either +1 or -1, using the given <em>threshold</em>. If the “prob pos” for the feature value (of the <code>Example</code>) is greater than or equal to the threshold, return +1, else return -1.</p>
+<p>Now classify all the <code>Examples</code> in the test data and create a confusion matrix. Also compute the accuracy, false positive rate, and true positive rate (all based on the confusion matrix). Make sure to use helper functions or methods.</p>
+<p>In your <code>main()</code> function inside <code>FeatureModel.py</code>, create the following printout (here you can hard-code the feature “cap-shape” and the threshold=0.5). Don’t worry too much about the formatting of your output, but it should be easily readable by the graders.</p>
+<pre><code>$ python3 FeatureModel.py -r data/mushroom_train.arff -e data/mushroom_test.arff
+
+feature: cap-shape, thresh: 0.5
+
+   prediction
+      -1    1
+   ----------
+-1|  785   46
+ 1|  636  119
+
+accuracy:         0.569987 (904 out of 1586 correct)
+false positive:   0.055355
+true positive:    0.157616</code></pre>
+<hr />
+<h2 id="part-3-evaluation-using-roc-curves">Part 3: Evaluation using ROC curves</h2>
+<p>We will now use ROC curves to evaluate the models created from each feature. This will allow us to select the most important (i.e., informative for the label) features. A ROC curve captures both the false positive rate (FPR) which we want to be low, and the true positive rate (TPR) which we want to be high. ROC curves always contain the points (FPR, TPR) = (0,0) and (FPR, TPR) = (1,1), which correspond to classifying everything as negative and everything as positive, respectively. The following steps should help you generate a ROC curve. I would recommend doing most of this in <code>run_roc.py</code> (with use of helpers) but it’s up to you.</p>
+<ol type="1">
+<li>Select a feature to start with (say <code>cap-shape</code>) and create a model based on this feature. Then choose a variety of thresholds between 0 and 1. I would recommend using the following code (we go slightly below 0 and above 1 to get the terminal points).
+<pre><code>thresholds = np.linspace(-0.0001,1.1,20)</code></pre>
+<p>For each threshold, re-classify the <em>test</em> examples and compute the FPR and TPR. This will allow you to build up a list of “x-values” and “y-values” you can plot to create the ROC curve. Test this out for this single feature - you should be able to get a plot like the one below (use <code>"o-"</code> to get the dots connected by lines):</p>
+<center>
+<img src="cap-shape.png" width="600">
+</center>
+</li>
+<li>Next, use a loop to compute a ROC curve for each feature. Plot these all on the same figure (just for now). It may be difficult to see them all. I recommend using a random color for each one (example below) and using a legend to make it clearer.
+<pre><code>r = random.random()
+b = random.random()
+g = random.random()
+color = (r, g, b)</code></pre>
+</li>
+<li>Visually inspect your ROC curve plot to select the top five “best” features. This is not an exact science - think about what the ideal ROC curve is and which features come closest to this idea. Hard-code these five features (as a list) instead of using all the features, then re-recreate your ROC curve plot. <strong>Your final deliverable for this lab is a plot with ROC curves for each of the best five features.</strong> Create a <code>figures</code> folder in your GitHub repo and save your plot as:
+<pre><code>figures/roc_curve_top5.pdf</code></pre>
+<p>Make sure to include axis labels, a title, and a legend.</p>
+</li>
+<li>Finally, devise a way to compute the area under the curve (AUC) for a more precise measurement to determine the best features (you may not use any built-in AUC functions). Which are the top 5 best features now? Write up your AUC method and results in your <code>README.md</code> (but you do not have to create a new figure with these features).</li>
+</ol>
+<hr />
+<h2 id="part-4-analysis">Part 4: Analysis</h2>
+<p>Answer in your <code>README.md</code>.</p>
+<ol type="1">
+<li><p>In this lab we are thinking about poisonous vs. edible mushrooms. For this application, would you prefer a higher or lower classification threshold? Explain your reasoning.</p></li>
+<li><p>Come up with one example application where you would prefer a low (below 50% threshold) and one where you would prefer a high (above 50% threshold). (Excluding examples from class and from this lab.)</p></li>
+<li><p>What is the runtime (in big-O notation) of creating a single feature decision tree model (decision stump)? Assume: <code>n</code> training examples, each with <code>p</code> features, the feature in question has <code>v</code> possible values, and the outcome is binary. Explain your reasoning.</p></li>
+<li><p>Briefly describe your AUC algorithm and which were the resulting top five features from this step. Did they match the features from your visual inspection?</p></li>
+</ol>
+<hr />
+<h2 id="optional-extension">Optional Extension</h2>
+<p>Here we just used one feature at a time. How could you combine these models to create a more robust classification system? Write up you thoughts (and describe any additional code) in your <code>README.md</code>.</p>
+</body>
+</html>

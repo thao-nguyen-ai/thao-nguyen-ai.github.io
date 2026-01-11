@@ -1,0 +1,272 @@
+
+<link href='../markdown.css' rel='stylesheet'></link>
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lab03</title>
+  <style>
+    html {
+      line-height: 1.7;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 45em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin-top: 1.7em;
+    }
+    a {
+      color: blue;
+    }
+    a:visited {
+      color: purple;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.7em;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1.7em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1.7em 0 1.7em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      font-style: italic;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      background-color: #f0f0f0;
+      font-size: 85%;
+      margin: 0;
+      padding: .2em .4em;
+    }
+    pre {
+      line-height: 1.5em;
+      padding: 1em;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin-top: 1.7em;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td {
+      border-bottom: 1px solid lightgray;
+      padding: 1em 3em 1em 0;
+    }
+    header {
+      margin-bottom: 6em;
+      text-align: center;
+    }
+    nav a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="cs260-lab-3-gradient-descent">CS260 Lab 3: Gradient Descent</h1>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>Goals:</p>
+<ul>
+<li>Become more familiar with vector and matrix operations in code</li>
+<li>Investigate two different approaches to fitting regression models</li>
+<li>Interpret the resulting linear models</li>
+</ul>
+<p><em>Credit: Materials by Sara Mathieson. Based on materials created by Allison Gong and Jessica Wu.</em></p>
+<hr />
+<h2 id="numpy-suggestions"><code>numpy</code> suggestions</h2>
+<p>Here are a few suggestions for working through this lab:</p>
+<ul>
+<li><p>If you are seeing many errors at runtime, inspect your matrix operations to make sure that you are adding and multiplying matrices of compatible dimensions. Printing the dimensions of variables with the <code>arr.shape</code> command will help you debug.</p></li>
+<li><p>When working with <code>numpy</code> arrays, note that <code>numpy</code> interprets the <code>*</code> operator as element-wise multiplication. This is a common source of size incompatibility errors. If you want matrix multiplication, you need to use the <code>np.matmul()</code> function. For example, <code>A*B</code> does element-wise multiplication while <code>np.matmul(A,B)</code> does a matrix multiplication.</p></li>
+<li><p>Be careful when handling <code>numpy</code> vectors (rank-1 arrays): the vector shapes (1,n), (n,1), and (n,) are all different things. For simplicity in this lab (unless otherwise indicated in the code), both column and row vectors are rank-1 arrays of shape (n,), not rank-2 arrays of shape (1,n) or (n,1).</p></li>
+</ul>
+<p>Useful <code>numpy</code> functions:</p>
+<ul>
+<li><p><code>np.array([...])</code>: takes in a list (or list-of-lists, etc) and turns it into a <code>numpy</code> array. Note that after this step, you have to use <code>numpy</code> operations to work with the resulting object.</p></li>
+<li><p><code>np.dot(u,v)</code>: computes the dot product of two vectors <code>u</code> and <code>v</code> with the same length. Note that this function also works as matrix multiply, but I recommend the following function for clarity.</p></li>
+<li><p><code>np.matmul(A,B)</code>: multiplies the matrices <code>A</code> and <code>B</code>. The inner dimensions must match.</p></li>
+<li><p><code>np.ones((p,q))</code>: creates a 2D array of 1’s with the given shape. Similarly, you can use <code>np.zeros((p,q))</code> to create an array of 0’s. If you include only one dimension (i.e., <code>np.zeros(p)</code>), this will yield a vector.</p></li>
+<li><p><code>np.concatenate((A, B), axis=0)</code>: concatenates two arrays along the given axis. Here it would be along the rows (axis 0), so <code>A</code> would be “on top”, and <code>B</code> below. In this case <code>A</code> and <code>B</code> do not have to have the same number of rows, but they do have to have the same number of columns. If we concatenate along axis 1 then <code>A</code> would be on the “left” and <code>B</code> would be on the right (and visa versa about the matching dimensions).</p></li>
+<li><p><code>np.reshape(A, (p,q))</code>: reshapes array <code>A</code> to have dimensions <code>(p,q)</code> (or whatever dimensions you need, provided the values of <code>A</code> can actually be reshaped in this way).</p></li>
+<li><p><code>np.transpose(A)</code>: returns array <code>A</code> with the axes transposed.</p></li>
+<li><p><code>np.linalg.pinv(A)</code>: returns the pseudo-inverse of matrix <code>A</code> (we will use this just in case we have issues with a singular matrix).</p></li>
+</ul>
+<hr />
+<h2 id="part-1-reading-in-the-data">Part 1: Reading in the data</h2>
+<p>Accept your Lab 3 repository on GitHub classroom. You should have the following folders/files:</p>
+<ul>
+<li><code>linear_regression.py</code>: this is where your code will go</li>
+<li><code>data/</code>: folder with three different datasets</li>
+</ul>
+<p>Two of these datasets we have seen before. The <code>USA_Housing</code> dataset is from <a href="https://www.kaggle.com/vedavyasv/usa-housing">here</a> and has several features that potentially have an impact on housing prices. In our code we will use the <em>cleaned</em> version of this dataset, but the original is included so you can see the names of the features.</p>
+<p>For all these datasets, the features are the first columns and the output (response variable) is the last column.</p>
+<p>In this lab we will be using <em>command line arguments</em>. This will allow us to specify the dataset on the command line, as opposed to hard-coding it within the program. As a result, we can change the dataset easily.</p>
+<p>Here is example code for command line arguments in Python. Here we have one mandatory argument <code>data_filename</code>.</p>
+<pre><code>import argparse
+
+def parse_arguments():
+    &#39;&#39;&#39;Parse command line arguments&#39;&#39;&#39;
+    parser = argparse.ArgumentParser(prog=&#39;Linear Regression&#39;,
+                                     description=&#39;run linear regression method&#39;)
+    parser.add_argument(&#39;-d&#39;, &#39;--data_filename&#39;, type=str, required=True,
+                        help=&#39;path to CSV file of data&#39;)
+    return parser.parse_args()</code></pre>
+<p>Then in <code>main</code>, we can use this function like this:</p>
+<pre><code>args = parse_arguments()
+filename = args.data_filename</code></pre>
+<p><code>filename</code> is now a string that we can use later on (e.g., to open the file). More information about the <code>argparse</code> library <a href="https://docs.python.org/3/library/argparse.html">here</a>. On the command line, we can now write:</p>
+<pre><code>$ python3 linear_regression.py -d data/sea_ice_data.csv</code></pre>
+<p>Double check that this all works correctly on your system, and read the data into a <code>numpy</code> array. Separate <code>X</code> and <code>y</code> into separate variables using <code>numpy</code> array slicing (no loops!)</p>
+<hr />
+<h2 id="part-2-analytic-solution-to-linear-regression">Part 2: Analytic solution to linear regression</h2>
+<p>In linear regression, our objective is to minimize the cost function:</p>
+<center>
+<img src="figs/objective.png" width="500">
+</center>
+<p>Where our linear model is a dot product of the weights and the features of an example (with a “fake” 1 added to the front of each <em>x</em>):</p>
+<center>
+<img src="figs/model.png" width="300">
+</center>
+<p>In class, we learned that the closed-form solution to linear regression is:</p>
+<center>
+<img src="figs/analytic.png" width="400">
+</center>
+<p>First we will start out by implementing this solution in the function:</p>
+<pre><code>def fit(X, y):</code></pre>
+<p>This should return the optimal weights <code>w</code> (i.e., the model parameters). You may want to add a helper function that adds the column of ones to the <code>X</code> matrix (again using no loops).</p>
+<p>Test your analytic method on the <code>sea_ice</code> data and the <code>regression_train</code> data. In your <code>README.md</code>, comment on how close your results are (for <code>w</code>) to the provided models from Lab 2. Make sure your code clearly prints out the weights found by the analytic solution (but no specific format is needed).</p>
+<p><em>NOTE: there should be no for loops in your code! See below for two exceptions in gradient descent.</em></p>
+<hr />
+<h2 id="part-3-gradient-descent-solution-to-linear-regression">Part 3: Gradient descent solution to linear regression</h2>
+<p>In this part of the lab we will work with the <code>USA_Housing_cleaned</code> dataset, as the <code>sea_ice</code> dataset is a bit too small to work well with stochastic gradient descent. Use the steps below as a guide.</p>
+<ol type="a">
+<li>In this dataset, the magnitudes of the features are very large, and some of the features are on different scales. This makes gradient descent difficult, since it requires all the weights to converge at roughly the same time. To work around this, we will <em>normalize</em> the data by subtracting off the mean and dividing by the standard deviation.
+<p>First compute the mean and standard deviation for the features (across all examples on the rows, i.e., axis=0).</p>
+<pre><code>X_mean = X.mean(axis=0)
+X_std = X.std(axis=0)</code></pre>
+<p>Then subtract off the mean and divide by the standard deviation to get normalized <code>X</code> values that we will use throughout the rest of the code. Then do the same for the <code>y</code> values.</p>
+</li>
+<li><p>Implement the functions <code>predict()</code> (which should return a vector of predicted y values given a matrix X of features and a vector of weights w) and <code>cost()</code> (which should return the value of the cost/loss function J discussed in class). Use your <code>cost()</code> function to compute the cost associated with the weights from the analytic solution. This should be roughly the minimum of the cost function J, and will serve as a goal/baseline when implementing gradient descent. (<em>Hint: this value should be below 205.</em>)</p></li>
+<li><p>Now we will implement stochastic gradient descent in the function:</p>
+<pre><code>def fit_SGD(X, y, alpha, eps=1e-10, tmax=10000):</code></pre>
+<p>Here <code>alpha</code> is the step size, <code>eps</code> is the tolerance for how much J should change at convergence, and <code>tmax</code> is the maximum number of iterations to run gradient descent. These are the default values, but throughout you’ll need to experiment with these values to ensure efficient convergence. <code>tmax</code> is more of a stop-gap if the method is not converging - it should ideally not be used as a way to stop the algorithm. <em>Hint: start with <code>alpha=0.001</code> but you’ll need to modify this value!</em></p>
+<p>During each iteration of SGD, we go through each $x_i$ in turn and update the weights according to the gradient with respect to this x-value. Start with 0’s for the weight values.</p>
+<center>
+<img src="figs/sgd.png" width="500">
+</center>
+<p>The goal of this function is to return the final weights after the cost function has converged. To check for convergence, after each iteration of SGD, compute the cost function and compare it to the cost function from the previous iteration. If the difference is less than epsilon (<code>eps</code>), then break out of the loop and return the current weights. You should be able to achieve a cost function value similar to that of the analytic solution.</p>
+<p><em>NOTE: it is okay here to have one for loop over the SGD iterations and one for loop over the examples. Also note that you do not need to randomize the examples for this lab, as would be typical in SGD.</em></p>
+<p>At the end of this step, when run your code should clearly print out:</p>
+<ul>
+<li>the analytic cost</li>
+<li>the analytic weights</li>
+<li>the <code>alpha</code>, <code>eps</code>, and <code>tmax</code> values you used for SGD</li>
+<li>the SGD cost</li>
+<li>the SGD weights</li>
+<li>the number of iterations it took for SGD to converge</li>
+</ul>
+<p>Make sure in your printout that each value is clearly labeled.</p>
+</li>
+<li>Finally, as a debugging and visualization tool, create a plot of the cost function J as the number of iterations increases (so the SGD iteration should be on the x-axis and the cost should be on the y-axis). If you see that the cost is increasing, you may need to change your <code>alpha</code> value or debug your algorithm. Save your final plot as:
+<pre><code>figures/cost_J.pdf</code></pre>
+<p>This figure should have axis labels and a title.</p>
+</li></ol>
+<hr />
+<h2 id="part-4-interpretation">Part 4: Interpretation</h2>
+Answer these questions for the <code>USA_Housing</code> dataset.
+<ol type="a">
+<li><p>In your <code>README.md</code>, include the optimal weights from both your analytic solution and your SGD solution. Comment on any differences between the two models. <em>Hint: with SGD you should be able to get within 0.1 of the analytic cost.</em></p></li>
+<li><p>For each model, what was the most important feature? Which features were essentially not important? Do these results make sense to you? Does it matter that we normalized the features first? (include your answers in your <code>README.md</code>)</p></li>
+</ol>
+<h3 id="final-checks">Final checks:</h3>
+<ul>
+<li>Make sure you’ve followed proper Python style (see Lab 1 for more details).</li>
+<li>Double check your repository <em>online</em> to make sure all figures and code are pushed correctly.</li>
+<li>Make sure your <code>README.md</code> is <em>completely</em> filled out. Points will be lost for not filling out the last section.</li>
+</ul>
+<hr />
+<h2 id="optional-extension-polynomial-regression">Optional extension: polynomial regression</h2>
+<p>In Lab 2 we saw not only linear models, but polynomial models with degrees up to 10. For datasets with a single feature (like <code>sea_ice</code> and <code>regression_train</code>) the machinery of multiple linear regression can actually be used solve polynomial regression.</p>
+<p>The idea is to create a matrix <em>X</em> where column <em>k</em> represents <em>x</em> to the power <em>k</em>. Here is what this might look like for a degree <em>d</em> polynomial:</p>
+<center>
+<img src="figs/polynomial.png" width="500">
+</center>
+<p>After creating this matrix, we can now run multiple linear regression as usual to find the model, which consists of the coefficients of the polynomial (as opposed to the coefficients of each feature). Try this out and see if you can come up with the polynomial models provided in Lab 2.</p>
+</body>
+</html>
