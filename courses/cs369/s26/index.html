@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <title>
-    Haverford CMSC H260 Foundations of Data Science (Fall 2025)
+    Haverford CMSC H369 Introduction to Robotics (Spring 2026)
 </title>
 
 <head>
     <meta http-equiv="content-type" content="
     text/html; charset=utf-8">
     <meta name="author" content="Thao Nguyen">
-    <meta name="description" content="Class Webpage for CMSC H260">
+    <meta name="description" content="Class Webpage for CMSC H369">
     <style type="text/css">
         @import url("../style/stylesheet.css");
         @import url("../style/table.css");
@@ -22,10 +22,10 @@
         <div id="HeadImgMed">
             <div id="HeaderSmall">
                 <center>
-                    <h1> CMSC H260: Foundations of Data Science </h1>
+                    <h1> <img src="../Cartoon_Robot_Wikipedia.png" height="85px" alt="Cartoon_Robot"> CMSC H369: Introduction to Robotics </h1>
                 </center>
                 <center>
-                    <h2> (Fall 2025)</h2>
+                    <h2> (Spring 2026)</h2>
                 </center>
                 <center>
                     <a href="index.html#class">Course Info</a> |
@@ -39,9 +39,6 @@
                     <a href="index.html#links">Links</a>
                 </center>
             </div>
-            <div class="TagLine">
-                CMSC H260 Data Science - Materials adapted from Sara Mathieson
-            </div>
         </div>
         <div id="Content">
 
@@ -51,50 +48,24 @@
 
             <h2 id="class">Course Information</h2><!--TODO-->
 
-            <b>Lectures:</b> TuTh 10-11:30am in Founders 220 Common Room<br>
-            <b>Labs:</b> Wednesdays 9:30-10:30am | 10:30-11:30am | 11:30am-12:30pm in KINSC H110 <br>
+            <b>Lectures:</b> TuTh 10-11:30am in KINSC H108<br>
+            <b>Labs:</b> Wednesdays 11:00am-12:00pm or 1:00-2:00pm in H110<br>
             <b>Professor:</b> <a href="https://thao-nguyen-ai.github.io/">Thao Nguyen</a> (she/her)<br>
             <b>Office hours:</b> Tuesdays 2-4pm in L303 (or <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2egybG3hnl6N_87_PK83PI8JZSTqbLGg4yXj2NLaFHZdcs7ggH67dkkO3VV7thQMftjjJ048TI">schedule an appointment with me</a>)<br>
-            <b>TAs:</b> Owen Bluman, Rustom Dubash, Chang Sun<br>
-            <b>TA hours: </b> Mondays 8-10pm (2 TAs), Tuesdays 7-9pm, Thursdays 8-10pm, Fridays 7-9pm in H204 <br>
+            <b>TAs:</b> Owen Bluman, Zenas Boamah, Matt Feinstein <br>
+            <b>TA hours: </b> TBA <!--Mondays 7:30-9:30pm and 8-10pm in Stokes 16, Tuesdays 7-9pm, Thursdays 8-10pm, Fridays 7-9pm in H110 --> <br>
             <!--<b>Peer Tutors:</b> <br>-->
-            <b>Piazza: </b> <a href="https://piazza.com/haverford/semester12025/cs260foundationsofdatascience/home">CS260</a> <br>
+            <b>Piazza: </b> <a href="https://piazza.com/haverford/semester22026/cs369/home">CS369</a> <br>
 
 
-            <p> The prerequisites for this course are Calculus I, Data Structures, and Discrete Mathematics (this last is
-                a co-req).
+            <p> The prerequisites for this course are Data Science and Linear Algebra.
 
-            <p>
-                    This course will introduce core principles of learning from data. More and more decisions are being made
-                    by algorithms that operate on large datasets, and this course will give students the tools to understand and
-                    contribute to this process. Throughout we will emphasize the ethical use of data and analyze case studies of
-                    how data science has intersected with society. This course will have a significant theory component, covering
-                    introductory linear algebra, probability, statistics, modeling, information theory, and optimization. However,
-                    we will also implement these ideas (in Python) and apply them to concrete datasets from a variety of fields
-                    (including images, video, text, DNA, music, art, etc).
-
-                    <p> The language for this course is Python 3. </p>
+            <p>This course presents an overview of robotics in practice and research with topics including kinematics, control, motion planning, perception, reinforcement learning, and human-robot interaction. Students will implement algorithms to enable a robot to learn about and interact with the physical world.
 
                     <h3>Textbook:</h3>
 
                     You do not need to purchase a textbook for this course. We will draw from
                     several online textbooks, as well as supplemental online readings and research papers.
-
-                    <ul>
-                        <li> <a href="https://mml-book.github.io/">Mathematics for Machine Learning</a> by Deisenroth, Faisal, and Ong ("MML" in schedule below)
-                            <p>
-                        <li> <a href="http://ciml.info/">A Course in Machine Learning</a> by Hal Daum&eacute; III ("Daum&eacute;" in schedule below)
-                            <p>
-                        <li> (optional) <a href="https://www.mbmlbook.com/">Model-Based Machine Learning</a> by John Winn <!--("Winn" in schedule below)-->
-                            <p>
-                        <li> (optional) <a href="https://www.sciencedirect.com/book/9780124058880/doing-bayesian-data-analysis">Doing Bayesian Data Analysis</a> by John K. Kruschke <!--("DBD" in schedule below)-->
-                            <p>
-                        <li> (optional) <a href="https://www.cs.ubc.ca/~tmm/vadbook/">Visualization Analysis and Design</a> by
-                            Tamara Munzner
-                        
-                            
-
-                    </ul>
 
                     <p>
 
@@ -111,342 +82,298 @@
 <TR>
   <TD ><center><B>WEEK</B></center></TD>
   <TD ><center><B>DAY</B></center></TD>
-  <TD WIDTH="49%"><center><B>TOPIC &amp; READING</B></center></TD>
-  <TD WIDTH="23%"><center><B> LECTURES</B></center></TD>
-  <TD WIDTH="25.5%"><center><B>LAB &amp; MEMOS</B></center></TD>
+  <TD WIDTH="45%"><center><B>TOPIC &amp; READING</B></center></TD>
+  <TD WIDTH="20%"><center><B> LECTURES</B></center></TD>
+  <TD WIDTH="34%"><center><B>LAB &amp; MEMOS</B></center></TD>
 </TR>
-<TR class="odd"> <TD ROWSPAN="2">1</TD> <TD >Sep 02</TD> <TD ROWSPAN="2"><h4>Introduction to Data Science and Python</h4>
+<TR class="odd"> <TD ROWSPAN="2">1</TD> <TD >Jan 20</TD> <TD ROWSPAN="2"><h4>Introduction to Robotics</h4>
 <ul>
-<li>What can we learn from data?</li>
-<li>Representing data</li>
-<li>Crash course on Python</li>
-<li>Numpy</li>
-<li>Matplotlib (plotting in Python)</li>
-<li>Classes and objects in Python</li>
-<li>Dictionaries</li>
+<li>What is a robot?</li>
+<li>Types of robots</li>
+<li>Robotic applications</li>
+<li>Robot configuration</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li>MML Chap 1</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec01/lec01.pdf">Slides 1</a></li>
+<li><a href="lecs/lec01.pdf">Slides 1</a></li>
+<li><a href="lecs/python_demo.txt">Python demo</a></li>
 <li><a href="../handouts/handout01.pdf">Handout 1</a></li>
-<li><a href="lecs/lec01/python_demo.txt">Python demo</a></li>
-</ul>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 1:</strong> <a href="../labs/lab01.html">Computing and Plotting in Python</a><br>(due Sep 9 at 11:59pm)</p>
+<p><strong>Lab 1:</strong> Robot Assembly and Setup</p><!--<a href="../labs/lab01.html">Robot Assembly and Setup</a><br>(due Sep 9 at 11:59pm)</p>-->
 </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Sep 04</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Jan 22</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec02/lec02.pdf">Slides 2</a></li>
+    <li><a href="lecs/lec02.pdf">Slides 2</a></li>
     <li><a href="../handouts/handout02.pdf">Handout 2</a></li>
-    </ul>
+    <li><a href="https://docs.google.com/document/d/1aKXn-jladg375yBBEvAix7sI927x8-dplNcKddqtw6I/edit?usp=sharing">Lecture notes</a></li>
+    </ul>-->
 </TD> <!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">2</TD> <TD ><p >Sep 09</p></TD> <TD ROWSPAN="2"><h4>Introduction to Modeling</h4>
+<TR class="even"> <TD ROWSPAN="2">2</TD> <TD ><p >Jan 27</p></TD> <TD ROWSPAN="2"><h4>Kinematics</h4>
 <ul>
-<li>What is a model?</li>
-<li>Linear models</li>
-<li>Polynomial models</li>
-<li>Assessing model fit and complexity</li>
-<li>Using models for prediction</li>
+<li>Coordinate transformations</li>
+<li>Forward kinematics</li>
+<li>Inverse kinematics (IK)</li>
+<li>Jacobians</li>
+<li>Iterative IK</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li>MML Chap 8.1, 8.2.1-8.2.3</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec03/lec03.pdf">Slides 3</a></li>
+<li><a href="lecs/lec03.pdf">Slides 3</a></li>
 <li><a href="../handouts/handout03.pdf">Handout 3</a></li>
-</ul>
+<li><a href="notes/Lecture_Notes_Owen_Bluman.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 2:</strong> <a href="../labs/lab02.html">Modeling Climate Change</a><br> (due Sep 16 at 11:59pm)</p>
+<p><strong>Lab 2:</strong> Forward and Inverse Kinematics</p><!--<a href="../labs/lab02.html">Forward and Inverse Kinematics</a><br> (due Sep 16 at 11:59pm)</p>-->
 </TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Sep 11</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Jan 29</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec04/lec04.pdf">Slides 4</a></li>
+    <li><a href="lecs/lec04.pdf">Slides 4</a></li>
     <li><a href="../handouts/handout04.pdf">Handout 4</a></li>
-    </ul>
+    <li><a href="notes/data_science_notes_jaxon.pdf">Lecture notes</a></li>
+    </ul>-->
 </TD><!-- SPANNED ROW --> </TR>
-<TR class="odd"> <TD ROWSPAN="2">3</TD> <TD ><p >Sep 16</p></TD> <TD ROWSPAN="2"><h4>Applied Linear Algebra and Optimization</h4>
+<TR class="odd"> <TD ROWSPAN="2">3</TD> <TD ><p >Feb 03</p></TD> <TD ROWSPAN="2"><h4>Control Theory</h4>
 <ul>
-<li>Matrices and vectors</li>
-<li>Representing data as a matrix</li>
-<li>Matrix operations including dot products</li>
-<li>Analytic solution for linear regression</li>
-<li>Model fitting as a numerical optimization problem</li>
-<li>Introduction to gradients</li>
-<li>Gradient descent</li>
-<li>Application to linear regression</li>
-<li>Discussion of optimization in other contexts</li>
+<li>Controllers</li>
+<li>PID control</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li>Daum&eacute; Chap 7.1-7.6</li>
-<li><em>(optional)</em> MML Chap 2.1-2.2, 2.5, 2.7.1</li>
-<li><em>(optional)</em> MML Chap 9-9.2</li>
-<li><em>(optional)</em> MML Chap 7-7.1</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec05/lec05.pdf">Slides 5</a></li>
+<li><a href="lecs/lec05.pdf">Slides 5</a></li>
 <li><a href="../handouts/handout05.pdf">Handout 5</a></li>
-<li><a href="../handouts/vectors_matrices.pdf">Vector/Matrix notes</a></li>
-</ul>
+<li><a href="notes/Class Notes.pdf">Lecture notes</a></li>
+<li><a href="lecs/vectors_matrices.pdf">Vector/Matrix notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 3:</strong> <a href="../labs/lab03.html">Gradient Descent</a><br> (due Sep 23 at 11:59pm)</p>
-<p>Last day to drop <B>(Sep 19)</B></p><!--TODO-->
+<p><strong>Lab 3:</strong> Iterative IK and Control</p><!--<a href="../labs/lab03.html">Iterative IK and Control</a><br> (due Sep 23 at 11:59pm)</p>-->
+<p>Last day to drop <B>(Feb 06)</B></p><!--TODO-->
 </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD class="None"><p class="None">Sep 18</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="odd"> <!-- SPANNED ROW --> <TD class="None"><p class="None">Feb 05</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec06/lec06.pdf">Slides 6</a></li>
+    <li><a href="lecs/lec06.pdf">Slides 6</a></li>
     <li><a href="../handouts/handout06.pdf">Handout 6</a></li>
-    </ul>
+    <li><a href="notes/DataScienceSep18Notes.pdf">Lecture notes</a></li>
+    </ul>-->
     </TD>  <!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">4</TD> <TD ><p >Sep 23</p></TD> <TD ROWSPAN="2"><h4>Evaluation Metrics</h4>
+<TR class="even"> <TD ROWSPAN="2">4</TD> <TD ><p >Feb 10</p></TD> <TD ROWSPAN="2"><h4>Motion Planning</h4>
 <ul>
-<li>Precision and recall</li>
-<li>Specificity and sensitivity</li>
-<li>Confusion matrices</li>
-<li>ROC curves</li>
-<li>Introduction to probability</li>
+<li>Configuration space</li>
+<li>Environment representations</li>
+<li>Graph search algorithms</li>
+<li>Sampling-based algorithms</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li>8.3 and 8.4 of <a href="https://nlp.stanford.edu/IR-book/pdf/08eval.pdf">Evaluation in information retrieval</a> by Manning et al. (2009)</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec07/lec07.pdf">Slides 7</a></li>
+<li><a href="lecs/lec07.pdf">Slides 7</a></li>
 <li><a href="../handouts/handout07.pdf">Handout 7</a></li>
-</ul>
+<li><a href="notes/notes.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 4:</strong> <a href="../labs/lab04.html">Evaluation Metrics</a><br> (due Sep 30 at 11:59pm)</p>
+<p><strong>Lab 4:</strong> Motion Planning</p><!--<a href="../labs/lab04.html">Motion Planning</a><br> (due Sep 30 at 11:59pm)</p>-->
 </TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Sep 25</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Feb 12</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec08/lec08.pdf">Slides 8</a></li>
+    <li><a href="lecs/lec08.pdf">Slides 8</a></li>
     <li><a href="../handouts/handout08.pdf">Handout 8</a></li>
-    </ul>
+    <li><a href="notes/9_25_24 Notes.pdf">Lecture notes</a></li>
+    </ul>-->
 </TD> <!-- SPANNED ROW --> </TR>
-<TR class="odd"> <TD ROWSPAN="2">5</TD> <TD ><p >Sep 30</p></TD> <TD ROWSPAN="2"><h4>Probabilistic Modeling I (+ review)</h4>
+<TR class="odd"> <TD ROWSPAN="2">5</TD> <TD ><p >Feb 17</p></TD> <TD ROWSPAN="2"><h4>Perception</h4>
 <ul>
-<li>Midterm 1 review</li>
-<li>Introduction to probability</li>
-<li>Bayes rule</li>
+<li>Pinhole camera model</li>
+<li>Object detection</li>
+<li>Convolutional neural networks</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li>MML Chap 6.1-6.3</li>
-<li>Daum&eacute; Chap 9.1-9.4</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec09/lec09.pdf">Slides 9</a></li>
-<li><a href="../handouts/handout09.pdf">Practice Midterm 1</a></li>
-<li><a href="lecs/lec09/practice_midterm1.pdf">Solutions</a></li>
-</ul>
+<li><a href="lecs/lec09.pdf">Slides 9</a></li>
+<li><a href="../handouts/handout09.pdf">Handout 9</a></li>
+<li><a href="notes/Data Science 9-30-24 notes.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><a href="lecs/study_guide1.pdf">Study Guide 1</a></p>
+<!--<p><a href="lecs/study_guide1.pdf">Study Guide 1</a></p>-->
 </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Oct 02</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Feb 19</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec10/lec10.pdf">Slides 10</a></li>
-    <li><a href="../handouts/handout10.pdf">Handout 10</a></li>
-    </ul>
+    <li><a href="lecs/lec10.pdf">Slides 10</a></li>
+    <li><a href="../handouts/handout10.pdf">Practice Midterm 1</a></li>
+    <li><a href="https://docs.google.com/document/d/17hC1gCrJPGx5OYTkHvxVbkAIIC63ZJiV8ddVQcYCgFU/edit?usp=sharing">Lecture notes</a></li>
+    </ul>-->
 </TD> <!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">6</TD> <TD ><p >Oct 07</p></TD> <TD ROWSPAN="2"><h4>Ethics: Disparate Impact</h4>
+<TR class="even"> <TD ROWSPAN="2">6</TD> <TD ><p >Feb 24</p></TD> <TD ROWSPAN="2"><h4>Localization</h4>
 <ul>
-<li>Naive Bayes algorithm</li>
-<li>Probability in clinical trials</li>
-<li>Introduction to algorithmic bias</li>
-<li>Redundant encoding of protected features</li>
+<li>Probabilistic algorithms</li>
+<li>Simultaneous localization and mapping (SLAM)</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li><a href="https://medium.com/@mrtz/how-big-data-is-unfair-9aa544d739de">How big data is unfair</a> by Moritz Hardt (2014)</li>
-<li><a href="http://hdc.cs.arizona.edu/papers/kdd_2015_bias.pdf">Certifying and Removing Disparate Impact</a> by Feldman et al. (2015)</li>
 </ul></TD> <TD>
-<p><strong>Midterm 1</strong></p>
+<!--
+<ul>
+<li><a href="lecs/lec11.pdf">Slides 11</a></li>
+<li><a href="../handouts/handout11.pdf">Handout 11</a></li>
+<li><a href="notes/Data Science Notes Oct 7 24.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 5:</strong> <a href="../labs/lab05.html">Naive Bayes</a><br> (due Oct 21 at 11:59pm)</p>
+<p><strong>Lab 5:</strong> Perception</p><!--<a href="../labs/lab05.html">Naive Bayes</a><br> (due Oct 21 at 11:59pm)</p>-->
 </TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Oct 09</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Feb 26</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec11/lec11.pdf">Slides 11</a></li>
-    <li><a href="../handouts/handout11.pdf">Handout 11</a></li>
-    </ul>
+    <li><a href="lecs/lec12.pdf">Slides 12</a></li>
+    <li><a href="../handouts/handout12.pdf">Handout 12</a></li>
+    <li><a href="https://docs.google.com/document/d/1fKIXMSiSvZu4FUjbMs017IvamBs9PXysktbav3pwWhw/edit?usp=sharing">Lecture notes</a></li>
+    </ul>-->
 </TD> <!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">&nbsp;</TD> <TD class="break"><p class="break">Oct 14</p></TD> <TD rowspan="2" colspan="3" class="break"><p class="break">Fall Break</p></TD> <!-- SPANNED COL --> <!-- SPANNED COL --> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD class="break"><p class="break">Oct 16</p></TD> <!-- SPANNED ROW --> <!-- SPANNED COL --> <!-- SPANNED COL --> </TR>
-<TR class="odd"> <TD ROWSPAN="2">7</TD> <TD ><p >Oct 21</p></TD> <TD ROWSPAN="2"><h4>Information Theory</h4>
+<TR class="odd"> <TD ROWSPAN="2">7</TD> <TD ><p >Mar 03</p></TD> <TD ROWSPAN="2"><h4>Task Planning</h4>
     <ul>
-    <li>Introduction to information theory</li>
-    <li>Entropy</li>
-    <li>Coding theory</li>
-    <li>Discuss applications of entropy in machine learning</li>
-    <li>Continuous features</li>
+    <li>Planning Domain Definition Language (PDDL)</li>
+    <li>Probabilistic planning</li>
     </ul>
     <p>Reading:</p>
     <ul>
-    <li><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-02-introduction-to-eecs-ii-digital-communication-systems-fall-2012/readings/MIT6_02F12_chap02.pdf">Information, Entropy, and the Motivation for Source Codes</a> (MIT course notes)</li>
-    <li><a href="https://medium.com/analytics-vidhya/understanding-entropy-the-golden-measurement-of-machine-learning-4ea97c663dc3">Understanding Entropy</a></li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec12.pdf">Slides 12</a></li>
-<li><a href="../handouts/handout12.pdf">Handout 12</a></li>
-</ul>
+<li><a href="lecs/lec13.pdf">Slides 13</a></li>
+<li><a href="../handouts/handout13.pdf">Handout 13</a></li>
+<li><a href="notes/10.21 Class Notes.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 6:</strong> <a href="../labs/lab06.html">Information Theory</a><br> (due Oct 28 at 11:59pm)</p>
+<p><strong>Lab 6:</strong> Localization</p><!--<a href="../labs/lab06.html">Information Theory</a><br> (due Oct 28 at 11:59pm)</p>-->
 </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Oct 23</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Mar 05</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec13.pdf">Slides 13</a></li>
-    <li><a href="../handouts/handout13.pdf">Handout 13</a></li>
-    </ul>
+    <li><a href="lecs/lec14.pdf">Slides 14</a></li>
+    <li><a href="../handouts/handout14.pdf">Handout 14</a></li>
+    <li><a href="notes/10_23.pdf">Lecture notes</a></li>
+    </ul>-->
 </TD><!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">8</TD> <TD ><p >Oct 28</p></TD> <TD ROWSPAN="2"><h4>Probabilistic Modeling II + Visualization</h4>
+<TR class="odd"> <TD ROWSPAN="2">&nbsp;</TD> <TD class="break"><p class="break">Mar 10</p></TD> <TD rowspan="2" colspan="3" class="break"><p class="break">Spring Break</p></TD> <!-- SPANNED COL --> <!-- SPANNED COL --> </TR>
+<TR class="odd"> <!-- SPANNED ROW --> <TD class="break"><p class="break">Mar 12</p></TD> <!-- SPANNED ROW --> <!-- SPANNED COL --> <!-- SPANNED COL --> </TR>
+<TR class="even"> <TD ROWSPAN="2">8</TD> <TD ><p >Mar 17</p></TD> <TD ROWSPAN="2"><h4>Robot Learning</h4>
     <ul>
-    <li>Logistic regression</li>
-    <li>Principles of visualization data</li>
-    <li>Discrete vs. continuous data</li>
-    <li>Types of graphs (bar chart, scatter plot, heatmap, etc.)</li>
-    <li>Visualizing graphs</li>
-    <li>Principal components analysis (PCA)</li>
-    <li>Interactive visualization basics</li>
+    <li>Imitation learning</li>
+    <li>Reinforcement learning</li>
     </ul>
     <p>Reading:</p>
     <ul>
-    <li>(<em>optional</em>) <a href="http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf">Generative And Discriminative Classifiers: Naive Bayes And Logistic Regression</a> (Section 3) by Tom Mitchell</li>
-    <li><a href="https://clauswilke.com/dataviz/index.html">Fundamentals of Data Visualization</a> Chap 1-5, 18, 22</li>
-    <li>MML Chap 10 (PCA)</li>
-    <li>Daum&eacute; Chap 15 (PCA)</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec14.pdf">Slides 14</a></li>
-<li><a href="../handouts/handout14.pdf">Handout 14</a></li>
-</ul>
+<li><a href="lecs/lec15.pdf">Slides 15</a></li>
+<li><a href="../handouts/handout15.pdf">Handout 15</a></li>
+<li><a href="notes/Class Notes 10_28.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong>Lab 7:</strong> <a href="../labs/lab07.html">Logistic Regression and Visualization</a><br> (due Nov 4 at 11:59pm)</p>
-<p><a href="project/proposal.html">Final Project Proposal</a><br>(due Nov 7 at 11:59pm)</p>
+<!--<p><a href="project/proposal.html">Final Project Proposal</a><br>(due Nov 8 at 11:59pm)</p>-->
 </TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Oct 30</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Mar 19</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec15.pdf">Slides 15</a></li>
-    <li><a href="../handouts/handout15.pdf">Handout 15</a></li>
-    </ul>
+    <li><a href="lecs/lec16.pdf">Slides 16</a></li>
+    <li><a href="../handouts/handout16.pdf">Handout 16</a></li>
+    <li><a href="notes/10_30 Notes.pdf">Lecture notes</a></li>
+    </ul>-->
 </TD><!-- SPANNED ROW --> </TR>
-<TR class="odd"> <TD ROWSPAN="2">9</TD> <TD ><p >Nov 04</p></TD> <TD ROWSPAN="2"><h4>Introduction to Statistics I</h4>
+<TR class="odd"> <TD ROWSPAN="2">9</TD> <TD ><p >Mar 24</p></TD> <TD ROWSPAN="2"><h4>Reinforcement Learning</h4>
     <ul>
-    <li>Introduction to statistics</li>
-    <li>Normal distributions</li>
-    <li>Hypothesis testing</li>
-    <li>p-values</li>
-    <li>Randomized trials</li>
-    <li>Permutation testing</li>
-    <li>t-tests</li>
     </ul>
 <p>Reading:</p>
 <ul>
-<li><a href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNM_Y-bUAhblSAdWRnmBUcr">Crash Course Statistics </a>#18-21, 26, 27</li>
-</ul></TD> <TD>
+</ul></TD> <TD><!--
 <ul>
-<li><a href="lecs/lec16.pdf">Slides 16</a></li>
-<li><a href="../handouts/handout16.pdf">Handout 16</a></li>
-</ul>
-</TD> <TD ROWSPAN="2"><p><strong>Lab 8:</strong> <a href="../labs/lab08.html">Statistics and Visualization</a><br> (due Nov 11 at 11:59pm)</p>
+<li><a href="lecs/lec17.pdf">Slides 17</a></li>
+<li><a href="../handouts/handout17.pdf">Handout 17</a></li>
+<li><a href="notes/Classnotes 11-04.pdf">Lecture notes</a></li>
+</ul>-->
+</TD> <TD ROWSPAN="2"><p><strong>Lab 7:</strong> Reinforcement Learning</p><!--<a href="../labs/lab08.html">Reinforcement Learning</a><br> (due Nov 18 at 11:59pm)</p>
+<p><a href="lecs/study_guide2.pdf">Study Guide 2</a></p>-->
 </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Nov 06</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Mar 26</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec17.pdf">Slides 17</a></li>
-    <li><a href="../handouts/handout17.pdf">Handout 17</a></li>
-    </ul>
+    <li><a href="lecs/lec18.pdf">Slides 18</a></li>
+    <li><a href="../handouts/handout18.pdf">Handout 18</a></li>
+    <li><a href="notes/DS Notes 11_6.pdf">Lecture notes</a></li>
+    </ul>-->
 </TD> <!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">10</TD> <TD ><p >Nov 11</p></TD> <TD ROWSPAN="2"><h4>Introduction to Statistics II (+ review)</h4>
+<TR class="even"> <TD ROWSPAN="2">10</TD> <TD ><p >Mar 31</p></TD> <TD ROWSPAN="2"><h4>Human-Robot Interaction I</h4>
 <ul>
-<li>Confidence intervals</li>
-<li>Bootstrap, bagging</li>
-<li>Random forests</li>
-<li>Midterm 2 review</li>
+<li>Natural language processing</li>
+<li>Language grounding</li>
 </ul>
 <p>Reading:</p>
 <ul>
-<li><a href="https://hc.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=cb71daf4-e850-4737-97d8-b0bc015b0359">Bootstrap demo</a> by Sara Mathieson</li>
 </ul>
-</TD> <TD>
+</TD> <TD><!--
 <ul>
-<li><a href="lecs/lec18.pdf">Slides 18</a></li>
-<li><a href="../handouts/handout18.pdf">Handout 18</a></li>
-</ul>
-</TD> <TD ROWSPAN="2"><p><a href="lecs/study_guide2.pdf">Study Guide 2</a></p>
+<li><a href="lecs/lec19.pdf">Slides 19</a></li>
+<li><a href="notes/Lecture Notes 11_12.pdf">Lecture notes</a></li>
+</ul>-->
+</TD> <TD ROWSPAN="2">
 </TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Nov 13</p></TD> <!-- SPANNED ROW --> <TD>
-    <ul>
-    <li><a href="../handouts/handout19old.pdf">Practice Midterm 2</a></li>
-    <li><a href="lecs/lec19.pdf">Slides 19</a></li>
-    </ul>
-</TD> <!-- SPANNED ROW --> </TR>
-<TR class="odd"> <TD ROWSPAN="2">11</TD> <TD ><p >Nov 18</p></TD> <TD ROWSPAN="2"><h4>Unsupervised Learning I</h4>
-<ul>
-    <li>Dimensionality Reduction (PCA and t-SNE)</li>
-    <li>Clustering</li>
-</ul>
-<p>Reading:</p>
-<ul>
-<li>Daum&eacute; Chap 15 (K-means)</li><!--t-SNE reading-->
-    </ul></TD><TD>
+<TR class="even"> <!-- SPANNED ROW --> <TD ><p >Apr 02</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
     <li><a href="lecs/lec20.pdf">Slides 20</a></li>
+    <li><a href="notes/CS 260 11_13_24 Notes.pdf">Lecture notes</a></li>
+    </ul>-->
+</TD> <!-- SPANNED ROW --> </TR>
+<TR class="odd"> <TD ROWSPAN="2">11</TD> <TD ><p >Apr 07</p></TD> <TD ROWSPAN="2"><h4>Human-Robot Interaction II</h4>
+    <ul>
     </ul>
+    <p>Reading:</p>
+    <ul>
+    </ul></TD><TD><!--
+    <ul>
+    <li><a href="../handouts/handout21.pdf">Practice Midterm 2</a></li>
+    <li><a href="lecs/lec21.pdf">Slides 21</a></li>
+    </ul>-->
     </TD> <TD ROWSPAN="2">
     </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Nov 20</p></TD> <!-- SPANNED ROW --> <TD>
-    <p><strong>Midterm 2</strong></p>
+<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Apr 09</p></TD> <!-- SPANNED ROW --> <TD>
+        <!--
+        <ul>
+        <li><a href="lecs/lec22.pdf">Slides 22</a></li>
+        <li><a href="notes/DS Lecture Notes Nov 20 2024.pdf">Lecture notes</a></li>
+        </ul>-->
     </TD><!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">12</TD> <TD ><p >Nov 25</p></TD> <TD ROWSPAN="2"><h4>Unsupervised Learning II</h4>
+<TR class="even"> <TD ROWSPAN="2">12</TD> <TD ><p >Apr 14</p></TD> <TD ROWSPAN="2"><h4>Research Paper Presentations</h4>
+</TD> <TD><!--
 <ul>
-    <li>Clustering (K-means and Gaussian Mixture Models)</li>
-    <li>Kernel Density Estimation (KDE)</li>
-</ul>
-<p>Reading:</p>
-<ul>
-<li>MML Chap 11 (GMM)</li><!--KDE reading-->
-<li>(<em>optional</em>) <a href="http://leap.ee.iisc.ac.in/sriram/teaching/MLSP_16/refs/GMM_Tutorial_Reynolds.pdf">GMM tutorial</a></li>
-</ul></TD> <TD>
-<ul>
-<li><a href="lecs/lec21.pdf">Slides 21</a></li>
-<li><a href="../handouts/handout21.pdf">Handout 21</a></li>
-</ul>
+<li><a href="lecs/lec23.pdf">Slides 23</a></li>
+<li><a href="../handouts/handout23.pdf">Handout 23</a></li>
+<li><a href="notes/Class Notes 11_25 Genth.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
 </TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD class="None"><p class="None">Nov 27</p></TD> <TD>Thanksgiving (no class)</TD> <!-- SPANNED ROW --> <!-- SPANNED ROW --> </TR>
-<TR class="odd"> <TD ROWSPAN="2">13</TD> <TD ><p >Dec 02</p></TD> <TD ROWSPAN="2"><h4>Introduction to Neural Networks</h4>
+<TR class="even"> <!-- SPANNED ROW --> <TD class="None"><p class="None">Apr 16</p></TD> <TD></TD> <!-- SPANNED ROW --> <!-- SPANNED ROW --> </TR>
+<TR class="odd"> <TD ROWSPAN="2">13</TD> <TD ><p >Apr 21</p></TD> <TD ROWSPAN="2"><h4>Research Paper Presentations</h4>
+</TD> <TD><!--
 <ul>
-<li>Missing data</li>
-<li>Neural networks</li>
-<li>Deep learning</li>
-<li>Applications</li>
-</ul>
-<p>Reading:</p>
-<ul>
-<li>From Stanford CNN course:<ul>
-<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3668100/">Missing data paper</a></li>
-<li><a href="https://cs231n.github.io/neural-networks-1/">Neural Networks 1</a></li></ul></li>
-<li><em>(optional)</em> <a href="https://karpathy.ai/zero-to-hero.html">Neural Networks: Zero to Hero</a> by Andrej Karpathy</li>
-</ul></TD> <TD>
-<ul>
-<li><a href="lecs/lec22.pdf">Slides 22</a></li>
-</ul>
+<li><a href="lecs/lec24.pdf">Slides 24</a></li>
+<li><a href="notes/Notes 12_2-Chris Gliatto.pdf">Lecture notes</a></li>
+</ul>-->
 </TD> <TD ROWSPAN="2">
-<p><strong><a href="project/presentation.html">Final Project Presentation and Deliverables</a></strong> (GitHub repos due Dec 19 at 12pm)</p>
+<!--<p><strong><a href="project/presentation.html">Final Project Presentation and Deliverables</a></strong> (GitHub repos due Dec 19 at 12pm)</p>-->
 </TD> </TR>
-<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Dec 04</p></TD> <!-- SPANNED ROW --> <TD>
+<TR class="odd"> <!-- SPANNED ROW --> <TD ><p >Apr 23</p></TD> <!-- SPANNED ROW --> <TD><!--
     <ul>
-    <li><a href="lecs/lec23.pdf">Slides 23</a></li>
-    </ul>
+    <li><a href="lecs/lec25.pdf">Slides 25</a></li>
+    <li><a href="notes/CS260 Lecture Note 12_04 .pdf">Lecture notes</a></li>
+    </ul>-->
 </TD><!-- SPANNED ROW --> </TR>
-<TR class="even"> <TD ROWSPAN="2">14</TD> <TD ><p >Dec 09</p></TD> <TD ROWSPAN="2"><h4>Project Presentations</h4>
+<TR class="even"> <TD ROWSPAN="2">14</TD> <TD ><p >Apr 28</p></TD> <TD ROWSPAN="2"><h4>Project Presentations</h4>
 <ul>
 <li>Final project presentations</li>
-</ul></TD> <TD ROWSPAN="2"></TD> <TD ROWSPAN="2"><p>Last day to pass/fail <B>(Dec 12)</B></p><!--TODO--></TD> </TR>
-<TR class="even"> <!-- SPANNED ROW --> <TD class="None"><p class="None">Dec 11</p></TD> <!-- SPANNED ROW --> <!-- SPANNED ROW --> </TR>
+</ul></TD> <TD ROWSPAN="2"></TD> <TD ROWSPAN="2"><p>Last day to pass/fail <B>(May 01)</B></p><!--TODO--></TD> </TR>
+<TR class="even"> <!-- SPANNED ROW --> <TD class="None"><p class="None">Apr 30</p></TD> <!-- SPANNED ROW --> <!-- SPANNED ROW --> </TR>
 </TABLE></BODY></HTML>
 <!-- ####################################################### -->
 <br>
@@ -457,49 +384,42 @@ Grades will be weighted as follows:<br>
 
 <table>
     <tr>
-        <td>35%</td>
+        <td>45%</td>
         <td>Lab assignments</td>
     </tr>
     <tr>
-        <td>20%</td>
-        <td>Midterm 1</td>
-    </tr>
-    <tr>
-        <td>20%</td>
-        <td>Midterm 2</td>
-    </tr>
-    <tr>
-        <td>15%</td>
+        <td>25%</td>
         <td>Final project (including presentation)</td>
     </tr>
     <tr>
-        <td>10%</td>
-        <td>Participation (including attendance)</td>
+        <td>15%</td>
+        <td>Research paper presentation</td>
+    </tr>
+    <tr>
+        <td>15%</td>
+        <td>Attendance & participation</td>
     </tr>
     <!--
     <tr>
         <td>1%</td>
-        <td>Extra Credit (sharing at least 3 alternative resources)</td>
+        <td>Extra credit (sharing at least 3 alternative resources)</td>
     </tr>-->
 
 </table>
 
 
+<p><span style="background-color:yellow"><b>Both lecture and lab attendance are required</b></span>, and missing class will quickly affect your participation grade. </p>
+
 <h3>Quizzes and Exams</h3>
-
-<p>In lieu of reading quizzes this semester, we will have short excercises during class (to work on and
+<p>In lieu of quizzes this semester, we will have short excercises during class (to work on and
     discuss, not turn in). Be ready to work on these exercises by completing the weekly reading before class on Tuesdays.
-
-    <p>There will be two in-class midterms (85 minutes each).
-        In lieu of a final exam, there will be a final project and associated presentation.
-        You must pass at least one exam to pass the course overall.
+<p>You will also read and present research papers in class in place of a midterm. In lieu of a final exam, there will be a final project and associated presentation.
 
         <p>
 
             <h3 id="labs">Labs</h3>
             Lab assignments will generally be released Tuesday night, introduced on Wednesday during lab,
-            and due the following Tuesday at midnight. <span style="background-color:yellow"><b>Lab attendance is required</b></span>, and missing labs will quickly affect
-            your participation grade. There will sometimes be pair-programming exercises as part of the lab, and
+            and due the following Tuesday at midnight. There will sometimes be group-programming exercises as part of the lab, and
             lab in general is a time to build community around the course and the material. Please note that I will often be off campus on Friday, and make use of office hours (both mine and the TAs) and Piazza for questions.
 
             <p>
@@ -509,17 +429,12 @@ Grades will be weighted as follows:<br>
                             <b>Weekly Lab Sessions</b>
                         </td>
                         <tr>
-                            <td>Lab A 9:30am&mdash;10:30am Wednesdays</td>
+                            <td>Lab A 11:00am&mdash;12:00pm Wednesdays</td>
                             <td> Nguyen</td>
                             <td> H110 </td>
                         </tr>
                         <tr>
-                            <td>Lab B 10:30am&mdash;11:30am Wednesdays</td>
-                            <td> Nguyen</td>
-                            <td> H110 </td>
-                        </tr>
-                        <tr>
-                            <td>Lab C 11:30am&mdash;12:30pm Wednesdays</td>
+                            <td>Lab B 1:00pm&mdash;2:00pm Wednesdays</td>
                             <td> Nguyen</td>
                             <td> H110 </td>
                         </tr>
@@ -529,19 +444,10 @@ Grades will be weighted as follows:<br>
                 <p><b>Handing in labs:</b> Lab assignments are submitted electronically and managed using GitHub Classroom.
                     You may submit your assignment multiple times, but each submission overwrites
                     the previous one and only the final submission will be graded. Some of the
-                    programming/lab assignments may be in pairs. There may also be some written
+                    programming/lab assignments may be in groups. There may also be some written
                     assignments that will have specific instructions for handing in. </p> <br>
 
-                <b>Late Policy:</b> Each individual will be given <b>2 late days for the semester</b>.
-                A late day is a 24 hour extension from the original deadline.
-                You can use <b>up to one late day on any one assignment</b>. This will
-                encompass any reason - illness, interviews, many midterms in the same week, etc. Past these days,
-                late assignments will not be accepted. You should budget your days to account for future illnesses or assignment
-                deadlines for other courses. Even if you do not fully complete a lab assignment you
-                should submit what you have done to receive partial credit. Late days count against both partners in a group lab.
-            </p>
-
-            <p> For extensions beyond these 2 late days (in the case of an emergency or ongoing personal issue),
+                <b>Late Policy:</b> Late work will not be accepted. In the case of an emergency or ongoing personal issue,
                 please contact your <a href="https://www.haverford.edu/deans-office/contact-staff">Class Dean</a>.
                 If your Class Dean notifies me of the issues, then we can arrange an accommodation. </p>
 
@@ -602,7 +508,7 @@ Grades will be weighted as follows:<br>
                                 All code you submit
                                 must be your own with the following permissible exceptions: code distributed
                                 in class,
-                                code found in the course text book, and code worked on with an assigned partner. In
+                                code found in the course text book, and code worked on with assigned partner(s). In
                                 these cases, you should always include detailed comments that indicates on which parts
                                 of the assignment you received help, and what your sources were. </p>
 
@@ -619,12 +525,12 @@ Grades will be weighted as follows:<br>
                             <h2 id="piazza">Piazza</h2>
 
                             <p>
-                                This semester we'll be using
+                                We will be using
                                 Piazza, an online Q&A forum
                                 for class discussion, to help with labs, clarifications, and
                                 announcements.
                                 You will receive an email invitation to join
-                                CMSC H260 on Piazza.
+                                CMSC H369 on Piazza.
                                 If you don't, please let me know.
 
                                 <p>
