@@ -10,7 +10,7 @@ The TAs will closely monitor your progress, and will offer assistance especially
 
 - To install LeRobot on the Raspberry Pi, follow the instructions [here](https://huggingface.co/docs/lerobot/lekiwi#install-lerobot-on-pi-) and install from PyPI. Remember to install the `feetech` and `lekiwi` functionalities.
 
-    To SSH into the Raspberry Pi, run the command below on a lab machine or your laptop (which must be connected to the Haverford Eduroam network). Replace `X` with your given robot number:
+    To SSH into the Raspberry Pi, run the command below on a lab machine. Replace `X` with your given robot number:
     ```
     ssh robotX@robotX.haverford.edu
     ```
