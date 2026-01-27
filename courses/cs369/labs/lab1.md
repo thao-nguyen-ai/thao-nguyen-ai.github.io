@@ -15,14 +15,21 @@ The TAs will closely monitor your progress, and will offer assistance especially
     ssh robotX@robotX.haverford.edu
     ```
 
-- Run the command below on a lab machine to set up a virtual environment `robvenv` with the necessary libraries. Run `source ~/robvenv/bin/activate` to access the virtual environment, and `deactivate` to leave it.
+- Run the command below on a lab machine to set up a virtual environment `robvenv` with the necessary libraries. The path to the LeRobot package will be `/opt/lerobot-src`. Run `source ~/robvenv/bin/activate` to access the virtual environment, and `deactivate` to leave it.
     ```
     bash /homes/students/robvenv_self-service.sh
     ```
 
-    To install LeRobot on your laptop instead, follow the instructions [here](https://huggingface.co/docs/lerobot/lekiwi#install-lerobot-locally) and install from source. Remember to install the `feetech` and `lekiwi` functionalities.
+    To install LeRobot on your machine instead, follow the instructions [here](https://huggingface.co/docs/lerobot/lekiwi#install-lerobot-locally) and install from source. Remember to install the `feetech`, `lekiwi`, and `kinematics` functionalities.
 
 - Follow the instructions [here](https://huggingface.co/docs/lerobot/lekiwi#configure-motors) to configure the motors with `--robot.port=/dev/ttyACM0`
+
+    On the lab machines, the command to run the script is slightly different:
+    ```
+    python /opt/lerobot-src/src/lerobot/scripts/lerobot_setup_motors.py \
+        --robot.type=lekiwi \
+        --robot.port=/dev/ttyACM0
+    ```
 
 ## Part 2: Assembly
 Guides for the assembly are attached below: 
