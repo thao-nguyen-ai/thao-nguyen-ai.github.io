@@ -34,7 +34,7 @@ Your motion planning algorithms will be evaluated based on:
 
 To aid the evaluation, implement `compute_distance()` and `collision_check()` functions to calculate the Euclidean distance of the output path and check whether the path collides with any obstacles. Your code should also print out the amount of time your algorithms took to solve a motion planning problem.
 
-We have provided a suite of motion planning problems in `motion_planning.py`. Analyze your motion planning algorithms' performance on the problems and record your observations in the README file. The algorithms should not take longer than 20 seconds to solve a problem, and the output path should not be longer than three times the straight-line distance between the start and goal positions. You can set the random seed to reproduce the results of your sampling-based algorithm.
+We have provided a suite of motion planning problems in `motion_planning.py`. Analyze your motion planning algorithms' performance on the problems and record your observations in the README file. The algorithms should not take longer than 20 seconds to solve a problem, and the output path should not be longer than four times the straight-line distance between the start and goal positions. You can set the random seed to reproduce the results of your sampling-based algorithm.
 
 ## Part 2: Robot Movement Script
 
@@ -46,5 +46,6 @@ To test the script, place it in the `lerobot/examples/lekiwi` folder and run it 
 - Attend office or TA hours to demonstrate and get checked off for the movement script before the deadline.
 - Well-commented functions.
 - Test cases for your evaluation functions.
-- Log for your algorithms' performance.
+- Log of your algorithms' performance (planning time, path distance, and collision checking).
+- Visualizations of the output paths (one per problem, with labels to distinguish the graph search and sampling-based paths).
 - Answers for the README questions.
