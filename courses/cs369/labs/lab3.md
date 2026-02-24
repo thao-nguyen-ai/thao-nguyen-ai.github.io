@@ -11,7 +11,7 @@ The goals of this lab:
 ## Introduction
 Inverse kinematics (IK) is the problem of finding robot joint configuration(s) to achieve a desired end effector position. In many cases, closed-form solutions are either unavailable or tedious to compute. We can instead perform **iterative IK** to compute the solution: starting with the current configuration, iteratively update the joint angles until the end effector reaches the target position within a tolerance.
 
-In this lab, you will derive the equation for and implement a function to compute the Jacobian matrix given the robot configuration. You will also implement a Jacobian-based iterative IK solver and PID controllers to control a robot arm in simulation. You will work with the same three-link robot in 3D space as described in Lab 2.
+For this lab, you will derive the equation for and implement a function to compute the Jacobian matrix given the robot configuration. You will also implement a Jacobian-based iterative IK solver and PID controllers to control a robot arm in simulation. You will work with the same three-link robot in 3D space as described in Lab 2.
 
 ## Part 1: Iterative IK
 Given a target end effector position, we can compute a target end effector velocity:
