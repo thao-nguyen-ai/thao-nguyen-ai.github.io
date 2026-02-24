@@ -38,7 +38,7 @@ We have provided a suite of motion planning problems in `motion_planning.py`. An
 
 ## Part 2: Robot Movement Script
 
-Modify `move.py` to control the LeKiwi's base, given a list of tuples representing the (x, y) coordinates along the planned path. The LeKiwi's initial position will be the starting point, and the coordinates will be in meters. Note that you are implementing an open-loop controller as there is no feedback.
+Modify `move.py` to control the LeKiwi's base, given a list of tuples representing the (x, y) coordinates along the planned path. The LeKiwi's initial position will be the starting point, and the coordinates will be in meters. The LeKiwi should move rightwards given a positive change in the x coordinate, and move forward given a positive change in the y coordinate. Note that you are implementing an open-loop controller as there is no feedback.
 
 To test the script, place it in the `lerobot/examples/lekiwi` folder and run it similar to the [intructions](https://huggingface.co/docs/lerobot/lekiwi#teleoperate-lekiwi) for `teleoperate.py`.
 
