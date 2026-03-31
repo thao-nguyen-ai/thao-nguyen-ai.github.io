@@ -7,7 +7,7 @@ The goal of the final project is to enable your LeKiwi robot to perform an inter
 - April 3: project proposal due over email
 - April 3-28: working on projects
 - April 28-30: project presentations and robot demonstrations during class
-- May 8 at 5pm: GitHub repos must be finalized for groups with any seniors
+- May 9 at 5pm: GitHub repos must be finalized for groups with any seniors
 - May 15 at 12pm: GitHub repos must be finalized for groups of all non-seniors
 
 ## Proposal
@@ -15,8 +15,9 @@ Your proposal should be a 1-page PDF document with the following information:
 - The robotic task you have chosen and what makes it interesting.
 - Your method for enabling your robot to perform the task.
     - You can employ classical robotics and/or robot learning approaches. You may extend your lab implementations or use existing software, but there should be some programming component.
-    - Will you be using a dataset? [LeRobot](https://huggingface.co/lerobot) has many robotics datasets, or you can collect your own data.
-    - You are required to demonstrate the task on the physical robot, but you can train the robot in simulation then perform sim2real transfer.
+    - Will your method require training data? [LeRobot](https://huggingface.co/lerobot) has many robotics datasets, or you can collect your own data.
+    - You are required to demonstrate the task on the physical robot, but you can train the robot in [simulation](https://github.com/Ekumen-OS/lekiwi) then perform sim2real transfer.
+- How will you evaluate the task performance?
 - Any resources/supplies you will need for the project.
 - References.
 
