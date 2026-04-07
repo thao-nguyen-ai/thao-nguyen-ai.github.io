@@ -36,8 +36,7 @@ You should implement the velocity-based motion model and feature-based sensor mo
 - Your robot will be given the environment map and should determine its location on the map within 120 seconds.
 - Figure 2 shows an example environment configuration. For the demo, the landmarks will be the same but their locations will be different.
 - You must output probabilistic locations during the localization process, while keeping the terminal output fairly clean. Consider printing the robot's highest probability location, along with your calculated probability of it being at that location.
-- We will use the center of the robot
-'s base as the reference position to determine your robot's final location for grading purposes.
+- We will use the center of the robot's base as the reference position to determine your robot's final location for grading purposes.
 
 ## Deliverables
 - Demonstrate and get checked off for the localization portion during lab on April 1.
