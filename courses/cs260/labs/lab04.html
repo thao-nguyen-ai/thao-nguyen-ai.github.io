@@ -224,7 +224,7 @@ true positive:    0.157616</code></pre>
 <pre><code>thresholds = np.linspace(-0.0001,1.1,20)</code></pre>
 <p>For each threshold, re-classify the <em>test</em> examples and compute the FPR and TPR. This will allow you to build up a list of “x-values” and “y-values” you can plot to create the ROC curve. Test this out for this single feature - you should be able to get a plot like the one below (use <code>"o-"</code> to get the dots connected by lines):</p>
 <center>
-<img src="cap-shape.png" width="600">
+<img src="figs/cap-shape.png" width="600">
 </center>
 </li>
 <li>Next, use a loop to compute a ROC curve for each feature. Plot these all on the same figure (just for now). It may be difficult to see them all. I recommend using a random color for each one (example below) and using a legend to make it clearer.
