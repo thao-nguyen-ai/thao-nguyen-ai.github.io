@@ -12,7 +12,7 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -150,7 +150,7 @@
 <p><em>Credit: Materials by Sara Mathieson. Based on materials created by Allison Gong. Climate dataset and plots based on teaching materials from Gary Witt of Temple University. Regression dataset from Jessica Wu of Harvey Mudd College.</em></p>
 <hr />
 <h2 id="part-1-introduction-to-the-data">Part 1: Introduction to the data</h2>
-<p>Accept your Lab 2 repository on GitHub classroom. You should have the following folders/files:</p>
+<p>Enroll yourself in lab2. You should have the following folders/files:</p>
 <ul>
 <li>code: <code>model_analysis.py</code></li>
 <li>data : <code>sea_ice_1979-2012.csv</code>, <code>sea_ice_2013-2020.csv</code>, <code>regression_train.csv</code>, <code>regression_test.csv</code> (in the <code>data</code> folder)</li>
@@ -169,7 +169,7 @@
 deg_2_coef = [-15150.155305067638, 15.283380627913214, -0.0038525745647042583]</code></pre>
 <p>For example, the first model can be written like this:</p>
 <center>
-<img src="figs/deg2.png" width="500">
+<img src="figs/deg2.png" width="500" alt="Linear (degree 1) model for sea ice extent: y-hat = 190.5 - 0.0922x.">
 </center>
 
 <p>In later weeks we will see how to actually fit a model to data to obtain this type of output. For this part of the lab, first devise a way plot each polynomial on top of the data. It is okay to copy the coefficients above into your code, but try to avoid any duplicated code. Save your plots as:</p>
@@ -226,35 +226,25 @@ my_line[0].remove() # the syntax depends on your matplotlib version</code></pre>
 <h2 id="final-checks">Final checks:</h2>
 <ul>
 <li>Make sure all plots have x-label, y-label, title, and legend.</li>
-<li>Double check your repository <em>online</em> to make sure all figures and code are pushed correctly.</li>
 <li>Make sure your <code>README.md</code> is <em>completely</em> filled out. Points will be lost for not filling out the last section.</li>
+<li>Make sure to commit and push your work before the deadline. We recommend you do so frequently.</li>
 </ul>
 To summarize the figures:
-
 <ul>
-<li>For the sea ice data, you should have plots for:</li>
-
+<li>For the sea ice data, you should have plots for:
 <ul>
-
 <li>The raw data</li>
-
 <li>The 1st and 2nd degree models</li>
-
 <li>Residuals for both models</li>
-
 <li>The original data and new data with both models</li>
+</ul></li>
 
-</ul>
-
-<li><p>For the toy regression dataset:</p></li>
-
+<li><p>For the toy regression dataset:</p>
 <ul>
-
 <li>At least three polynomial models of different orders</li>
-
 <li>Elbow plot</li>
+</ul></li>
 
-</ul>
 <hr />
 <h2 id="optional-extensions">Optional extensions</h2>
 <ol type="1">

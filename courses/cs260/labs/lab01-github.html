@@ -11,7 +11,7 @@
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -27,7 +27,7 @@
     }
     body {
       margin: 0 auto;
-      max-width: 49em;
+      max-width: 50em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -143,7 +143,7 @@
 <h2 id="overview">Overview</h2>
 <p>Goals:</p>
 <ul>
-<li>Review or learn command line and <code>git</code> practices</li>
+<li>Review or learn command line practices and GitHub classroom</li>
 <li>Review or learn Python, including style practices for this course</li>
 <li>Review or learn <code>numpy</code></li>
 <li>Review or learn <code>matplotlib</code></li>
@@ -151,22 +151,54 @@
 </ul>
 <p><em>Credit: Materials by Sara Mathieson. Based on materials created by Allison Gong. Some of the <code>numpy</code> examples are from <a href="https://numpy.org/doc/stable/user/quickstart.html">Numpy’s Quickstart tutorial</a>.</em></p>
 <hr />
-<h2 id="command-line-and-git">Command line and git</h2>
-<p>This semester we will be using <code>git</code> on the command line. For all grading, we will be running your code on the command line, so it will be necessary to test your code outside of an IDE.</p>
+<h2 id="github-classroom">GitHub Classroom</h2>
+<p>This semester we will be using GitHub Classroom. We will also be using <code>git</code> on the command line. For all grading, we will be running your code on the command line, so it will be necessary to test your code outside of an IDE. To access the command line on different platforms:</p>
+<ul>
+<li>Linux: open the Terminal application (make sure to boot lab machines in Linux not Windows).</li>
+<li>Mac: open the Terminal application.</li>
+<li>Windows: Here are instructions for setting up a <a href="https://docs.microsoft.com/en-us/windows/terminal/get-started">Windows terminal</a>. You can instead use <a href="https://github.com/PowerShell/PowerShell/">Windows PowerShell</a> or <a href="https://www.putty.org/">Putty</a> to connect to the lab machines if this doesn’t work.</li>
+</ul>
+<p>Next, make sure you have a GitHub account. You can create one <a href="https://github.com/">here</a>.</p>
+<p>If you’re new to git or haven’t set up ssh keys, see the following links:</p>
+<ul>
+<li><p><a href="https://guides.github.com/introduction/git-handbook/">GitHub introduction</a></p></li>
+<li><p><a href="https://gitforwindows.org/">git for Windows</a></p></li>
+<li><p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">Add ssh key to GitHub</a></p>
 
-<p>Then navigate to where the public key (<code>.pub</code>) was stored and copy it. Then return to GitHub online and in <code>Settings</code>, follow the instructions to add the ssh key.</p></li>
+<p>The basic idea is to run this command from your home directory in a Terminal window:</p>
+<pre><code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code></pre>
+
+<p>with the email you used for GitHub. Just press <code>Enter</code> at all the prompts. Then navigate to where the public key (<code>.pub</code>) was stored and copy it. Then return to GitHub online and in <code>Settings</code>, follow the instructions to add the ssh key.</p></li>
 <p>Run the below command to check if the key works. The output should say &quot;You've successfully authenticated&quot;</p>
 <pre><code>ssh -T git@github.com</code></pre>
-
-<p>Run the below command on a QuaCS lab machine to enroll yourself in each lab assignment. From the list of courses, select CS260 and then type the exact name of the lab.</p>
-<pre><code>/homes/students/enroll_courseproject_self-service.sh</code></pre>
-<p>The lab machines already have the required libraries and recommended editor (VSCode). After working on the lab in your preferred editor for a while, say you are ready to push. The common workflow is <code>add</code>, <code>commit</code>, <code>push</code>. I also use <code>git status</code> frequently to make sure everything worked:</p>
+</ul>
+<p>For each lab assignment, after you accept the lab and access your repo, <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">clone using ssh</a>. Make sure to do this in a folder that is not already a git repo (i.e., set up a folder for all your labs, and each one will be in a separate folder). Here is an example (note your url will be different, see the link above for how to find the url):</p>
+<pre><code>git clone git@github.com:haverford-cs/cs260-lab1.git
+cd cs260-lab1</code></pre>
+<p>I would recommend using VSCode as an editor, but it is up to you. After working on the lab in your preferred editor for a while, say you are ready to push. The common workflow is <code>add</code>, <code>commit</code>, <code>push</code>. I also use <code>git status</code> frequently to make sure everything worked:</p>
 <pre><code>git add numpy_tutorial.py
 git commit -m &quot;worked on numpy&quot;
 git push</code></pre>
+<p>If you are working on the lab on different machines (say your laptop and the lab machines), when you start working again remember to <code>pull</code>:</p>
+<pre><code>git pull</code></pre>
+<p><b>Please follow the <a href="https://drive.google.com/file/d/1WCSDvbNrGO7f64pmRFvQhvraD4tQqW3I/view?usp=sharing">GitHub classroom / command line video tutorial</a> before going on to Part 1!</b> If any part of this doesn’t work, make sure to ask for help during the first lab.</p>
 <hr />
 <h2 id="part-1-introduction-to-python">Part 1: Introduction to Python</h2>
-<p>Enroll yourself in lab1. You should have the following folders/files:</p>
+<p>The lab machines already have the required libraries and recommended editor (VS code). You are welcome to use your own machine, but we do not have the bandwidth to troubleshoot issues that arise from this decision. Here are some suggestions:</p>
+
+<ol type="1">
+
+<li><p>If you don’t have python there are <a href="https://www.python.org/downloads/">many ways to install it</a>.</p></li>
+
+<li><p>To install required libraries like <code>numpy</code>, <code>matplotlib</code>, on the command line run:</p>
+
+<pre><code>pip3 install numpy</code></pre>
+<p>if that doesn’t work, try:</p>
+
+<pre><code>python3 -m pip install numpy</code></pre>
+</li>
+</ol>
+<p>Accept your Lab 1 repository on GitHub classroom. You should have the following folders/files:</p>
 <ul>
 <li><code>matplotlib_tutorial.py</code></li>
 <li><code>numpy_tutorial.py</code></li>
@@ -379,9 +411,9 @@ import random</code></pre>
 <h2 id="final-checks">Final checks:</h2>
 <ul>
 <li>Make sure you have testing in <code>main</code> for all your functions in Part 1.</li>
+<li>Double check your repository <em>online</em> to make sure all figures and code are pushed correctly.</li>
 <li>Make sure to follow the Python style guidelines at the end of the lab.</li>
 <li>Make sure your <code>README.md</code> is <em>completely</em> filled out. Points will be lost for not filling out the last section.</li>
-<li>Make sure to commit and push your work before the deadline. We recommend you do so frequently.</li>
 </ul>
 </body>
 </html>
