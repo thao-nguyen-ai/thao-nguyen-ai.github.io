@@ -153,7 +153,7 @@
 <h2 id="introduction">Introduction</h2>
 <p>In this lab, we will analyze the <a href="https://archive.ics.uci.edu/ml/datasets/mushroom">Mushroom Dataset</a> from the UCI Machine Learning Repository. Each example is a sample of mushroom with 22 characteristics (features) recorded. The goal is to classify the mushroom as “edible” (label -1) or “poisonous” (label +1). In this lab we will use different features to predict edible vs. poisonous and compare the performance using a variety of evaluation metrics. The main deliverable is a ROC curve comparing the performance of the top 5 features.</p>
 <p>Note that this lab has some starter code (for reading the data into classes in a particular way), but you are welcome to use your own code instead. This lab is designed to have an intermediate level of structure - there is a roadmap for completing it below, but you are welcome to get to the end goal (ROC curve) in a different way.</p>
-<p>To get started, accept your Lab 4 repo on GitHub classroom. You should have the following files:</p>
+<p>Enroll yourself in lab4. You should have the following files:</p>
 <ul>
 <li><code>data/</code> - directory containing the train/test mushroom data sets</li>
 <li><code>FeatureModel.py</code> - this is a class representing a model based on a single feature</li>
@@ -233,7 +233,7 @@ b = random.random()
 g = random.random()
 color = (r, g, b)</code></pre>
 </li>
-<li>Visually inspect your ROC curve plot to select the top five “best” features. This is not an exact science - think about what the ideal ROC curve is and which features come closest to this idea. Hard-code these five features (as a list) instead of using all the features, then re-recreate your ROC curve plot. <strong>Your final deliverable for this lab is a plot with ROC curves for each of the best five features.</strong> Create a <code>figures</code> folder in your GitHub repo and save your plot as:
+<li>Visually inspect your ROC curve plot to select the top five “best” features. This is not an exact science - think about what the ideal ROC curve is and which features come closest to this idea. Hard-code these five features (as a list) instead of using all the features, then re-recreate your ROC curve plot. <strong>Your final deliverable for this lab is a plot with ROC curves for each of the best five features.</strong> Create a <code>figures</code> folder in your repo and save your plot as:
 <pre><code>figures/roc_curve_top5.pdf</code></pre>
 <p>Make sure to include axis labels, a title, and a legend.</p>
 </li>
