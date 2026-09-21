@@ -148,10 +148,10 @@
 <p><em>Credit: Materials by Sara Mathieson. Coin toss example based on MIT OpenCourseWare 18.650. Streptococcus suis dataset and genome size example from Eric Miller.</em></p>
 <hr />
 <h2 id="part-1-pca-on-the-iris-flower-dataset">Part 1: PCA on the Iris Flower Dataset</h2>
-<p>First we will apply PCA to a classic dataset of Iris flowers. This dataset is actually built-in to the package we will use: <code>sklearn</code>. If you do not already have this library, install it using <code>pip3</code>:</p>
+<p>First we will apply PCA to a classic dataset of Iris flowers. This dataset is actually built-in to the package we will use: <code>sklearn</code>.<!-- If you do not already have this library, install it using <code>pip3</code>:</p>
 <pre><code>pip3 install scikit-learn</code></pre>
 <p>If this doesn’t work, it may be that you have multiple versions of Python 3. In that case run:</p>
-<pre><code>python3 -m pip install scikit-learn</code></pre>
+<pre><code>python3 -m pip install scikit-learn</code></pre>-->
 <p>Write your code in the file <code>pca.py</code>. Begin by importing the necessary packages:</p>
 <pre><code>import numpy as np
 import matplotlib.pyplot as plt
@@ -211,10 +211,10 @@ plt.legend(leg_objects,names)</code></pre>
 <hr />
 <h2 id="part-2-coin-toss-example">Part 2: Coin Toss example</h2>
 <p>First we will implement the scenario from Handout 16, where we toss a coin 80 times and observe 54 Heads. The question we’re trying to answer is: <em>Is this coin fair?</em></p>
-<p>Implement this part of the lab in <code>coin_toss.py</code> (no command line arguments needed, but make sure to include a <code>main()</code> function and other helper functions as appropriate). You will need the <code>scipy</code> library, which can be installed with <code>pip3</code>:</p>
+<p>Implement this part of the lab in <code>coin_toss.py</code> (no command line arguments needed, but make sure to include a <code>main()</code> function and other helper functions as appropriate).<!-- You will need the <code>scipy</code> library, which can be installed with <code>pip3</code>:</p>
 <pre><code>pip3 install scipy</code></pre>
 <p>If this doesn’t work, it may be that you have multiple versions of Python 3. In that case run:</p>
-<pre><code>python3 -m pip install scipy</code></pre>
+<pre><code>python3 -m pip install scipy</code></pre>-->
 <h3 id="a-central-limit-theorem-clt-method">A) Central limit theorem (CLT) method</h3>
 <p>First we will try to answer our question using the CLT. Following what we did in class, compute the test statistic (Z-score) for this example, under the null hypothesis of a fair coin. The CLT tells us that this Z-score is approximately drawn from a standard normal distribution: <code>N(0,1)</code>.</p>
 <p>It is okay to hardcode <code>n = 80</code>, number of Heads = 54, etc. Please encode Tails as 0 and Heads as 1 for the purposes of the lab.</p>
@@ -245,11 +245,11 @@ result, error = quad(func, a, b)</code></pre>
 <hr />
 <h2 id="part-3-genome-size-example">Part 3: Genome Size example</h2>
 <p>In the next part of the lab we will investigate a database of genomes from the <a href="https://en.wikipedia.org/wiki/Streptococcus_suis"><em>Streptococcus suis</em></a> bacteria, which is a zoonotic disease that can be transmitted from pigs to humans. The file <code>SSuis_Stats.xlsx</code> contains statistics about individual <em>S. suis</em> genomes from several populations. The question we will answer in Part 3 is: <em>Are the genome sizes of Population 1 and Population 2 significantly different?</em></p>
-<p>Implement the next part of the lab in <code>genome_size.py</code> (no command line arguments needed). To read in this Excel file we will need a few external libraries, which can be installed with <code>pip3</code>:</p>
+<p>Implement the next part of the lab in <code>genome_size.py</code> (no command line arguments needed). To read in this Excel file we will need a few external libraries.<!--, which can be installed with <code>pip3</code>:</p>
 <pre><code>pip3 install pandas openpyxl xlrd</code></pre>
 <p>or</p>
 <pre><code>python3 -m pip install pandas openpyxl xlrd</code></pre>
-<p>To use the lab machines, run the following command in your home directory (<code>/homes/yourusername</code>):</p>
+<p>To use the lab machines, run the following command:--> Run the following command on a lab machine:</p>
 <pre><code>bash /homes/students/mlvenv_self-service.sh</code></pre>
 <p>This sets up a virtual environment <code>mlenv</code> with the necessary libraries. Run<br> <code>source ~/mlvenv/bin/activate</code> to access the virtual environment, and run <code>deactivate</code> to leave it.</p>
 <p>To read in the data, I recommend creating a helper function (that takes in a string <code>filename</code>) and returns two lists: one of the genome sizes of Population 1, and similarly for Population 2. First read the data into a <code>pandas</code> data frame:</p>

@@ -223,24 +223,24 @@ num test  = 7419 , num classes = 2</code></pre>
 <h3 id="model">Model</h3>
 <p>Our Naive Bayes model for the class label <span class="math inline"><em>k</em></span> is:</p>
 <center>
-<img src="figs/nb_model.png" width="500" alt="p(y=k|x) is proportional to p(y=k) times the product over j from 1 to p of p(x_j|y=k)">
+<p style="font-size:1.5em;">$$p(y=k \mid x) \propto p(y=k) \prod_{j=1}^{p} p(x_j \mid y=k)$$</p>
 </center>
 <p>For this lab, all probabilities should be modeled using log probabilities to avoid underflow (depending on your system this might not absolutely be necessary, but it is good practice!) Note that when taking the log of a formula, all multiplications become additions and division become subtractions. First compute the log of the Naive Bayes model to make sure this makes sense.</p>
 <h3 id="training">Training</h3>
 <p>You will need to represent model parameters (<span class="math inline"><em>θ</em></span>’s) for each class probability <span class="math inline"><em>p</em>(<em>y</em> = <em>k</em>)</span> and each class conditional probability <span class="math inline"><em>p</em>(<em>x</em><sub><em>j</em></sub> = <em>v</em>|<em>y</em> = <em>k</em>)</span>. This will require you to count the frequency of each event in your training data set. Use LaPlace estimates to avoid 0 counts. <!--If you think about the formula carefully, you will note that we can implement our training phase using only integers to keep track of counts (and no division!)--> Each theta is just a normalized frequency where we count how many examples where <span class="math inline"><em>x</em><sub><em>j</em></sub> = <em>v</em></span> and the label is <span class="math inline"><em>k</em></span> and divide by the total number of examples where the label is <span class="math inline"><em>k</em></span> (plus the LaPlace estimate):</p>
 <center>
-<img src="figs/nb_thetaj.png" width="250" alt="θ_{k,j,v} = (N_{k,j,v} + 1) / (N_k + |f_j|)">
+<p style="font-size:1.5em;">$$\theta_{k,j,v}=\frac{N_{k,j,v}+1}{N_{k}+\lvert f_{j} \rvert}$$</p>
 </center>
 <p>And similarly for the class probability estimates:</p>
 <center>
-<img src="figs/nb_theta.png" width="250" alt="θ_k = (N_k + 1) / (n + K)">
+<p style="font-size:1.5em;">$$\theta_k=\frac{N_k+1}{n+K}$$</p>
 </center>
 <p>If we take the log then each theta becomes the difference between the two counts.</p>
 <p><strong>Requirement</strong>: the model probabilities should be computed and stored in advance during training, not computed on the fly during testing (which results in duplicated computation).</p>
 <h3 id="inference-prediction">Inference/Prediction</h3>
 <p>For this phase, calculate the probability of each class (using the model equations above) and choose the maximum probability:</p>
 <center>
-<img src="figs/nb_pred.png" width="500" alt="Prediction rule: y-hat equals the argmax over k in the set 1 through K of the prior p(y=k) times the product over j from 1 to p of p(x_j|y=k).">
+<p style="font-size:1.5em;">$$\hat{y} = \underset{k \in \{1,2,\cdots, K\}}{\arg \max} p(y=k)\prod_{j=1}^{p}p(x_j \mid y=k)$$</p>
 </center>
 <p>This should be implemented in your <code>classify()</code> method.</p>
 <h3 id="program-outputs">Program Outputs</h3>

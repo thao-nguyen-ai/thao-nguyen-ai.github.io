@@ -1,17 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><link href="../markdown.css" rel="stylesheet">
 
-<link href='../markdown.css' rel='stylesheet'></link>
-
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/prettify.css">
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - -->
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+
+
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>lab07</title>
   <style>
     html {
@@ -132,9 +131,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body>
+<body cz-shortcut-listen="true" data-new-gr-c-s-check-loaded="14.1330.0" data-gr-ext-installed="">
 <h1 id="cs260-lab-7-logistic-regression-and-visualization">CS260 Lab 7: Logistic Regression and Visualization</h1>
-<hr />
+<hr>
 <h2 id="overview">Overview</h2>
 <p>Goals:</p>
 <ul>
@@ -143,7 +142,7 @@
 <li>Visualize data and models in a meaningful way</li>
 </ul>
 <p><em>Credit: Materials by Sara Mathieson, modified from material created by Ameet Soni. Phoneme dataset and information created by Jessica Wu. Challenger dataset and visualization ideas from Alvin Grissom.</em></p>
-<hr />
+<hr>
 <h2 id="introduction">Introduction</h2>
 <p>In this lab we will be analyzing two datasets:</p>
 <ul>
@@ -158,7 +157,7 @@
 <li><code>LogisticRegression.py</code> - file for the <code>LogisticRegression</code> class (and/or functions).</li>
 <li><code>README.md</code> - for analysis questions and lab feedback.</li>
 </ul>
-<hr />
+<hr>
 <h2 id="usage-and-io">Usage and I/O</h2>
 <h3 id="usage">Usage</h3>
 <p>Your programs should take in the same command-line arguments as Lab 4 (feel free to reuse the argument parsing code), plus a parameter for the learning rate <code>alpha</code>. For example, to run Logistic Regression on the phoneme example:</p>
@@ -175,22 +174,22 @@
 <li><p>Your program should <em>print</em> the confusion matrix and accuracy of the result (see example below) for both the phoneme and Challenger datasets.</p></li>
 <li><p>The design of your solution is largely up to you. You don’t necessarily need to have a class, but you should use good top-down design principles so that your code is readable. Having functions for the cost, for SGD, for the logistic function, etc. is a good idea.</p></li>
 </ul>
-<hr />
+<hr>
 <h2 id="logistic-regression">Logistic Regression</h2>
 <p>You will implement the logistic regression task discussed in class for <em>binary classification</em>.</p>
 <h3 id="model">Model</h3>
 <p>For now you should assume that the features will be continuous and the response will be a discrete, binary output. In the case of binary labels, the probability of a positive prediction is:</p>
 <center>
-<img src="figs/log_reg.png" width="500">
+<p style="font-size:1.5em;">$$h_{\vec{w}}(\vec{x})=p(y=1 \mid \vec{x})= \frac{1}{1+e^{-\vec{w} \cdot \vec{x}}}$$</p>
 </center>
 <p>To model the intercept term, we will include a bias term. In practice, this is equivalent to adding a feature that is always “on”. For each instance in training and testing, append a <strong>1</strong> to the feature vector. Ensure that your logistic regression model has a weight for this feature that it can now learn in the same way it learns all other weights.</p>
 <h3 id="training">Training</h3>
 <p>To learn the weights, you will apply stochastic gradient descent (SGD) as discussed in class until the cost function does not change in value (very much) for a given iteration. As a reminder, our cost function is the <em>negative log</em> of the likelihood function, which is:</p>
 <center>
-<img src="figs/likelihood.png" width="500">
+<p style="font-size:1.5em;">$$L(\vec{w})=\prod_{i=1}^{n}h_{\vec{w}}(\vec{x}_i)^{y_i}(1-h_{\vec{w}}(\vec{x}_i))^{1-y_i}$$</p>
 </center>
 <p>Our goal is to minimize the cost using SGD. We will use the same idea as in Lab 3 for linear regression. Pseudocode:</p>
-<pre><code>initialize weights to 0&#39;s
+<pre><code>initialize weights to 0's
 while not converged:
     shuffle the training examples
     for each training example xi:
@@ -199,7 +198,7 @@ while not converged:
     compute and store current cost</code></pre>
 <p>The SGD updates for <span class="math inline"><em>w</em></span> term are:</p>
 <center>
-<img src="figs/sgd1.png" width="500">
+<p style="font-size:1.5em;">$$\vec{w} \leftarrow \vec{w}-\alpha(h_{\vec{w}}(\vec{x}_i)-y_i)\vec{x}_i$$</p>
 </center>
 <p>The hyper-parameter <em>alpha</em> (learning rate) should be sent as a parameter to your SGD and used in training. A few notes for the above:</p>
 <ul>
@@ -214,7 +213,7 @@ while not converged:
 <h3 id="prediction">Prediction</h3>
 <p>For binary prediction, apply the equation:</p>
 <center>
-<img src="figs/log_reg.png" width="500">
+<p style="font-size:1.5em;">$$h_{\vec{w}}(\vec{x})=p(y=1 \mid \vec{x})=\frac{1}{1+e^{-\vec{w}\cdot\vec{x}}}$$</p>
 </center>
 <p>and output the more likely binary outcome. You may use the Python <code>math.exp()</code> function to make the calculation in the denominator. Alternatively, you may use the weights directly as a decision boundary as discussed in class.</p>
 <p>The choice of hyper-parameters will affect the results, but you should be able to obtain <strong>at least 90% accuracy on the testing data</strong>. Make sure to print a confusion matrix.</p>
@@ -236,17 +235,17 @@ Accuracy: 0.875000 (70 out of 80 correct)
   1|  6 34</code></pre>
 <p><a href="out/phoneme.labels">Labels</a> and <a href="out/phoneme.debug">Debugging Output</a></p>
 <h3 id="comparison-with-sklearn">Comparison with <code>sklearn</code></h3>
-<p>After implementing logistic regression by yourself, try using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegression model</a> implemented in the <code>sklearn</code> library. If you do not already have this library, install it using <code>pip3</code>:</p>
+<p>After implementing logistic regression by yourself, try using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">LogisticRegression model</a> implemented in the <code>sklearn</code> library. <!--If you do not already have this library, install it using <code>pip3</code>:</p>
 <pre><code>pip3 install scikit-learn</code></pre>
 <p>If this doesn’t work, it may be that you have multiple versions of Python 3. In that case run:</p>
 <pre><code>python3 -m pip install scikit-learn</code></pre>
-<p>Train and evaluate the <code>LogisticRegression</code> model on both datasets and compare the results with your own implementation. </p>
-<hr />
+<p>-->Train and evaluate the <code>LogisticRegression</code> model on both datasets and compare the results with your own implementation. </p>
+<hr>
 <h2 id="visualization">Visualization</h2>
 <p>For just the Challenger dataset, create a visualization of both:</p>
 <ul>
 <li>the data (both training and testing, even though the “test” data here is just one datapoint)</li>
-<li>the model (i.e., the final logistic function)</li>
+<li>the model (i.e.,&nbsp;the final logistic function)</li>
 </ul>
 <p>Make sure to think about visualization practices discussed in class including:</p>
 <ul>
@@ -255,8 +254,8 @@ Accuracy: 0.875000 (70 out of 80 correct)
 <li>overplotting</li>
 <li>title/axis labels, etc.</li>
 </ul>
-<p>Submit your figure as part of your GitHub repo using the filename <code>challenger.pdf</code>.</p>
-<hr />
+<p>Submit your figure as part of your repo using the filename <code>challenger.pdf</code>.</p>
+<hr>
 <h2 id="analysis">Analysis</h2>
 <p>(See README.md to answer these questions)</p>
 <ol type="1">
@@ -264,5 +263,6 @@ Accuracy: 0.875000 (70 out of 80 correct)
 <li><p>So far, we have run logistic regression and Naive Bayes on different types of datasets. Why is that? Discuss the types of features and labels that we worked with in each case.</p></li>
 <li><p>Regarding the Challenger data specifically, what was your final probability of an accident after fitting the model? Is this what you expected? Based on this value, would you have recommended the Challenger be launched on 1/28/86? What data and/or modeling might have helped increase the confidence of our prediction?</p></li>
 </ol>
-</body>
-</html>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true" style="visibility: visible !important;"></grammarly-desktop-integration></html>
