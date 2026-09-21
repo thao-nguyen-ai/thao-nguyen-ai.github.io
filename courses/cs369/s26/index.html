@@ -40,6 +40,56 @@
                 </center>
             </div>
         </div>
+        <br>
+
+        <div class="carousel-container" aria-label="Image Carousel">
+            <!-- Next/Prev Buttons -->
+            <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+            <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+
+            <!-- Carousel Slides -->
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="pics/class_photo.png" alt="Spring 2026 Robotics class">
+                </div>
+                <div class="carousel-slide">
+                    <img src="pics/wine_glass.gif" alt="LeKiwi robot picking up a plastic wine glass">
+                </div>
+                <div class="carousel-slide">
+                    <img src="pics/soccer_bot.gif" alt="Striker vs. goalie robot">
+                </div>
+            </div>
+            <center>
+            <p style="font-size: large;">Robot demo day!</p>
+            </center>
+        </div>
+
+        <script>
+            const track = document.getElementById('carouselTrack');
+            const slides = Array.from(track.children);
+            const nextButton = document.getElementById('nextBtn');
+            const prevButton = document.getElementById('prevBtn');
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                // Move the track by multiplying the width of one slide by the current index
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextButton.addEventListener('click', () => {
+                // Loop back to the first slide if at the end, otherwise move forward
+                currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+                updateCarousel();
+            });
+
+            prevButton.addEventListener('click', () => {
+                // Loop to the last slide if at the beginning, otherwise move backward
+                currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+                updateCarousel();
+            });
+        </script>
+
         <div id="Content">
 
             <!-- ####################################################### -->

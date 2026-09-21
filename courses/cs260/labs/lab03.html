@@ -192,15 +192,15 @@ filename = args.data_filename</code></pre>
 <h2 id="part-2-analytic-solution-to-linear-regression">Part 2: Analytic solution to linear regression</h2>
 <p>In linear regression, our objective is to minimize the cost function:</p>
 <center>
-<img src="figs/objective.png" width="500" alt="J(w)=1/2 times the sum from i equals 1 to n of (h_w(x_i) - y_i) squared.">
+<p style="font-size:1.5em;">$$J(\vec{w})=\frac{1}{2}\sum_{i=1}^{n}(h_{\vec{w}}(\vec{x}_i)-y_i)^2$$</p>
 </center>
 <p>Where our linear model is a dot product of the weights and the features of an example (with a “fake” 1 added to the front of each <em>x</em>):</p>
 <center>
-<img src="figs/model.png" width="300" alt="h_w(x) = w dot x">
+<p style="font-size:1.5em;">$$h_{\vec{w}}(\vec{x})=\vec{w}\cdot\vec{x}$$</p>
 </center>
 <p>In class, we learned that the closed-form solution to linear regression is:</p>
 <center>
-<img src="figs/analytic.png" width="400" alt="w = the inverse of the product of the transpose of X and X, times the transpose of X, times y.">
+<p style="font-size:1.5em;">$$\vec{w}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\vec{y}$$</p>
 </center>
 <p>First we will start out by implementing this solution in the function:</p>
 <pre><code>def fit(X, y):</code></pre>
@@ -223,7 +223,7 @@ X_std = X.std(axis=0)</code></pre>
 <p>Here <code>alpha</code> is the step size, <code>eps</code> is the tolerance for how much J should change at convergence, and <code>tmax</code> is the maximum number of iterations to run gradient descent. These are the default values, but throughout you’ll need to experiment with these values to ensure efficient convergence. <code>tmax</code> is more of a stop-gap if the method is not converging - it should ideally not be used as a way to stop the algorithm. <em>Hint: start with <code>alpha=0.001</code> but you’ll need to modify this value!</em></p>
 <p>During each iteration of SGD, we go through each <em>x</em><sub>i</sub> in turn and update the weights according to the gradient with respect to this x-value. Start with 0’s for the weight values.</p>
 <center>
-<img src="figs/sgd.png" width="500" alt="SGD update rule: w becomes w - alpha times the quantity w dot x_i - y_i, times x_i.">
+<p style="font-size:1.5em;">$$\vec{w}\leftarrow\vec{w}-\alpha(\vec{w}\cdot\vec{x}_i-y_i)\vec{x}_i$$</p>
 </center>
 <p>The goal of this function is to return the final weights after the cost function has converged. To check for convergence, after each iteration of SGD, compute the cost function and compare it to the cost function from the previous iteration. If the difference is less than epsilon (<code>eps</code>), then break out of the loop and return the current weights. You should be able to achieve a cost function value similar to that of the analytic solution.</p>
 <p><em>NOTE: it is okay here to have one for loop over the SGD iterations and one for loop over the examples. Also note that you do not need to randomize the examples for this lab, as would be typical in SGD.</em></p>
@@ -260,7 +260,12 @@ Answer these questions for the <code>USA_Housing</code> dataset.
 <p>In Lab 2 we saw not only linear models, but polynomial models with degrees up to 10. For datasets with a single feature (like <code>sea_ice</code> and <code>regression_train</code>) the machinery of multiple linear regression can actually be used to solve polynomial regression.</p>
 <p>The idea is to create a matrix <em>X</em> where column <em>k</em> represents <em>x</em> to the power <em>k</em>. Here is what this might look like for a degree <em>d</em> polynomial:</p>
 <center>
-<img src="figs/polynomial.png" width="500" alt="Feature matrix with n rows, for each example i the row is x_i to the power 0, x_i, x_i squared, up to x_i to the power d.">
+<p style="font-size:1.5em;">$$\mathbf{X}=
+    \begin{bmatrix}
+      x_1^0&x_1^1&x_1^2&\cdots&x_1^d \\ \\
+      &&\vdots&& \\ \\
+      x_n^0&x_n^1&x_n^2&\cdots&x_n^d
+    \end{bmatrix}$$</p>
 </center>
 <p>After creating this matrix, we can now run multiple linear regression as usual to find the model, which consists of the coefficients of the polynomial (as opposed to the coefficients of each feature). Try this out and see if you can come up with the polynomial models provided in Lab 2.</p>
 </body>
