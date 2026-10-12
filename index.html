@@ -81,20 +81,20 @@
       </center>
       </header>
       <section>
-        <h1>Hello, World!</h1>
+        <h1>Hello, world!</h1>
 
         <p>My name is Thao Nguyen. I am an Assistant Professor of Computer Science at <a href="https://www.haverford.edu/computer-science">Haverford College</a>. I previously completed my PhD in Computer Science at <a href="https://cs.brown.edu/">Brown University</a>, where I was advised by <a href="https://cs.brown.edu/people/stellex/">Stefanie Tellex</a> in the <a href="https://h2r.cs.brown.edu/">Humans to Robots Laboratory</a>.</p>
 
         <h1>Interests</h1>
-        <button type="button" class="collapsible"><u>Research</u><div class="triangle-down"></div></button>
-        <div class="content">
+        <button type="button" class="collapsible active"><u>Research</u><div class="triangle-up"></div></button>
+        <div class="content" style="display: block;">
           <p>My research is motivated by the desire to develop home and office robot assistants to help us with our daily tasks.
             My work has mostly focused on improving robots' natural language and visual understanding for effective human-robot interaction and task completion.</p>
         </div>
         
         <button type="button" class="collapsible"><u>Personal</u><div class="triangle-down"></div></button>
         <div class="content">
-          <p>I enjoy various crafts such as origami, crochet, embroidery, and baking. I'm currently learning how to knit to unlock my full grandma-potential :)
+          <p>I enjoy various crafts such as origami, crochet, embroidery, and baking. I'm learning how to knit to unlock my full grandma-potential :)
           I also love taking care of my cat Milo and my many plants!</p>
         </div>
 
@@ -102,9 +102,10 @@
 
         <h1>News</h1>
         <ul>
+          <li>August 2026: Our paper on <a href="https://federicorollo.github.io/SeMaNa-Workshop/papers/MAPG.pdf">"Meanings and Measurements: Multi-Agent Probabilistic Grounding for Vision-Language Navigation"</a> was accepted to an <a href="https://federicorollo.github.io/SeMaNa-Workshop/index.html">IROS 2026 workshop</a>.</li>
           <li>July 2026: Read our position paper on <a href="https://beanumber.github.io/aalac2026/manuscript/">GenAI and Learning</a> from the <a href="https://beanumber.github.io/aalac2026/">AALAC 2026 workshop</a>.</li>
           <li>May 2026: Our workshop on <a href="https://worldmodelworkshop.github.io/">Bridging the Gap between Neural and Symbolic World Models for Robot Planning, Reasoning, and Action</a> was accepted to IROS 2026.</li>
-          <li>Spring 2026: I am teaching my new <a href="https://thao-nguyen-ai.github.io/courses/cs369/s26/">Robotics course</a> at Haverford.</li>
+          <li>Spring 2026: I taught my new <a href="https://thao-nguyen-ai.github.io/courses/cs369/s26/">Robotics course</a> at Haverford.</li>
           <li>July 2024: I joined Haverford College as an Assistant Professor of Computer Science!</li>
           <li>April 2024: I successfully defended my PhD dissertation on <a href="https://www.youtube.com/watch?v=BaE_PBCh6DE">"Human-guided Robot Object Search"</a>.</li>
           </ul>
@@ -126,6 +127,12 @@
       for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function() {
           this.classList.toggle("active");
+          var arrow = this.querySelector("div");
+          if (arrow.className === "triangle-up") {
+            arrow.className = "triangle-down";
+          } else {
+            arrow.className = "triangle-up";
+          }
           var content = this.nextElementSibling;
           if (content.style.display === "block") {
             content.style.display = "none";
